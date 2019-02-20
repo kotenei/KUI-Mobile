@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "sourceMap": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "outDir": "lib",
+        "module": "commonjs",
+        "target": "es6",
+        "jsx": "react",
+        "lib": ["dom", "es6", "es7"],
+    },
+    "include": ["src/**/*", "src/*"],
+    "exclude": ["node_modules"]
+}
