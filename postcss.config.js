@@ -1,5 +1,5 @@
 module.exports = {
-  //   plugins: [require('autoprefixer')],
+  //plugins: [require('autoprefixer')],
   plugins: {
     'postcss-aspect-ratio-mini': {},
     'postcss-px-to-viewport': {
@@ -15,7 +15,7 @@ module.exports = {
       utf8: false,
     },
     'postcss-cssnext': {},
-    'postcss-viewport-units': {},
+    // 'postcss-viewport-units': {},
     cssnano: {
       preset: 'advanced',
       autoprefixer: false,
