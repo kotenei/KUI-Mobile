@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 
 import './index.scss';
 
-const App = () => {
-  return <div className="k-mobile-site">KUI-Mobile</div>;
-};
+class App extends Component {
+  public render() {
+    return <div className="test">KUI-Mobile</div>;
+  }
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));

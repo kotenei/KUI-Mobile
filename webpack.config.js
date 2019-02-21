@@ -7,7 +7,7 @@ const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        site: "./site/index.tsx"
+        site: "./app/index.tsx"
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -25,7 +25,7 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    // MiniCssExtractPlugin.loader,
                     "css-loader",
                     "postcss-loader",
                     "sass-loader"
@@ -79,7 +79,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(["dist"]),
         new HtmlWebPackPlugin({
-            template: "./site/index.html",
+            template: "./app/index.html",
             filename: "index.html"
         }),
         new MiniCssExtractPlugin({
