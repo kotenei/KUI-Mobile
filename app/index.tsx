@@ -5,7 +5,7 @@ import './index.scss';
 
 class App extends Component {
   public render() {
-    return <div className="test ignore">KUI-Mobile</div>;
+    return <div className="app">KUI-Mobile</div>;
   }
 }
 

@@ -7,15 +7,65 @@ $warning-color:#ff9800;
 $link-color: #2D8cF0;
 $link-hover-color: tint($link-color, 20%);
 $link-active-color: shade($link-color, 5%);
-$selected-color: fade-in($primary-color, 90%);
+$selected-color: fade($primary-color, 90%);
 $subsidiary-color: #80848f;
 $rate-start-color:#fadb14;
 // base
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f7f7f7;
-// border color
+$font-family: "Helvetica Neue",
+"PingFang SC",
+"Hiragino Sans GB",
+"Microsoft YaHei",
+"微软雅黑",
+Arial,
+sans-serif;
+// size
+$font-size-icontext: 10px;
+$font-size-caption-sm: 12px;
+$font-size-base: 14px;
+$font-size-subhead: 15px;
+$font-size-caption: 16px;
+$font-size-heading: 17px;
+// radius
+$radius-xs: 2px;
+$radius-sm: 3px;
+$radius-base:4px;
+$radius-md: 5px;
+$radius-lg: 7px;
+$radius-circle: 50%;
+// border
+$border-width-base: 1px;
+$border-width-lg: 2px;
+$border-style-base: 'solid';
 $border-color-base: #dddee1; // outside
 $border-color-split: #e9eaec; // inside
-// size
-$font-size-base:16px;
+// spacing
+// ---
+// horizontal
+$h-spacing-sm: 5px;
+$h-spacing-md: 8px;
+$h-spacing-lg: 15px;
+// vertical
+$v-spacing-xs: 3px;
+$v-spacing-sm: 6px;
+$v-spacing-md: 9px;
+$v-spacing-lg: 15px;
+$v-spacing-xl: 21px;
+// animation
+$animation-time: .3s;
+$transition-time: .2s;
+$ease-in-out: ease-in-out;
+// z-index
+$zindex-spin: 8;
+$zindex-affix: 10;
+$zindex-back-top: 10;
+$zindex-select: 900;
+$zindex-modal: 1000;
+$zindex-message: 1010;
+$zindex-notification: 1010;
+$zindex-tooltip: 1060;
+$zindex-transfer: 1060;
+$zindex-loading-bar: 2000;
+$zindex-spin-fullscreen: 2010;

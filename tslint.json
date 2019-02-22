@@ -4,7 +4,8 @@
   "jsRules": {},
   "rules": {
     "quotemark": [true, "single", "jsx-double"],
-    "no-console": false
+    "no-console": false,
+    "interface-name": [true, "never-prefix"]
   },
   "rulesDirectory": []
 }
