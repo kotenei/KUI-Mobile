@@ -5,7 +5,10 @@
   "rules": {
     "quotemark": [true, "single", "jsx-double"],
     "no-console": false,
-    "interface-name": [true, "never-prefix"]
+    "interface-name": [true, "never-prefix"],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+    "ordered-imports": false,
+    "arrow-parens": false
   },
   "rulesDirectory": []
 }
