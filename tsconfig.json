@@ -3,7 +3,7 @@
         "sourceMap": false,
         "noUnusedLocals": false,
         "noUnusedParameters": false,
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "strictNullChecks": true,
         "allowSyntheticDefaultImports": true,
         "moduleResolution": "node",

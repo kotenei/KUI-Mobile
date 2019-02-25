@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { ColProps } from './typing';
+import omit from 'object.omit';
 
 const prefixCls = 'k-col';
 
@@ -12,12 +13,14 @@ export default class Col extends Component<ColProps> {
   public render() {
     const { className, children, offset, span, ...others } = this.props;
     let responsiveClasses = {};
+    let props = { ...others };
     const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
     sizes.forEach((size: string) => {
       let sizeSpan;
       if (typeof this.props[size] === 'number') {
         sizeSpan = this.props[size];
       }
+      props = omit(props, [size]);
       responsiveClasses = {
         ...responsiveClasses,
         [`${prefixCls}-${size}-${sizeSpan}`]: sizeSpan !== undefined,
@@ -33,6 +36,10 @@ export default class Col extends Component<ColProps> {
       responsiveClasses,
     );
 
-    return <div className={classes}>{children}</div>;
+    return (
+      <div className={classes} {...props}>
+        {children}
+      </div>
+    );
   }
 }
