@@ -10,7 +10,8 @@
     "ordered-imports": false,
     "arrow-parens": false,
     "object-literal-sort-keys": false,
-    "no-implicit-dependencies": false
+    "no-implicit-dependencies": false,
+    "no-empty-interface": false
   },
   "rulesDirectory": []
 }
