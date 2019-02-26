@@ -2,7 +2,7 @@ import React, { Component, SFC } from 'react';
 import classnames from 'classnames';
 import { RowProps } from './typing';
 
-const prefixCls = '.k-row';
+const prefixCls = 'k-row';
 
 export default class Row extends Component<RowProps> {
   private static defaultProps = {

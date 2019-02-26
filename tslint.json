@@ -8,7 +8,9 @@
     "interface-name": [true, "never-prefix"],
     "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
     "ordered-imports": false,
-    "arrow-parens": false
+    "arrow-parens": false,
+    "object-literal-sort-keys": false,
+    "no-implicit-dependencies": false
   },
   "rulesDirectory": []
 }
