@@ -44,3 +44,17 @@
 // @import 'Tooltip/style';
 // @import 'Tree/style';
 // @import 'Upload/style';
+
+.fade-enter,
+.fade-exit-active {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+}
+
+.fade-enter-active,
+.fade-exit-active {
+    transition: opacity .3s ease;
+}
