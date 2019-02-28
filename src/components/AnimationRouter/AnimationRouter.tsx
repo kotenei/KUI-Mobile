@@ -6,34 +6,49 @@ import { AnimationRouterProps, AnimationRouterState } from './typing';
 
 export default class AnimationRouter extends Component<AnimationRouterProps, AnimationRouterState> {
   private static defaultProps = {
+    appear: true,
     component: React.Fragment,
     enter: true,
-    exit: false,
+    exit: true,
+    prefixCls: 'k-animation-router',
     timeout: 300,
   };
+  private lastLocation: any;
+  public componentDidMount() {}
   public render() {
-    const { children, location, timeout, component, enter, exit, fallback } = this.props;
+    const {
+      children,
+      location,
+      timeout,
+      component,
+      appear,
+      enter,
+      exit,
+      fallback,
+      prefixCls,
+    } = this.props;
     const groupProps = {
+      appear,
       component,
       enter,
       exit,
     };
 
+    this.setLastLocation();
+
     return (
       <TransitionGroup
-        // childFactory={child => {
-        //   return child
-        // }}
+        childFactory={child => {
+          const classNames = prefixCls + '-' + (this.lastLocation.isPush ? 'forward' : 'backward');
+          return React.cloneElement(child, {
+            classNames,
+          });
+        }}
         {...groupProps}
       >
         <CSSTransition
           key={location.pathname}
-          classNames="fade"
           timeout={timeout}
-          onEnter={this.handleEnter}
-          onEntered={this.handleEntered}
-          onExit={this.handleExit}
-          onExited={this.handleExited}
         >
           {fallback ? (
             <Suspense fallback={fallback}>
@@ -47,19 +62,18 @@ export default class AnimationRouter extends Component<AnimationRouterProps, Ani
     );
   }
 
-  private handleEnter = node => {
-    console.log('enter', node);
-  };
-
-  private handleEntered = node => {
-    console.log('entered', node);
-  };
-
-  private handleExit = node => {
-    console.log('exit', node);
-  };
-
-  private handleExited = node => {
-    console.log('exited', node);
-  };
+  private setLastLocation() {
+    const { location, history } = this.props;
+    const key = location.key || location.pathname + location.search;
+    if (!this.lastLocation) {
+      this.lastLocation = {
+        key,
+        isPush: true,
+      };
+    } else if (this.lastLocation.key !== key) {
+      const { action } = history;
+      this.lastLocation.key = key;
+      this.lastLocation.isPush = action.toLowerCase() === 'push';
+    }
+  }
 }

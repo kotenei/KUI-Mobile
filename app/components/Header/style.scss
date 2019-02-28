@@ -1,0 +1,10 @@
+.app-header {
+    display: flex;
+    height: 48px;
+    align-items: center;
+    &-left {}
+    &-middle {
+        flex: 1;
+    }
+    &-right {}
+}

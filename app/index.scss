@@ -1,6 +1,16 @@
-
 @import '../src/assets/styles/index';
+@import './components/index';
+@import './containers/index';
 
-.app{
-   
+html,
+body {
+    height: 100%;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.app {
+    height: 100%;
 }

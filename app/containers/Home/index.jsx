@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import Page from '../../components/Page';
+import Header from '../../components/Header';
 
 export default class Home extends Component {
   render() {
     return (
-      <div>
-        <NavLink to="/Layout" activeClassName="selected">
-          To Layout
-        </NavLink>
-      </div>
+      <Page header={<Header>KUI-Mobile</Header>} style={{ background: 'red', height: '100%' }}>
+        <NavLink to="/Layout">Layout</NavLink>
+      </Page>
     );
   }
 }
