@@ -14,6 +14,7 @@ export class Page extends Component {
   static propTypes = {
     fixedHeader: PropTypes.bool,
     fixedFooter: PropTypes.bool,
+    bodySpace: PropTypes.bool,
   };
   componentDidMount() {
     this.resize();
@@ -55,7 +56,7 @@ export class Page extends Component {
     );
   }
   render() {
-    const { children, className, style } = this.props;
+    const { children, className, style, bodySpace } = this.props;
     const { marginTop, marginBottom } = this.state;
     return (
       <div
@@ -68,7 +69,13 @@ export class Page extends Component {
         style={style}
       >
         {this.renderHeader()}
-        <div className={`${prefixCls}-body`} style={{ marginTop, marginBottom }}>
+        <div
+          className={classnames({
+            [`${prefixCls}-body`]: true,
+            [`${prefixCls}-body--spacing`]: bodySpace,
+          })}
+          style={{ marginTop, marginBottom }}
+        >
           {children}
         </div>
         {this.renderFooter()}
@@ -91,9 +98,14 @@ export class Page extends Component {
       bottom = domUtils.height(elmFooter);
     }
 
-    if (top !== 0 || bottom !== 0) {
+    if (fixedHeader) {
       this.setState({
         marginTop: top,
+      });
+    }
+
+    if (fixedFooter) {
+      this.setState({
         marginBottom: bottom,
       });
     }
