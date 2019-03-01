@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import { ColProps } from './typing';
 import omit from 'object.omit';
 
 const prefixCls = 'k-col';
 
-export default class Col extends Component<ColProps> {
+export default class Col extends PureComponent<ColProps> {
   public static displayName = 'Col';
   private static defaultProps = {
     offset: 0,

@@ -1,10 +1,10 @@
-import React, { Component, Suspense } from 'react';
+import React, { PureComponent, Suspense } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Switch } from 'react-router';
 import { Route } from 'react-router-dom';
 import { AnimationRouterProps, AnimationRouterState } from './typing';
 
-export default class AnimationRouter extends Component<AnimationRouterProps, AnimationRouterState> {
+export default class AnimationRouter extends PureComponent<AnimationRouterProps, AnimationRouterState> {
   private static defaultProps = {
     appear: true,
     component: React.Fragment,

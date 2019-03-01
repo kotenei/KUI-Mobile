@@ -1,0 +1,35 @@
+@include bem-block('icon') {
+    font-size: inherit;
+    margin: 0 $icon-margin-x;
+    text-align: center;
+    display: inline-block;
+    font-style: normal;
+    vertical-align: $icon-vertical-align;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    @include bem-element('spin') {
+        animation: loadingCircle 1s infinite linear;
+    }
+    @include bem-modifier('primary') {
+        @include text-color($primary-color);
+    }
+    @include bem-modifier('info') {
+        @include text-color($info-color);
+    }
+    @include bem-modifier('success') {
+        @include text-color($success-color);
+    }
+    @include bem-modifier('warning') {
+        @include text-color($warning-color);
+    }
+    @include bem-modifier('danger') {
+        @include text-color($danger-color);
+    }
+    @include bem-block("icon-svg") {
+        width: $icon-svg-width;
+        height: $icon-svg-height;
+        display: inline-block;
+        fill: $text-color;
+    }
+}

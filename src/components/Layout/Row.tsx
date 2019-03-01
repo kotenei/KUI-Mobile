@@ -1,10 +1,10 @@
-import React, { Component, SFC } from 'react';
+import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import { RowProps } from './typing';
 
 const prefixCls = 'k-row';
 
-export default class Row extends Component<RowProps> {
+export default class Row extends PureComponent<RowProps> {
   private static defaultProps = {
     align: 'top',
     gutter: 0,

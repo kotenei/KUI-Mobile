@@ -1,6 +1,7 @@
 import React from 'react';
-
+import { Icon } from 'kui-mobile';
 const prefixCls = 'app-header';
+
 
 const Header = props => {
   const { children, left, right, goBack } = props;
@@ -10,13 +11,12 @@ const Header = props => {
         {left ? (
           left
         ) : goBack ? (
-          <a
+          <Icon
+            type="left"
             onClick={() => {
               history.go(-1);
             }}
-          >
-            {'<'}
-          </a>
+          />
         ) : (
           ''
         )}

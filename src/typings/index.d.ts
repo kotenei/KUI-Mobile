@@ -1,4 +1,8 @@
-export type ColorsType = 'primary' | 'info' | 'success' | 'warning' | 'danger';
+export type Primary = 'primary';
+
+export type StateTypes = 'info' | 'success' | 'warning' | 'danger';
+
+export type SizeTypes = 'xs' | 'sm' | 'md' | 'lg';
 
 interface BaseProps {
   className?: string;
