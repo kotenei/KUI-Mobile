@@ -3,15 +3,18 @@ import { NavLink } from 'react-router-dom';
 import Page from '../../components/Page';
 import Header from '../../components/Header';
 import Block from '../../components/Block';
+import Basic from './Basic';
 
-const prefixCls = 'app-home';
+const prefixCls = 'app-alert';
 
-export default class Home extends Component {
+export default class View extends Component {
   render() {
-    const header = <Header>KUI-Mobile</Header>;
+    const header = <Header>Alert 警告提示</Header>;
     return (
       <Page header={header} fixedHeader>
-        <NavLink to="/alert">Layout</NavLink>
+        <Block title="基础用法">
+          <Basic />
+        </Block>
       </Page>
     );
   }

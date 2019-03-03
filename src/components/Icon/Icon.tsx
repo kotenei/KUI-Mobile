@@ -39,12 +39,11 @@ export default class Icon extends PureComponent<IconProps> {
     return children;
   }
   public render() {
-    const { children, className, size, spin, state, type, style, fontSize, ...others } = this.props;
+    const { children, className, spin, color, type, style, fontSize, ...others } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
-        [`${prefixCls}--${state}`]: state,
-        [`${prefixCls}--${size}`]: size,
+        [`${prefixCls}--${color}`]: !!color,
         [`${prefixCls}--spin`]: spin || type === 'loading',
       },
       className,
