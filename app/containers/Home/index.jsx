@@ -11,7 +11,7 @@ export default class Home extends Component {
     const header = <Header>KUI-Mobile</Header>;
     return (
       <Page header={header} fixedHeader>
-        <NavLink to="/alert">Layout</NavLink>
+        <NavLink to="/layout">Layout</NavLink>
       </Page>
     );
   }

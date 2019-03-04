@@ -54,10 +54,8 @@ class Alert extends PureComponent<AlertProps, AlertState> {
             />
           ) : null}
           <div className={`${prefixCls}__content`}>
-            <span className={`${prefixCls}__title`}>{title}</span>
-            {description ? (
-              <span className={`${prefixCls}__description`}>{description}</span>
-            ) : null}
+            <div className={`${prefixCls}__title`}>{title}</div>
+            {description ? <div className={`${prefixCls}__description`}>{description}</div> : null}
             {closable && !closeText ? (
               <Icon type="close" className={`${prefixCls}__close`} onClick={this.handleClose} />
             ) : null}
@@ -78,7 +76,7 @@ class Alert extends PureComponent<AlertProps, AlertState> {
     if (!closable) {
       return;
     }
-    if (typeof onClose === 'function' && onClose() === true) {
+    if (typeof onClose === 'function' && onClose() !== false) {
       this.setState({
         closed: true,
       });

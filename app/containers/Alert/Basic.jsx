@@ -11,6 +11,7 @@ export default class Example extends Component {
           closable
           title="Info Text"
           description="Info Description Info Description Info Description Info Description Info Description Info Description Info Description"
+          onClose={this.handleClose}
         />
         <Alert
           state="success"
@@ -19,9 +20,7 @@ export default class Example extends Component {
           title="Success Text"
           closeText="OK"
           description="Success Description Success Description Success Description Success Description Success Description Success Description Success Description"
-          onClose={() => {
-            alert('Hello World!');
-          }}
+          onClose={this.handleOK}
         />
         <Alert
           state="warning"
@@ -29,6 +28,7 @@ export default class Example extends Component {
           closable
           title="Warning Text"
           description="Warning Description Warning Description Warning Description Warning Description Warning Description Warning Description Warning Description"
+          onClose={this.handleClose}
         />
         <Alert
           state="danger"
@@ -36,8 +36,16 @@ export default class Example extends Component {
           closable
           title="Danger Text"
           description="Danger Description Danger Description Danger Description Danger Description Danger Description Danger Description Danger Description"
+          onClose={this.handleClose}
         />
       </React.Fragment>
     );
   }
+  handleClose = () => {
+    return true;
+  };
+  handleOK = () => {
+    alert('you click ok');
+    return false;
+  };
 }

@@ -7,107 +7,48 @@
     width: 100%;
     margin-bottom: $alert-margin-bottom;
     background: $primary-color;
+    @include bem-modifier('info') {
+        background: $info-color;
+    }
+    @include bem-modifier('success') {
+        background: $success-color;
+    }
+    @include bem-modifier('warning') {
+        background: $warning-color;
+    }
+    @include bem-modifier('danger') {
+        background: $danger-color;
+    }
     @include bem-element('close') {
         color: $alert-font-color;
         position: absolute;
         top: $alert-close-top;
         right: $alert-close-right;
+        @include text-color($alert-font-color);
     }
-    @include bem-element(['icon', 'content']) {
+    @include bem-element(('icon', 'content')) {
         display: table-cell;
     }
     @include bem-element('icon') {
         width: $alert-icon-width;
         vertical-align: middle;
         font-size: $font-size-base;
+        @include text-color($alert-font-color);
         @include bem-modifier('lg') {
             font-size: $alert-icon-lg-font-size;
         }
     }
+    @include bem-element('content') {
+        padding-left: 8px;
+    }
+    @include bem-element('description') {
+        margin-top: 4px;
+        color: rgba(255, 255, 255, .8);
+    }
+    @include bem-element('closetext') {
+        position: absolute;
+        right: $alert-close-text-right;
+        cursor: pointer;
+        top: $alert-close-text-top;
+    }
 }
-
-// .k-alert {
-//     padding: .9375rem;
-//     padding-right: 2.1875rem;
-//     color: rgba(255, 255, 255, 1);
-//     position: relative;
-//     border-radius: $border-radius-lg;
-//     display: table;
-//     width: 100%;
-//     margin-bottom: 1rem;
-//     background: $teal;
-//     .close {
-//         color: #fff;
-//         opacity: .5;
-//         position: absolute;
-//         top: .625rem;
-//         right: .9375rem;
-//         font-size: 1.25rem;
-//         cursor: pointer;
-//         &:hover {
-//             opacity: .8;
-//         }
-//     }
-//     .k-alert-icon,
-//     .k-alert-content {
-//         display: table-cell;
-//     }
-//     .k-alert-icon {
-//         width: 1rem;
-//         vertical-align: middle;
-//         font-size: $font-size-base;
-//         &.lg {
-//             font-size: 1.875rem;
-//             width: 1.875rem;
-//         }
-//         svg {
-//             fill: #fff;
-//         }
-//     }
-//     .k-alert-content {
-//         padding-left: .5rem;
-//         .k-alert-title,
-//         .k-alert-description {
-//             display: block;
-//         }
-//         .k-alert-title {}
-//         .k-alert-description {
-//             margin-top: .25rem;
-//             color: rgba(255, 255, 255, .8);
-//         }
-//         .k-alert-icon-close {
-//             position: absolute;
-//             right: 1rem;
-//             top: 1rem;
-//             cursor: pointer;
-//             font-size: 1rem;
-//             svg {
-//                 fill: #fff;
-//             }
-//         }
-//         .k-alert-closetext {
-//             position: absolute;
-//             right: 1rem;
-//             cursor: pointer;
-//             top: .9375rem;
-//         }
-//     }
-//     &.k-alert-primary {
-//         background: $primary;
-//     }
-//     &.k-alert-info {
-//         background: $info;
-//     }
-//     &.k-alert-success {
-//         background: $success;
-//     }
-//     &.k-alert-warning {
-//         background: $warning;
-//     }
-//     &.k-alert-danger {
-//         background: $danger;
-//     }
-//     &:last-child {
-//         margin-bottom: 0;
-//     }
-// }
