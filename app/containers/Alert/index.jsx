@@ -9,7 +9,7 @@ const prefixCls = 'app-alert';
 
 export default class View extends Component {
   render() {
-    const header = <Header>Alert 警告提示</Header>;
+    const header = <Header goBack>Alert 警告提示</Header>;
     return (
       <Page header={header} fixedHeader>
         <Block title="基础用法">
