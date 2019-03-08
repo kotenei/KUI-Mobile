@@ -2,7 +2,6 @@ import React from 'react';
 import { Icon } from 'kui-mobile';
 const prefixCls = 'app-header';
 
-
 const Header = props => {
   const { children, left, right, goBack } = props;
   return (

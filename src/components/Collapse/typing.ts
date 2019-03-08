@@ -16,5 +16,5 @@ export interface CollapsePanelProps extends KUI.BaseProps {
   header?: React.ReactNode | string;
   activeIds?: string[];
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (id: string) => void;
 }

@@ -1,7 +1,2 @@
-import Row from './Row';
-import Col from './Col';
-
-export default {
-  Row,
-  Col,
-};
+import { default as Row } from './Row';
+import { default as Col } from './Col';

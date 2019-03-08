@@ -1,18 +1,43 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Icon from '../Icon';
+import { CSSTransition, TransitionGroup, Transition } from 'react-transition-group';
+import { Icon } from '../Icon';
 import { CollapsePanelProps } from './typing';
 
 const prefixCls = 'k-collapse-panel';
 
 class CollapsePanel extends PureComponent<CollapsePanelProps> {
-  public static defaultProps = {
+  private static defaultProps = {
     activeIds: [],
     disabled: false,
   };
-  public renderBody() {
-    return null;
+  private contentElement: HTMLDivElement;
+  public renderBody(isShow) {
+    const { children } = this.props;
+    // return (
+    //   <CSSTransition in={isShow} timeout={300} classNames="slide" >
+    //     <div className={`${prefixCls}__body`}>{children}</div>
+    //   </CSSTransition>
+    // );
+    return (
+      <Transition
+        in={isShow}
+        timeout={300}
+        onEnter={this.handleEnter}
+        onEntering={this.handleEntering}
+        onEntered={this.handleEntered}
+        onExit={this.handleExit}
+        onExiting={this.handleExiting}
+      >
+        {state => {
+          return (
+            <div className={`${prefixCls}__body`} ref={this.handleRef}>
+              {children}
+            </div>
+          );
+        }}
+      </Transition>
+    );
   }
   public render() {
     const { activeIds, id, children, header, disabled, icon } = this.props;
@@ -24,17 +49,61 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
       <div className={classString}>
         <div
           className={classnames({
-            [`${prefixCls}-header`]: true,
-            [`${prefixCls}-header--disabled`]: disabled,
+            [`${prefixCls}__header`]: true,
+            [`${prefixCls}__header--disabled`]: disabled,
           })}
+          onClick={this.handleClick}
         >
           {header}
           <Icon className={`${prefixCls}-icon`} type={icon || isShow ? 'down' : 'right'} />
         </div>
-        {this.renderBody()}
+        {this.renderBody(isShow)}
       </div>
     );
   }
+
+  private handleClick = e => {
+    const { onClick, id, index, disabled } = this.props;
+    if (disabled) {
+      return;
+    }
+    if (onClick) {
+      onClick(id);
+    }
+  };
+
+  private handleRef = (element: HTMLDivElement) => {
+    this.contentElement = element;
+  };
+
+  private handleEnter = (node, isAppearing) => {
+    node.style.height = '0px';
+  };
+
+  private handleEntering = (node, isAppearing) => {
+    node.style.height = this.getContentHeight() + 'px';
+  };
+
+  private handleEntered = (node, isAppearing) => {
+    node.style.height = 'auto';
+  };
+
+  private handleExit = node => {
+    node.style.height = this.getContentHeight() + 'px';
+  };
+
+  private handleExiting = node => {
+    node.style.height = '0px';
+  };
+
+  // private handleExited = node => {
+  //   node.style.height = '0px';
+  // };
+
+  private getContentHeight = (): number => {
+    const el = this.contentElement;
+    return el ? el.offsetHeight || el.clientHeight || el.scrollHeight : 0;
+  };
 }
 
 export default CollapsePanel;

@@ -35,24 +35,26 @@ class Collapse extends PureComponent<CollapseProps, CollapseState> {
       </div>
     );
   }
-  private handleChange = (e, id) => {
-    // const { onChange, accordion } = this.props;
-    // const { activeIds } = this.state;
-    // let newActiveIds = accordion ? [] : activeIds ? [...activeIds] : [];
-    // if (onChange) {
-    //   onChange(id);
-    // }
-    // if (!('activeIds' in this.props)) {
-    //   const index = activeIds.indexOf(id);
-    //   if (index === -1) {
-    //     newActiveIds.push(id);
-    //   } else {
-    //     newActiveIds.splice(index, 1);
-    //   }
-    //   this.setState({
-    //     activeIds: newActiveIds,
-    //   });
-    // }
+  private handleChange = id => {
+    const { onChange, accordion } = this.props;
+    const { activeIds } = this.state;
+    const newActiveIds = accordion ? [] : activeIds ? [...activeIds] : [];
+
+    if (!('activeIds' in this.props)) {
+      const index = activeIds ? activeIds.indexOf(id) : -1;
+      if (index === -1) {
+        newActiveIds.push(id);
+      } else {
+        newActiveIds.splice(index, 1);
+      }
+      this.setState({
+        activeIds: newActiveIds,
+      });
+    }
+
+    if (onChange) {
+      onChange(id);
+    }
   };
 }
 
