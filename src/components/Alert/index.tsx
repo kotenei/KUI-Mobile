@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
-import Icon, { SvgIcon } from '../Icon';
+import { Icon } from '../Icon';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { AlertState, AlertProps } from './typing';
 

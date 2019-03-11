@@ -1,26 +1,22 @@
 // color
 $primary-color: #2196f3;
-$info-color:#03a9f4;
-$success-color:#4caf50;
-$danger-color:#f44336;
-$warning-color:#ff9800;
-$link-color: #2D8cF0;
+$info-color: #03a9f4;
+$success-color: #4caf50;
+$danger-color: #f44336;
+$warning-color: #ff9800;
+$link-color: #2d8cf0;
 $link-hover-color: tint($link-color, 20%);
 $link-active-color: shade($link-color, 5%);
 $selected-color: fade($primary-color, 90%);
 $subsidiary-color: #80848f;
-$rate-start-color:#fadb14;
+$rate-start-color: #fadb14;
+$disabled-color: #bbbec4;
 // base
 $title-color: #1c2438;
 $text-color: #495060;
-$background-color-base: #f7f7f7;
-$font-family: "Helvetica Neue",
-"PingFang SC",
-"Hiragino Sans GB",
-"Microsoft YaHei",
-"微软雅黑",
-Arial,
-sans-serif;
+$background-color-base: #f8f8f9;
+$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑',
+  Arial, sans-serif;
 // size
 $font-size-icontext: 10px;
 $font-size-caption-sm: 12px;
@@ -31,14 +27,14 @@ $font-size-heading: 17px;
 // radius
 $radius-xs: 2px;
 $radius-sm: 3px;
-$radius-base:4px;
+$radius-base: 4px;
 $radius-md: 5px;
 $radius-lg: 7px;
 $radius-circle: 50%;
 // border
 $border-width-base: 1px;
 $border-width-lg: 2px;
-$border-style-base: 'solid';
+$border-style-base: solid;
 $border-color-base: #dddee1; // outside
 $border-color-split: #e9eaec; // inside
 // spacing
@@ -54,8 +50,8 @@ $v-spacing-md: 9px;
 $v-spacing-lg: 15px;
 $v-spacing-xl: 21px;
 // animation
-$animation-time: .3s;
-$transition-time: .2s;
+$animation-time: 0.3s;
+$transition-time: 0.2s;
 $ease-in-out: ease-in-out;
 // z-index
 $zindex-spin: 8;
@@ -73,14 +69,23 @@ $zindex-spin-fullscreen: 2010;
 $icon-margin-x: 3px;
 $icon-vertical-align: -2px;
 $icon-svg-width: 1em;
-$icon-svg-height:1em;
-//alert
+$icon-svg-height: 1em;
+// alert
 $alert-padding: 15px 35px 15px 15px;
-$alert-font-color:#fff;
-$alert-margin-bottom:16px;
-$alert-close-top:10px;
-$alert-close-right:15px;
-$alert-icon-width:16px;
-$alert-icon-lg-font-size:30px;
-$alert-close-text-top:15px;
-$alert-close-text-right:16px;
+$alert-font-color: #fff;
+$alert-margin-bottom: 16px;
+$alert-close-top: 10px;
+$alert-close-right: 15px;
+$alert-icon-width: 16px;
+$alert-icon-lg-font-size: 30px;
+$alert-close-text-top: 15px;
+$alert-close-text-right: 16px;
+// cell
+$cell-height: 48px;
+$cell-middle-padding: 0 15px;
+$cell-bg-color: #fff;
+// collapse
+$collapse-bg-color: #fff;
+$collapse-header-height: 48px;
+$collapse-header-padding: 10px 15px;
+$collapse-inner-padding: 10px 15px;

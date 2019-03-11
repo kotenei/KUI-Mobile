@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Layout } from 'kui-mobile';
-
-const { Row, Col } = Layout;
+import { Row, Col } from 'kui-mobile';
 
 export default class Demo extends Component {
   render() {
     return (
       <React.Fragment>
-        <Row>
+        <Row >
           <Col span={12}>
             <div className="gutter-box">col-12</div>
           </Col>

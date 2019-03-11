@@ -3,6 +3,7 @@ import Page from '../../components/Page';
 import Header from '../../components/Header';
 import Block from '../../components/Block';
 import Basic from './Basic';
+import Accordion from './Accordion';
 
 const prefixCls = 'app-icon';
 
@@ -13,6 +14,9 @@ export default class View extends Component {
       <Page header={header} fixedHeader className={prefixCls}>
         <Block title="基础用法">
           <Basic />
+        </Block>
+        <Block title="手风琴">
+          <Accordion />
         </Block>
       </Page>
     );

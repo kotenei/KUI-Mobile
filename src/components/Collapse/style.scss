@@ -1,9 +1,28 @@
-@include bem-block('collapse') {}
+@include bem-block('collapse') {
+    background: $collapse-bg-color;
+}
 
 @include bem-block('collapse-panel') {
+    @include bem-element('header') {
+        border-bottom: none;
+        cursor: pointer;
+        
+    }
     @include bem-element('body') {
         height: 0;
         overflow: hidden;
         transition: height .3s ease-in-out;
+        @include text-color($text-color);
+        &::before {
+            content: ' ';
+            border-top: $border-width-base $border-style-base $border-color-base;
+            display: block;
+        }
+        &-inner {
+            padding: $collapse-inner-padding;
+        }
+    }
+    &:last-child {
+        border-bottom: $border-width-base $border-style-base $border-color-base;
     }
 }

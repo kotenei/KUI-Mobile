@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import { CSSTransition, TransitionGroup, Transition } from 'react-transition-group';
 import { Icon } from '../Icon';
+import { Cell } from '../Cell';
 import { CollapsePanelProps } from './typing';
 
 const prefixCls = 'k-collapse-panel';
@@ -12,13 +13,11 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
     disabled: false,
   };
   private contentElement: HTMLDivElement;
+  public componentDidMount() {
+    console.log(this.getContentHeight());
+  }
   public renderBody(isShow) {
     const { children } = this.props;
-    // return (
-    //   <CSSTransition in={isShow} timeout={300} classNames="slide" >
-    //     <div className={`${prefixCls}__body`}>{children}</div>
-    //   </CSSTransition>
-    // );
     return (
       <Transition
         in={isShow}
@@ -32,7 +31,7 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
         {state => {
           return (
             <div className={`${prefixCls}__body`} ref={this.handleRef}>
-              {children}
+              <div className={`${prefixCls}__body-inner`}>{children}</div>
             </div>
           );
         }}
@@ -47,16 +46,22 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
     });
     return (
       <div className={classString}>
-        <div
+        <Cell
           className={classnames({
             [`${prefixCls}__header`]: true,
-            [`${prefixCls}__header--disabled`]: disabled,
+            // [`${prefixCls}__header--disabled`]: disabled,
           })}
           onClick={this.handleClick}
+          title={header}
+          showArrow
+          arrowDirection={isShow ? 'down' : 'right'}
+          border
+          disabled={disabled}
         >
-          {header}
-          <Icon className={`${prefixCls}-icon`} type={icon || isShow ? 'down' : 'right'} />
-        </div>
+          {/* {header}
+          <Icon className={`${prefixCls}__icon`} type={icon || isShow ? 'down' : 'right'} /> */}
+        </Cell>
+
         {this.renderBody(isShow)}
       </div>
     );
@@ -90,15 +95,13 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
 
   private handleExit = node => {
     node.style.height = this.getContentHeight() + 'px';
+    // tslint:disable-next-line:no-unused-expression
+    node.offsetHeight;
   };
 
   private handleExiting = node => {
     node.style.height = '0px';
   };
-
-  // private handleExited = node => {
-  //   node.style.height = '0px';
-  // };
 
   private getContentHeight = (): number => {
     const el = this.contentElement;

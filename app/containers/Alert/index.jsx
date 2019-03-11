@@ -12,7 +12,7 @@ export default class View extends Component {
     const header = <Header goBack>Alert 警告提示</Header>;
     return (
       <Page header={header} fixedHeader>
-        <Block title="基础用法">
+        <Block title="基础用法" bodyPadding>
           <Basic />
         </Block>
       </Page>

@@ -11,14 +11,14 @@ it can be found as a welcome guest in many households across the world.
 export default class Demo extends Component {
   render() {
     return (
-      <Collapse >
+      <Collapse accordion>
         <Panel header="This is panel header 1" id="1">
           <p>{text}</p>
         </Panel>
         <Panel header="This is panel header 2" id="2">
           <p>{text}</p>
         </Panel>
-        <Panel header="This is panel header 3" id="3" disabled>
+        <Panel header="This is panel header 3" id="3" >
           <p>{text}</p>
         </Panel>
       </Collapse>
