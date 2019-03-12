@@ -5,22 +5,36 @@
     }
 }
 
-@mixin bem-element($element) {
+@mixin bem-element($element, $atRoot:true) {
     $E: $element !global;
     $currentSelector: "";
     @each $unit in $element {
         $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
     }
-    @at-root {
+    @if $atRoot {
+        @at-root {
+            #{$currentSelector} {
+                @content;
+            }
+        }
+    }
+    @else {
         #{$currentSelector} {
             @content;
         }
     }
 }
 
-@mixin bem-modifier($modifier) {
+@mixin bem-modifier($modifier, $atRoot:true) {
     $selector: '&' + $modifier-separator + $modifier;
-    @at-root {
+    @if $atRoot {
+        @at-root {
+            #{$selector} {
+                @content;
+            }
+        }
+    }
+    @else {
         #{$selector} {
             @content;
         }

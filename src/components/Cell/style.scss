@@ -11,6 +11,13 @@ $prefix-right: #{$prefix}-right;
         border-top: $border-width-base $border-style-base $border-color-base;
         border-bottom: $border-width-base $border-style-base $border-color-base;
     }
+    @include bem-modifier('disabled', false) {
+        @include bem-block($prefix-middle) {
+            @include bem-element('title', false) {
+                @include text-color($disabled-color);
+            }
+        }
+    }
 }
 
 @include bem-block($prefix-left) {

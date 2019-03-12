@@ -19,12 +19,11 @@ export default class Cell extends PureComponent<CellProps> {
     return <div className={`${prefixCls}-right`} />;
   }
   public renderCellMiddle() {
-    const { title, label, value, showArrow, arrowDirection, disabled } = this.props;
+    const { title, label, value, showArrow, arrowDirection } = this.props;
     return (
       <div
         className={classnames({
           [`${prefixCls}-middle`]: true,
-          [`${prefixCls}-middle--disabled`]: !!disabled,
         })}
       >
         <div className={`${prefixCls}-middle__text`}>
@@ -39,11 +38,12 @@ export default class Cell extends PureComponent<CellProps> {
     );
   }
   public render() {
-    const { className, border, ...others } = this.props;
+    const { className, border, disabled, ...others } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
         [`${prefixCls}--border`]: !!border,
+        [`${prefixCls}--disabled`]: !!disabled,
       },
       className,
     );

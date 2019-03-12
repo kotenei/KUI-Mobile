@@ -51,7 +51,7 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
             [`${prefixCls}__header`]: true,
             // [`${prefixCls}__header--disabled`]: disabled,
           })}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           title={header}
           showArrow
           arrowDirection={isShow ? 'down' : 'right'}
