@@ -31,7 +31,7 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
         {state => {
           return (
             <div className={`${prefixCls}__body`} ref={this.handleRef}>
-              <div className={`${prefixCls}__body-inner`}>{children}</div>
+              <div className={`${prefixCls}__inner`}>{children}</div>
             </div>
           );
         }}
@@ -49,14 +49,13 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
         <Cell
           className={classnames({
             [`${prefixCls}__header`]: true,
-            // [`${prefixCls}__header--disabled`]: disabled,
+            [`${prefixCls}__header--disabled`]: disabled,
           })}
           // onClick={this.handleClick}
           title={header}
           showArrow
           arrowDirection={isShow ? 'down' : 'right'}
           border
-          disabled={disabled}
         >
           {/* {header}
           <Icon className={`${prefixCls}__icon`} type={icon || isShow ? 'down' : 'right'} /> */}

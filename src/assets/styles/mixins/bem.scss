@@ -1,42 +1,28 @@
 @mixin bem-block($block) {
-    $B: $namespace + "-" + $block !global;
-    .#{$B} {
-        @content;
-    }
+  $B: $namespace + '-' + $block !global;
+  .#{$B} {
+    @content;
+  }
 }
 
-@mixin bem-element($element, $atRoot:true) {
-    $E: $element !global;
-    $currentSelector: "";
-    @each $unit in $element {
-        $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
+@mixin bem-element($element) {
+  $E: $element !global;
+  $currentSelector: '';
+  @each $unit in $element {
+    $currentSelector: #{$currentSelector + '.' + $B + $element-separator + $unit + ','};
+  }
+  @at-root {
+    #{$currentSelector} {
+      @content;
     }
-    @if $atRoot {
-        @at-root {
-            #{$currentSelector} {
-                @content;
-            }
-        }
-    }
-    @else {
-        #{$currentSelector} {
-            @content;
-        }
-    }
+  }
 }
 
-@mixin bem-modifier($modifier, $atRoot:true) {
-    $selector: '&' + $modifier-separator + $modifier;
-    @if $atRoot {
-        @at-root {
-            #{$selector} {
-                @content;
-            }
-        }
+@mixin bem-modifier($modifier) {
+  $selector: '&' + $modifier-separator + $modifier;
+  @at-root {
+    #{$selector} {
+      @content;
     }
-    @else {
-        #{$selector} {
-            @content;
-        }
-    }
+  }
 }

@@ -5,8 +5,14 @@
 @include bem-block('collapse-panel') {
     @include bem-element('header') {
         border-bottom: none;
-        cursor: pointer;
-        
+        cursor: pointer; 
+
+        @include bem-modifier('disabled'){
+            @include text-color($disabled-color);
+            @include kElement('cell-middle__title'){
+                @include text-color($disabled-color);
+            }
+        }
     }
     @include bem-element('body') {
         height: 0;
@@ -18,9 +24,9 @@
             border-top: $border-width-base $border-style-base $border-color-base;
             display: block;
         }
-        &-inner {
-            padding: $collapse-inner-padding;
-        }
+    }
+    @include bem-element('inner') {
+        padding: $collapse-inner-padding;
     }
     &:last-child {
         border-bottom: $border-width-base $border-style-base $border-color-base;

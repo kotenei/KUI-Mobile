@@ -43,7 +43,7 @@ export default class Cell extends PureComponent<CellProps> {
       {
         [prefixCls]: true,
         [`${prefixCls}--border`]: !!border,
-        [`${prefixCls}--disabled`]: !!disabled,
+        // [`${prefixCls}--disabled`]: !!disabled,
       },
       className,
     );

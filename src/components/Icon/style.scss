@@ -26,10 +26,11 @@
     @include bem-modifier('danger') {
         @include text-color($danger-color);
     }
-    @include bem-block("icon-svg") {
-        width: $icon-svg-width;
-        height: $icon-svg-height;
-        display: inline-block;
-        fill: $text-color;
-    }
+}
+
+@include bem-block("icon-svg") {
+    width: $icon-svg-width;
+    height: $icon-svg-height;
+    display: inline-block;
+    fill: $text-color;
 }

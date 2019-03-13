@@ -9,28 +9,29 @@ $grid-colums: 24;
     &::after {
         display: flex;
     }
-    @include bem-block('col') {
-        display: block;
-        position: relative;
-    }
-
     @each $justify in map-keys($grid-justify-content) {
-        &--#{$justify} {
+        @include bem-modifier($justify) {
             justify-content: map-get($grid-justify-content, $justify);
         }
     }
     @each $align in map-keys($grid-align-items) {
-        &--#{$align} {
+        @include bem-modifier($align) {
             align-items: map-get($grid-align-items, $align);
         }
     }
-    @for $i from 1 through $grid-colums {
-        @include bem-block("col-#{$i}") {
-            width: ($i / $grid-colums * 100) * 1%;
-        }
-        @include bem-block("col-offset-#{$i}") {
-            margin-left: ($i / $grid-colums * 100) * 1%;
-        }
+}
+
+@include bem-block('col') {
+    display: block;
+    position: relative;
+}
+
+@for $i from 1 through $grid-colums {
+    @include bem-block("col-#{$i}") {
+        width: ($i / $grid-colums * 100) * 1%;
+    }
+    @include bem-block("col-offset-#{$i}") {
+        margin-left: ($i / $grid-colums * 100) * 1%;
     }
 }
 
