@@ -1,0 +1,16 @@
+.app-home{
+    .k-collapse-panel{
+        margin-bottom: 15px;
+        .k-collapse-panel__body{
+            .k-cell{
+                &:first-child{
+                    border-top:1px solid #dddee1;
+                }
+            }
+            .k-cell-middle{
+                padding:0;
+                
+            }
+        }
+    }
+}

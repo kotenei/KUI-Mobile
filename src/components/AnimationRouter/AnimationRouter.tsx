@@ -4,7 +4,10 @@ import { Switch } from 'react-router';
 import { Route } from 'react-router-dom';
 import { AnimationRouterProps, AnimationRouterState } from './typing';
 
-export default class AnimationRouter extends PureComponent<AnimationRouterProps, AnimationRouterState> {
+export default class AnimationRouter extends PureComponent<
+  AnimationRouterProps,
+  AnimationRouterState
+> {
   private static defaultProps = {
     appear: true,
     component: React.Fragment,
@@ -46,10 +49,7 @@ export default class AnimationRouter extends PureComponent<AnimationRouterProps,
         }}
         {...groupProps}
       >
-        <CSSTransition
-          key={location.pathname}
-          timeout={timeout}
-        >
+        <CSSTransition key={location.pathname} timeout={timeout}>
           {fallback ? (
             <Suspense fallback={fallback}>
               <Switch location={location}>{children}</Switch>

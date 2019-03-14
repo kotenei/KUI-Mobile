@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
+import { NavLink } from 'react-router-dom';
 import { CellProps } from './typing';
 import { Icon } from '../Icon';
 
@@ -19,12 +20,13 @@ export default class Cell extends PureComponent<CellProps> {
     return <div className={`${prefixCls}-right`} />;
   }
   public renderCellMiddle() {
-    const { title, label, value, showArrow, arrowDirection } = this.props;
+    const { title, label, value, showArrow, arrowDirection, onClick, to } = this.props;
     return (
       <div
         className={classnames({
           [`${prefixCls}-middle`]: true,
         })}
+        onClick={onClick}
       >
         <div className={`${prefixCls}-middle__text`}>
           <div className={`${prefixCls}-middle__title`}>{title}</div>
@@ -38,12 +40,11 @@ export default class Cell extends PureComponent<CellProps> {
     );
   }
   public render() {
-    const { className, border, disabled, ...others } = this.props;
+    const { className, border, to, ...others } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
         [`${prefixCls}--border`]: !!border,
-        // [`${prefixCls}--disabled`]: !!disabled,
       },
       className,
     );
@@ -51,9 +52,14 @@ export default class Cell extends PureComponent<CellProps> {
     return (
       <div className={classString}>
         {this.renderCellLeft()}
-        {this.renderCellMiddle()}
+        {to ? <NavLink to={to}> {this.renderCellMiddle()}</NavLink> : this.renderCellMiddle()}
+
         {this.renderCellRight()}
       </div>
     );
   }
+
+  private handleClick = () => {
+    const { onClick } = this.props;
+  };
 }

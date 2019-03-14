@@ -11,11 +11,9 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
   private static defaultProps = {
     activeIds: [],
     disabled: false,
+    border: true,
   };
   private contentElement: HTMLDivElement;
-  public componentDidMount() {
-    console.log(this.getContentHeight());
-  }
   public renderBody(isShow) {
     const { children } = this.props;
     return (
@@ -30,7 +28,12 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
       >
         {state => {
           return (
-            <div className={`${prefixCls}__body`} ref={this.handleRef}>
+            <div
+              className={classnames({
+                [`${prefixCls}__body`]: true,
+              })}
+              ref={this.handleRef}
+            >
               <div className={`${prefixCls}__inner`}>{children}</div>
             </div>
           );
@@ -39,10 +42,11 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
     );
   }
   public render() {
-    const { activeIds, id, children, header, disabled, icon } = this.props;
+    const { activeIds, id, children, header, disabled, icon, border } = this.props;
     const isShow = activeIds ? activeIds.indexOf(id) > -1 : false;
     const classString = classnames({
       [prefixCls]: true,
+      [`${prefixCls}--border`]: !!border,
     });
     return (
       <div className={classString}>
@@ -51,22 +55,18 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
             [`${prefixCls}__header`]: true,
             [`${prefixCls}__header--disabled`]: disabled,
           })}
-          // onClick={this.handleClick}
+          onClick={this.handleClick}
           title={header}
           showArrow
           arrowDirection={isShow ? 'down' : 'right'}
-          border
-        >
-          {/* {header}
-          <Icon className={`${prefixCls}__icon`} type={icon || isShow ? 'down' : 'right'} /> */}
-        </Cell>
+        />
 
         {this.renderBody(isShow)}
       </div>
     );
   }
 
-  private handleClick = e => {
+  private handleClick = () => {
     const { onClick, id, index, disabled } = this.props;
     if (disabled) {
       return;

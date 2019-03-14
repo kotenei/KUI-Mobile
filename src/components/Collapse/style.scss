@@ -1,15 +1,13 @@
-@include bem-block('collapse') {
-    background: $collapse-bg-color;
-}
+@include bem-block('collapse') {}
 
 @include bem-block('collapse-panel') {
+    background: $collapse-bg-color;
     @include bem-element('header') {
         border-bottom: none;
-        cursor: pointer; 
-
-        @include bem-modifier('disabled'){
+        cursor: pointer;
+        @include bem-modifier('disabled') {
             @include text-color($disabled-color);
-            @include kElement('cell-middle__title'){
+            @include element('cell-middle__title') {
                 @include text-color($disabled-color);
             }
         }
@@ -18,17 +16,36 @@
         height: 0;
         overflow: hidden;
         transition: height .3s ease-in-out;
-        @include text-color($text-color);
-        &::before {
-            content: ' ';
-            border-top: $border-width-base $border-style-base $border-color-base;
-            display: block;
-        }
+        color:$text-color;
     }
     @include bem-element('inner') {
         padding: $collapse-inner-padding;
     }
-    &:last-child {
-        border-bottom: $border-width-base $border-style-base $border-color-base;
+    @include bem-modifier('border') {
+        &:first-child {
+            border-top: $border-width-base $border-style-base $border-color-base;
+        }
+        &:last-child {
+            border-bottom: $border-width-base $border-style-base $border-color-base;
+            @include element('collapse-panel__body') {
+                &:before {
+                    content: ' ';
+                    display: block;
+                    border-bottom: $border-width-base $border-style-base $border-color-base;
+                }
+            }
+        }
+        &:not(:last-child) {
+            @include element('collapse-panel__header') {
+                border-bottom: $border-width-base $border-style-base $border-color-base;
+            }
+        }
+        @include element('collapse-panel__body') {
+            &:after {
+                content: ' ';
+                display: block;
+                border-bottom: $border-width-base $border-style-base $border-color-base;
+            }
+        }
     }
 }
