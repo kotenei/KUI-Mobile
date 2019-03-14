@@ -12,7 +12,7 @@ export default class View extends Component {
     const header = <Header goBack>Cell 单元格</Header>;
     return (
       <Page header={header} fixedHeader>
-        <Block title="基础用法" bodyPadding>
+        <Block title="基础用法" >
           <Basic />
         </Block>
       </Page>

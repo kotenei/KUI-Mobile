@@ -26,16 +26,16 @@
             border-top: $border-width-base $border-style-base $border-color-base;
         }
         &:last-child {
-            border-bottom: $border-width-base $border-style-base $border-color-base;
-            @include element('collapse-panel__body') {
-                &:before {
-                    content: ' ';
-                    display: block;
-                    border-bottom: $border-width-base $border-style-base $border-color-base;
-                }
-            }
+            // border-bottom: $border-width-base $border-style-base $border-color-base;
+            // @include element('collapse-panel__body') {
+            //     &:before {
+            //         content: ' ';
+            //         display: block;
+            //         border-bottom: $border-width-base $border-style-base $border-color-base;
+            //     }
+            // }
         }
-        &:not(:last-child) {
+        &:not(:last-child)  {
             @include element('collapse-panel__header') {
                 border-bottom: $border-width-base $border-style-base $border-color-base;
             }

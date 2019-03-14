@@ -22,11 +22,15 @@ export default class Home extends Component {
       { title: 'Icon 图标', to: '/Icon' },
       { title: 'Layout 布局', to: '/Layout' },
     ];
+    const display = [{ title: 'Collapse 折叠面板', to: '/Collapse' }];
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
         <Collapse accordion>
           <CollapsePanel header="基础组件" id="1" border={false}>
             {this.renderCells(basic)}
+          </CollapsePanel>
+          <CollapsePanel header="展示组件" id="2" border={false}>
+            {this.renderCells(display)}
           </CollapsePanel>
         </Collapse>
       </Page>

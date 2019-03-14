@@ -3,47 +3,50 @@ $prefix-left: #{$prefix}-left;
 $prefix-middle: #{$prefix}-middle;
 $prefix-right: #{$prefix}-right;
 @include bem-block($prefix) {
-  overflow: hidden;
-  background: $cell-bg-color;
-  height: $cell-height;
-  position: relative;
-  @include bem-modifier('border') {
-    &:not(:last-child){
-        border-bottom: $border-width-base $border-style-base $border-color-base;
+    overflow: hidden;
+    background: $cell-bg-color;
+    height: $cell-height;
+    position: relative;
+    @include bem-modifier('border') {
+        &:not(:last-child) {
+            border-bottom: $border-width-base $border-style-base $border-color-base;
+        }
     }
-  }
 }
 
 @include bem-block($prefix-left) {
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 @include bem-block($prefix-middle) {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  padding: $cell-middle-padding;
-  @include bem-element('text') {
-    flex: 1;
-  }
-  @include bem-element('title') {
-    @include text-color($title-color);
-  }
-  @include bem-element('label') {
-    @include text-color($text-color);
-  }
-  @include bem-element('value') {
-    @include text-color($subsidiary-color);
-  }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: $cell-middle-padding;
+    @include bem-element('text') {
+        flex: 1;
+    }
+    @include bem-element('title') {
+        @include text-color($title-color);
+    }
+    @include bem-element('label') {
+        @include text-color($text-color);
+        font-size: $cell-label-font-size;
+        margin-top: $cell-label-margin-top;
+    }
+    @include bem-element('value') {
+        @include text-color($subsidiary-color);
+        font-size: $cell-value-font-size;
+    }
 }
 
 @include bem-block($prefix-right) {
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
 }

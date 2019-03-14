@@ -1,14 +1,15 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { CellProps } from './typing';
 import { Icon } from '../Icon';
 
 const prefixCls = 'k-cell';
 
 export default class Cell extends PureComponent<CellProps> {
+  public static displayName = 'Cell';
   private static defaultProps = {
-    border: false,
+    border: true,
     disabled: false,
     showArrow: false,
     arrowDirection: 'right',
@@ -20,7 +21,7 @@ export default class Cell extends PureComponent<CellProps> {
     return <div className={`${prefixCls}-right`} />;
   }
   public renderCellMiddle() {
-    const { title, label, value, showArrow, arrowDirection, onClick, to } = this.props;
+    const { title, label, value, showArrow, arrowDirection, onClick } = this.props;
     return (
       <div
         className={classnames({
@@ -30,7 +31,7 @@ export default class Cell extends PureComponent<CellProps> {
       >
         <div className={`${prefixCls}-middle__text`}>
           <div className={`${prefixCls}-middle__title`}>{title}</div>
-          <div className={`${prefixCls}-middle__label`}>{label}</div>
+          {label && <div className={`${prefixCls}-middle__label`}>{label}</div>}
         </div>
         <div className={`${prefixCls}-middle__value`}>
           {value}
@@ -40,7 +41,7 @@ export default class Cell extends PureComponent<CellProps> {
     );
   }
   public render() {
-    const { className, border, to, ...others } = this.props;
+    const { className, border, to, url, ...others } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
@@ -52,7 +53,13 @@ export default class Cell extends PureComponent<CellProps> {
     return (
       <div className={classString}>
         {this.renderCellLeft()}
-        {to ? <NavLink to={to}> {this.renderCellMiddle()}</NavLink> : this.renderCellMiddle()}
+        {to ? (
+          <NavLink to={to}> {this.renderCellMiddle()}</NavLink>
+        ) : url ? (
+          <a href={url}>{this.renderCellMiddle()}</a>
+        ) : (
+          this.renderCellMiddle()
+        )}
 
         {this.renderCellRight()}
       </div>
