@@ -2,6 +2,7 @@ $prefix: 'cell';
 $prefix-left: #{$prefix}-left;
 $prefix-middle: #{$prefix}-middle;
 $prefix-right: #{$prefix}-right;
+$group:#{$prefix}-group;
 @include bem-block($prefix) {
     overflow: hidden;
     background: $cell-bg-color;
@@ -49,4 +50,11 @@ $prefix-right: #{$prefix}-right;
     position: absolute;
     right: 0;
     top: 0;
+}
+
+@include bem-block($group) {
+    @include bem-modifier('border') {
+        border-top: $border-width-base $border-style-base $border-color-base;
+        border-bottom: $border-width-base $border-style-base $border-color-base;
+    }
 }

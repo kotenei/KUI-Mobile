@@ -1,13 +1,21 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
+import { CellGroupProps } from './typing';
 
 const prefixCls = 'k-cell-group';
 
-class CellGroup extends PureComponent {
+class CellGroup extends PureComponent<CellGroupProps> {
+  private static defaultProps = {
+    border: false,
+  };
   public render() {
-    const { children } = this.props;
+    const { children, border } = this.props;
+    const classString = classnames({
+      [prefixCls]: true,
+      [`${prefixCls}--border`]: !!border,
+    });
     return (
-      <div className={prefixCls}>
+      <div className={classString}>
         {React.Children.map(children, (child: any) => {
           if (!child || !child.type || child.type.displayName !== 'Cell') {
             return null;
