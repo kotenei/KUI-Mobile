@@ -16,7 +16,7 @@
     "semicolon": false,
     "max-line-length": false,
     "object-literal-key-quotes": [true, "as-needed"],
-    "no-unused-expression":false
+    "no-unused-expression": false
   },
   "rulesDirectory": []
 }

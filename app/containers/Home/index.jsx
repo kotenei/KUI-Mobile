@@ -18,11 +18,14 @@ export default class Home extends Component {
   render() {
     const header = <Header>KUI-Mobile</Header>;
     const basic = [
-      { title: 'Cell 单元格', to: '/Cell' },
-      { title: 'Icon 图标', to: '/Icon' },
-      { title: 'Layout 布局', to: '/Layout' },
+      { title: 'Cell 单元格', to: '/cell' },
+      { title: 'Icon 图标', to: '/icon' },
+      { title: 'Layout 布局', to: '/layout' },
     ];
-    const display = [{ title: 'Collapse 折叠面板', to: '/Collapse' }];
+    const display = [
+      { title: 'Badge 徽章', to: '/badge' },
+      { title: 'Collapse 折叠面板', to: '/collapse' },
+    ];
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
         <Collapse accordion>

@@ -13,6 +13,10 @@ $group:#{$prefix}-group;
             border-bottom: $border-width-base $border-style-base $border-color-base;
         }
     }
+    @include bem-modifier('lg'){
+        height: $cell-height-lg;
+        font-size: $font-size-caption;
+    }
 }
 
 @include bem-block($prefix-left) {

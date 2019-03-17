@@ -15,8 +15,11 @@ $disabled-color: #bbbec4;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑',
-  Arial, sans-serif;
+$font-family: 'Helvetica Neue',
+'PingFang SC',
+'Hiragino Sans GB',
+Arial,
+sans-serif;
 // size
 $font-size-icontext: 10px;
 $font-size-caption-sm: 12px;
@@ -80,16 +83,25 @@ $alert-icon-width: 16px;
 $alert-icon-lg-font-size: 30px;
 $alert-close-text-top: 15px;
 $alert-close-text-right: 16px;
+// Badge
+$badge-margin: 0 2px;
+$badge-sup-padding: 4px 8px;
+$badge-sup-font-weight: 700;
+$badge-sup-zindex: 10;
+$badge-sup-radius: 10px;
+$badge-sup-right: 10px;
+$badge-dot-width: 8px;
+$badge-dot-height: 8px;
+$badge-dot-top: -4px;
+$badge-dot-right: -4px;
 // cell
 $cell-height: 48px;
+$cell-height-lg: 56px;
 $cell-middle-padding: 0 15px;
 $cell-bg-color: #fff;
-$cell-label-font-size:12px;
-$cell-value-font-size:12px;
-$cell-label-margin-top:4px;
+$cell-label-font-size: 12px;
+$cell-value-font-size: 12px;
+$cell-label-margin-top: 4px;
 // collapse
 $collapse-bg-color: #fff;
-$collapse-header-height: 48px;
-$collapse-header-padding: 10px 15px;
 $collapse-inner-padding: 10px 15px;
-

@@ -41,10 +41,11 @@ export default class Cell extends PureComponent<CellProps> {
     );
   }
   public render() {
-    const { className, border, to, url, ...others } = this.props;
+    const { className, border, to, url, large, ...others } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
+        [`${prefixCls}--lg`]: !!large,
         [`${prefixCls}--border`]: !!border,
       },
       className,

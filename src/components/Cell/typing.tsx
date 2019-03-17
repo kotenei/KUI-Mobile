@@ -7,6 +7,7 @@ export interface CellProps extends KUI.BaseProps {
   url?: string;
   showArrow?: boolean;
   arrowDirection?: 'left' | 'right' | 'up' | 'down';
+  large?: boolean;
   onClick?: () => void;
 }
 
