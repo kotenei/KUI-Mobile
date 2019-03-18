@@ -7,7 +7,7 @@ const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        site: "./app/index.jsx"
+        app: "./app/index.jsx"
     },
     output: {
         path: path.join(__dirname, "dist"),
