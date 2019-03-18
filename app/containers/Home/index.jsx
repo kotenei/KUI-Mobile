@@ -18,6 +18,7 @@ export default class Home extends Component {
   render() {
     const header = <Header>KUI-Mobile</Header>;
     const basic = [
+      { title: 'Button 按钮', to: '/button' },
       { title: 'Cell 单元格', to: '/cell' },
       { title: 'Icon 图标', to: '/icon' },
       { title: 'Layout 布局', to: '/layout' },

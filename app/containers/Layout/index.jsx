@@ -15,19 +15,19 @@ export default class View extends Component {
     const header = <Header goBack>Layout 布局</Header>;
     return (
       <Page header={header} fixedHeader className={prefixCls}>
-        <Block title="基础用法" bodyPadding>
+        <Block title="基础用法">
           <Basic />
         </Block>
-        <Block title="区块间隔" bodyPadding>
+        <Block title="区块间隔">
           <Gutter />
         </Block>
-        <Block title="偏移" bodyPadding>
+        <Block title="偏移">
           <Offset />
         </Block>
-        <Block title="Flex 布局" bodyPadding>
+        <Block title="Flex 布局">
           <Flex />
         </Block>
-        <Block title="Flex 对齐" bodyPadding>
+        <Block title="Flex 对齐">
           <FlexAlign />
         </Block>
       </Page>

@@ -4,14 +4,18 @@ import classnames from 'classnames';
 const prefixCls = 'app-block';
 
 const Block = props => {
-  const { title, children } = props;
+  const { title, children, bodyPadding } = props;
+  let padding = true;
+  if (typeof bodyPadding === 'boolean') {
+    padding = bodyPadding;
+  }
   return (
     <div className={prefixCls}>
       <h2 className={`${prefixCls}-title`}>{title}</h2>
       <div
         className={classnames({
           [`${prefixCls}-body`]: true,
-          [`${prefixCls}-body--padding`]: !!props.bodyPadding,
+          [`${prefixCls}-body--padding`]: padding,
         })}
       >
         {children}

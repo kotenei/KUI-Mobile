@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 
 const Alert = lazy(() => import('./containers/Alert'));
 const Badge = lazy(() => import('./containers/Badge'));
+const Button = lazy(() => import('./containers/Button'));
 const Cell = lazy(() => import('./containers/Cell'));
 const Collapse = lazy(() => import('./containers/Collapse'));
 const Home = lazy(() => import('./containers/Home'));
@@ -16,6 +17,7 @@ const Router = props => {
       <Route exact path="/" render={() => <Home />} />
       <Route exact path="/alert" render={() => <Alert />} />
       <Route exact path="/badge" render={() => <Badge />} />
+      <Route exact path="/button" render={() => <Button />} />
       <Route exact path="/cell" render={() => <Cell />} />
       <Route exact path="/collapse" render={() => <Collapse />} />
       <Route exact path="/layout" render={() => <Layout />} />

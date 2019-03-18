@@ -8,7 +8,9 @@
     text-transform: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    @include bem-element('spin') {
+    line-height: 0;
+    
+    @include bem-modifier('spin') {
         animation: loadingCircle 1s infinite linear;
     }
     @include bem-modifier('primary') {

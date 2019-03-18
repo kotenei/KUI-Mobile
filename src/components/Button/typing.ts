@@ -3,9 +3,8 @@ export interface ButtonProps extends KUI.BaseProps {
   icon?: string;
   disabled?: boolean;
   type?: 'button' | 'reset' | 'submit';
-  raised?: boolean;
-  fab?: boolean;
   active?: boolean;
+  size?: KUI.SizeTypes;
 }
 
 export interface ButtonGroupProps extends KUI.BaseProps {}

@@ -10,7 +10,10 @@ $link-active-color: shade($link-color, 5%);
 $selected-color: fade($primary-color, 90%);
 $subsidiary-color: #80848f;
 $rate-start-color: #fadb14;
-$disabled-color: #bbbec4;
+$disabled-color: #c3cbd6;
+$disabled-bgColor: #f7f7f7;
+$disabled-border-color: #d7dde4;
+$disabled-cursor: not-allowed;
 // base
 $title-color: #1c2438;
 $text-color: #495060;
@@ -20,6 +23,7 @@ $font-family: 'Helvetica Neue',
 'Hiragino Sans GB',
 Arial,
 sans-serif;
+$line-height:1.5;
 // size
 $font-size-icontext: 10px;
 $font-size-caption-sm: 12px;
@@ -94,6 +98,15 @@ $badge-dot-width: 8px;
 $badge-dot-height: 8px;
 $badge-dot-top: -4px;
 $badge-dot-right: -4px;
+// Button
+$button-padding-x: 15px;
+$button-padding-y: 8px;
+$button-font-weight: normal;
+$button-border-radius: $radius-base;
+$button-color: $text-color;
+$button-bgColor: #fff;
+$button-active-bgColor:#e6e6e6;
+$button-size-map: ( xs: ( padding: 4px 10px, fontSize:$font-size-icontext, ), sm: ( padding: 5px 12px, fontSize:$font-size-caption-sm, ), lg: ( fontSize:$font-size-caption, ), );
 // cell
 $cell-height: 48px;
 $cell-height-lg: 56px;

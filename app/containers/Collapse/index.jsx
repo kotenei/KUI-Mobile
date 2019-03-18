@@ -12,10 +12,10 @@ export default class View extends Component {
     const header = <Header goBack>Collapse 折叠面板</Header>;
     return (
       <Page header={header} fixedHeader className={prefixCls}>
-        <Block title="基础用法">
+        <Block title="基础用法" bodyPadding={false}>
           <Basic />
         </Block>
-        <Block title="手风琴">
+        <Block title="手风琴" bodyPadding={false}>
           <Accordion />
         </Block>
       </Page>
