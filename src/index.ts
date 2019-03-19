@@ -6,3 +6,4 @@ export * from './components/Cell';
 export * from './components/Collapse';
 export * from './components/Icon';
 export * from './components/Layout';
+export * from './components/Tabs';

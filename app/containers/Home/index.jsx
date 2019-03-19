@@ -27,6 +27,7 @@ export default class Home extends Component {
       { title: 'Badge 徽章', to: '/badge' },
       { title: 'Collapse 折叠面板', to: '/collapse' },
     ];
+    const nav = [{ title: 'Tabs 标签', to: '/tabs' }];
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
         <Collapse accordion>
@@ -35,6 +36,9 @@ export default class Home extends Component {
           </CollapsePanel>
           <CollapsePanel header="展示组件" id="2" border={false}>
             {this.renderCells(display)}
+          </CollapsePanel>
+          <CollapsePanel header="导航组件" id="3" border={false}>
+            {this.renderCells(nav)}
           </CollapsePanel>
         </Collapse>
       </Page>
