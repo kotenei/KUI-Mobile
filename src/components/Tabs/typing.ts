@@ -8,3 +8,17 @@ export interface TabsProps extends KUI.BaseProps {
 export interface TabsState {
   activeIndex?: number;
 }
+
+export interface TabPanelProps {
+  tab?: string | React.ReactNode;
+  isActive?: boolean;
+}
+
+export interface TabNavProps {}
+
+export interface TabNavItemProps {
+  index?: number;
+  isActive?: boolean;
+  disabled?: boolean;
+  onClick?: (index: number) => void;
+}

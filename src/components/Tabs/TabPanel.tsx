@@ -1,11 +1,17 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
+import { TabPanelProps } from './typing';
 
-const prefixCls = 'k-tabs-panel';
+const prefixCls = 'k-tabs__panel';
 
-class TabPanel extends PureComponent {
+class TabPanel extends PureComponent<TabPanelProps> {
   public render() {
-    return null;
+    const { isActive, children } = this.props;
+    const classString = classnames({
+      [prefixCls]: true,
+      [`${prefixCls}--active`]: isActive,
+    });
+    return <div className={classString}>{children}</div>;
   }
 }
 
