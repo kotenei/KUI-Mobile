@@ -12,12 +12,16 @@ class TabItem extends PureComponent<TabNavItemProps> {
       [`${prefixCls}--active`]: isActive,
       [`${prefixCls}--disabled`]: disabled,
     });
-    return <li className={classString}>{children}</li>;
+    return (
+      <li className={classString} onClick={this.handleClick}>
+        {children}
+      </li>
+    );
   }
   private handleClick = e => {
     const { onClick, index } = this.props;
     if (onClick) {
-      onClick(index || -1);
+      onClick(index);
     }
   };
 }

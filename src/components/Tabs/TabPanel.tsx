@@ -6,7 +6,7 @@ const prefixCls = 'k-tabs__panel';
 
 class TabPanel extends PureComponent<TabPanelProps> {
   public render() {
-    const { isActive, children } = this.props;
+    const { children, isActive } = this.props;
     const classString = classnames({
       [prefixCls]: true,
       [`${prefixCls}--active`]: isActive,

@@ -18,12 +18,8 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue',
-'PingFang SC',
-'Hiragino Sans GB',
-Arial,
-sans-serif;
-$line-height:1.5;
+$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
+$line-height: 1.5;
 // size
 $font-size-icontext: 10px;
 $font-size-caption-sm: 12px;
@@ -105,8 +101,20 @@ $button-font-weight: normal;
 $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
-$button-active-bgColor:#e6e6e6;
-$button-size-map: ( xs: ( padding: 4px 10px, fontSize:$font-size-icontext, ), sm: ( padding: 5px 12px, fontSize:$font-size-caption-sm, ), lg: ( fontSize:$font-size-caption, ), );
+$button-active-bgColor: #e6e6e6;
+$button-size-map: (
+  xs: (
+    padding: 4px 10px,
+    fontSize: $font-size-icontext,
+  ),
+  sm: (
+    padding: 5px 12px,
+    fontSize: $font-size-caption-sm,
+  ),
+  lg: (
+    fontSize: $font-size-caption,
+  ),
+);
 // cell
 $cell-height: 48px;
 $cell-height-lg: 56px;
@@ -118,3 +126,15 @@ $cell-label-margin-top: 4px;
 // collapse
 $collapse-bg-color: #fff;
 $collapse-inner-padding: 10px 15px;
+// tabs
+$tabs-nav-height: 48px;
+$tabs-nav-container-margin-bottom: -1px;
+$tabs-nav-container-scrolling-padding: 0 32px;
+$tabs-nav-scroller-margin-bottom: -1px;
+$tabs-nav-item-padding: 0 5px;
+$tabs-nav-item-height: 48px;
+$tabs-nav-item-margin-right: 24px;
+$tabs-nav-ink-height:2px;
+$tabs-nav-ink-bottom:1px;
+$tabs-panel-padding:20px;
+

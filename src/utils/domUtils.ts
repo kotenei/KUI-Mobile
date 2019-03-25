@@ -56,6 +56,16 @@ const domUtils = {
       left: offset.left - parentOffset.left - this.css(elem, 'marginLeft', true),
     };
   },
+  offsetParent(elem) {
+    let offsetParent = elem.offsetParent;
+    while (
+      offsetParent &&
+      (!this.nodeName(offsetParent, 'html') && this.css(offsetParent, 'position') === 'static')
+    ) {
+      offsetParent = offsetParent.offsetParent;
+    }
+    return offsetParent || document.documentElement;
+  },
   nodeName(elem, name) {
     return elem.nodeName && elem.nodeName.toLowerCase() === name;
   },
@@ -77,7 +87,7 @@ const domUtils = {
     }
     return elem.offsetWidth;
   },
-  outerWidth(elem, extra) {
+  outerWidth(elem, extra?: boolean) {
     if (!elem) {
       return 0;
     }
@@ -105,7 +115,7 @@ const domUtils = {
     }
     return elem.offsetHeight;
   },
-  outerHeight(elem, extra) {
+  outerHeight(elem, extra?: boolean) {
     if (!elem) {
       return 0;
     }

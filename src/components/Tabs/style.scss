@@ -1,9 +1,70 @@
-@include bem-block('tabs') {}
+$transition: all .3s ;
+@include bem-block('tabs') {
+    overflow: hidden;
+    @include bem-element('content') {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        transition: $transition;
+    }
+    @include bem-element('panel') {
+        width: 100%;
+        flex-shrink: 0;
+        opacity: 0;
+        transition: $transition;
+        padding: $tabs-panel-padding;
+        @include bem-modifier('active') {
+            opacity: 1;
+        }
+    }
+}
 
-@include bem-block('tabs-panel') {}
-
-@include bem-block('tabs-nav') {}
-
-@include bem-block('tabs-item') {}
-
-@include bem-block('tabs-content') {}
+@include bem-block('tabs-nav') {
+    border-bottom: $border-width-base $border-style-base $border-color-base;
+    height: $tabs-nav-height;
+    @include bem-element('container') {
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+        margin-bottom: $tabs-nav-container-margin-bottom;
+        height: $tabs-nav-height; // @include bem-modifier('scrolling'){
+        //     padding: $tabs-nav-container-scrolling-padding;
+        // }
+    }
+    @include bem-element('scroller') {
+        overflow: hidden;
+        margin-bottom: $tabs-nav-scroller-margin-bottom;
+    }
+    @include bem-element('list') {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: relative;
+        transition: all 0.3s ease;
+        display: flex;
+    }
+    @include bem-element('item') {
+        display: inline-block;
+        padding: $tabs-nav-item-padding;
+        height: $tabs-nav-item-height;
+        line-height: $tabs-nav-item-height; 
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        flex: 1;
+        @include bem-modifier('active') {
+            color: $primary-color;
+        }
+        @include bem-modifier('disabled') {
+            color: $disabled-color;
+        }
+    }
+    @include bem-element('ink') {
+        position: absolute;
+        bottom: $tabs-nav-ink-bottom;
+        height: $tabs-nav-ink-height;
+        background: $primary-color;
+        z-index: 2;
+        transition: $transition;
+    }
+}
