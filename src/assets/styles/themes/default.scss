@@ -128,13 +128,13 @@ $collapse-bg-color: #fff;
 $collapse-inner-padding: 10px 15px;
 // tabs
 $tabs-nav-height: 48px;
-$tabs-nav-container-margin-bottom: -1px;
 $tabs-nav-container-scrolling-padding: 0 32px;
-$tabs-nav-scroller-margin-bottom: -1px;
-$tabs-nav-item-padding: 0 5px;
+$tabs-nav-item-padding: 0 16px;
 $tabs-nav-item-height: 48px;
 $tabs-nav-item-margin-right: 24px;
-$tabs-nav-ink-height:2px;
-$tabs-nav-ink-bottom:1px;
-$tabs-panel-padding:20px;
+$tabs-nav-ink-height: 2px;
+$tabs-nav-ink-position-width: 0px;
+$tabs-panel-padding: 16px;
+$tabs-card-item-bgColor: #F5F7FA;
+$tabs-card-item-active-color:#fff;
 

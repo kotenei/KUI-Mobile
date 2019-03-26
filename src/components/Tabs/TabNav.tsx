@@ -127,10 +127,7 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
           [`${prefixCls}__container--scrolling`]: false,
         })}
       >
-        <div
-          className={`${prefixCls}__scroller`}
-          ref={this.handlRef}
-        >
+        <div className={`${prefixCls}__scroller`} ref={this.handlRef}>
           <ul className={`${prefixCls}__list`} style={navStyle}>
             {type === 'line' ? <li className={`${prefixCls}__ink`} style={inkStyle} /> : null}
             {this.getTabs()}
@@ -246,18 +243,26 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
     const el = this.tabsInfo.tabs[index],
       offset = domUtils.offset(el),
       position = domUtils.position(el),
-      ew = this.tabsInfo.arrWidth[index] - domUtils.css(el, 'marginRight', true),
+      ew = this.tabsInfo.arrWidth[index],
       tw = offset.left + this.tabsInfo.arrWidth[index],
-      nw = this.tabsInfo.scrollOffset.left + this.tabsInfo.scrollWidth;
-
+      nw = this.tabsInfo.scrollOffset.left + this.tabsInfo.scrollWidth,
+      half = nw / 2;
     let left;
 
-    if (offset.left < this.tabsInfo.scrollOffset.left) {
-      left = this.tabsInfo.arrLeft[index];
+    console.log(offset.left)
+
+    if (tw >= half) {
+      left = tw - half + scrollLeft;
+      if (left >= this.tabsInfo.maxLeft) {
+        left = this.tabsInfo.maxLeft;
+      }
+    } else {
+      left = scrollLeft - this.tabsInfo.arrWidth[index];
+      if (left <= 0) {
+        left = 0;
+      }
     }
-    if (tw > nw) {
-      left = tw - nw - domUtils.css(el, 'marginRight', true) + scrollLeft;
-    }
+
     if (left !== undefined) {
       this.setState({
         scrollLeft: left,
@@ -275,16 +280,23 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
     const el = this.tabsInfo.tabs[index],
       offset = domUtils.offset(el),
       position = domUtils.position(el),
-      eh = this.tabsInfo.arrHeight[index] - domUtils.css(el, 'marginBottom', true),
+      eh = this.tabsInfo.arrHeight[index],
       th = offset.top + this.tabsInfo.arrHeight[index],
-      nh = this.tabsInfo.scrollOffset.top + this.tabsInfo.scrollHeight;
+      nh = this.tabsInfo.scrollOffset.top + this.tabsInfo.scrollHeight,
+      half = nh / 2;
+
     let top;
 
-    if (offset.top < this.tabsInfo.scrollOffset.top) {
-      top = this.tabsInfo.arrTop[index];
-    }
-    if (th > nh) {
-      top = th - nh - domUtils.css(el, 'marginBottom', true) + scrollTop;
+    if (th >= half) {
+      top = th - half + scrollTop;
+      if (top >= this.tabsInfo.maxHeight) {
+        top = this.tabsInfo.maxHeight;
+      }
+    } else {
+      top = scrollTop - this.tabsInfo.arrHeight[index];
+      if (top <= 0) {
+        top = 0;
+      }
     }
 
     if (top !== undefined) {
