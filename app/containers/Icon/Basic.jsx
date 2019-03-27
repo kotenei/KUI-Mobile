@@ -14,18 +14,33 @@ const icons = [
 ];
 
 export default class Demo extends Component {
+  state = {
+    iconTheme: '',
+    typeIndex: -1,
+    iconName: '',
+  };
   renderIcons(theme) {
+    const { typeIndex, iconName, iconTheme } = this.state;
     let source = theme == 'outline' ? presetIcon.outline : presetIcon.filled;
     let content = [];
     for (let i = 0; i < icons.length; i++) {
       const item = icons[i];
       let items = [];
-      content.push(<h3 key={`title_${i}`}>{item.title}</h3>);
+      content.push(
+        <h3 key={`title_${i}`}>
+          {item.title}
+          {typeIndex === i && iconName && iconTheme === theme ? `:${iconName}` : ''}
+        </h3>,
+      );
       for (const key in source[item.key]) {
         if (source[item.key].hasOwnProperty(key)) {
           const element = source[item.key][key];
           items.push(
-            <li key={key}>
+            <li
+              key={key}
+              className={iconName === key ? 'active' : ''}
+              onClick={this.handleClick.bind(this, i, key, theme)}
+            >
               <Icon type={key} className="anticon" theme={theme} />
               {/* <span>{key}</span> */}
             </li>,
@@ -40,6 +55,13 @@ export default class Demo extends Component {
     }
     return content;
   }
+  handleClick = (typeIndex, key, theme) => {
+    this.setState({
+      typeIndex,
+      iconName: key,
+      iconTheme: theme,
+    });
+  };
   render() {
     return (
       <Tabs>

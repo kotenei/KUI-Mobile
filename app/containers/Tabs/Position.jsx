@@ -16,19 +16,19 @@ export default class Demo extends Component {
   render() {
     return (
       <React.Fragment>
-        <Tabs tabPosition="left">
+        <Tabs tabPosition="left" type="card">
           <TabPanel tab="Tab 1">Tab 1</TabPanel>
           <TabPanel tab="Tab 2">Tab 2</TabPanel>
           <TabPanel tab="Tab 3">Tab 3</TabPanel>
         </Tabs>
         <br />
-        <Tabs tabPosition="right">
+        <Tabs tabPosition="right" type="card">
           <TabPanel tab="Tab 1">Tab 1</TabPanel>
           <TabPanel tab="Tab 2">Tab 2</TabPanel>
           <TabPanel tab="Tab 3">Tab 3</TabPanel>
         </Tabs>
         <br />
-        <Tabs tabPosition="bottom" style={{ height: 150 }}>
+        <Tabs tabPosition="bottom" style={{ height: 150 }} type="card">
           <TabPanel tab="Tab 1">Tab 1</TabPanel>
           <TabPanel tab="Tab 2">Tab 2</TabPanel>
           <TabPanel tab="Tab 3">Tab 3</TabPanel>
