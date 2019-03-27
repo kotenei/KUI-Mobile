@@ -4,6 +4,7 @@ $transition: all .3s;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background: $tabs-bgColor;
 
     @include bem-element('content') {
         display: flex;
@@ -120,17 +121,23 @@ $transition: all .3s;
         flex-direction: column-reverse;
 
         @include element('tabs-nav') {
-            // border-top: $border-width-base $border-style-base $border-color-base;
-            // border-bottom: none;
+            border-top: $border-width-base $border-style-base $border-color-base;
+            border-bottom: none;
         }
 
         @include element('tabs-nav__ink') {
             bottom: auto;
             top: $tabs-nav-ink-position-width;
         }
+        
     }
 
     @include bem-modifier('card') {
+
+        @include element('tabs-nav'){
+            border:none;
+        }
+
         @include element('tabs-nav__item') {
             background: $tabs-card-item-bgColor;
 

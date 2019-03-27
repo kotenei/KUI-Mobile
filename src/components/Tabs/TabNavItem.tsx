@@ -19,7 +19,10 @@ class TabItem extends PureComponent<TabNavItemProps> {
     );
   }
   private handleClick = e => {
-    const { onClick, index } = this.props;
+    const { onClick, index, disabled } = this.props;
+    if (disabled) {
+      return;
+    }
     if (onClick) {
       onClick(index);
     }

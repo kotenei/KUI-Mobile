@@ -44,44 +44,29 @@ class Tabs extends PureComponent<TabsProps, TabsState> {
       });
     }
   }
-  public renderTabNav(key) {
+  public renderTabNav() {
     const { children } = this.props;
     const { activeIndex } = this.state;
     if (!children) {
       return null;
     }
     return (
-      <TabNav key={key} {...this.props} activeIndex={activeIndex} onTabClick={this.handleTabClick}>
+      <TabNav {...this.props} activeIndex={activeIndex} onTabClick={this.handleTabClick}>
         {children}
       </TabNav>
     );
   }
-  public renderTabContent(key) {
+  public renderTabContent() {
     const { children } = this.props;
     const { activeIndex } = this.state;
     if (!children) {
       return null;
     }
     return (
-      <TabContent key={key} {...this.props} activeIndex={activeIndex}>
+      <TabContent {...this.props} activeIndex={activeIndex}>
         {children}
       </TabContent>
     );
-  }
-  public renderContent() {
-    const { tabPosition } = this.props;
-    const items: any = [];
-    let key = -1;
-    // if (tabPosition === 'bottom') {
-    //   items.push(this.renderTabContent(key++));
-    //   items.push(this.renderTabNav(key++));
-    // } else {
-    //   items.push(this.renderTabNav(key++));
-    //   items.push(this.renderTabContent(key++));
-    // }
-    items.push(this.renderTabNav(key++));
-    items.push(this.renderTabContent(key++));
-    return items;
   }
   public render() {
     const { className, type, style, tabPosition } = this.props;
@@ -94,7 +79,8 @@ class Tabs extends PureComponent<TabsProps, TabsState> {
     });
     return (
       <div className={classString} style={style}>
-        {this.renderContent()}
+        {this.renderTabNav()}
+        {this.renderTabContent()}
       </div>
     );
   }
