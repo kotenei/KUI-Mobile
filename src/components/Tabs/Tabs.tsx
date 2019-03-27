@@ -72,13 +72,15 @@ class Tabs extends PureComponent<TabsProps, TabsState> {
     const { tabPosition } = this.props;
     const items: any = [];
     let key = -1;
-    if (tabPosition === 'bottom') {
-      items.push(this.renderTabContent(key++));
-      items.push(this.renderTabNav(key++));
-    } else {
-      items.push(this.renderTabNav(key++));
-      items.push(this.renderTabContent(key++));
-    }
+    // if (tabPosition === 'bottom') {
+    //   items.push(this.renderTabContent(key++));
+    //   items.push(this.renderTabNav(key++));
+    // } else {
+    //   items.push(this.renderTabNav(key++));
+    //   items.push(this.renderTabContent(key++));
+    // }
+    items.push(this.renderTabNav(key++));
+    items.push(this.renderTabContent(key++));
     return items;
   }
   public render() {

@@ -244,12 +244,10 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
       offset = domUtils.offset(el),
       position = domUtils.position(el),
       ew = this.tabsInfo.arrWidth[index],
-      tw = offset.left + this.tabsInfo.arrWidth[index],
-      nw = this.tabsInfo.scrollOffset.left + this.tabsInfo.scrollWidth,
+      tw = offset.left - this.tabsInfo.scrollOffset.left + this.tabsInfo.arrWidth[index],
+      nw = this.tabsInfo.scrollWidth,
       half = nw / 2;
     let left;
-
-    console.log(offset.left)
 
     if (tw >= half) {
       left = tw - half + scrollLeft;
@@ -281,8 +279,8 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
       offset = domUtils.offset(el),
       position = domUtils.position(el),
       eh = this.tabsInfo.arrHeight[index],
-      th = offset.top + this.tabsInfo.arrHeight[index],
-      nh = this.tabsInfo.scrollOffset.top + this.tabsInfo.scrollHeight,
+      th = offset.top - this.tabsInfo.scrollOffset.top + this.tabsInfo.arrHeight[index],
+      nh = this.tabsInfo.scrollHeight,
       half = nh / 2;
 
     let top;
