@@ -11,7 +11,7 @@ const Block = props => {
   }
   return (
     <div className={prefixCls}>
-      <h2 className={`${prefixCls}-title`}>{title}</h2>
+      {title && <h2 className={`${prefixCls}-title`}>{title}</h2>}
       <div
         className={classnames({
           [`${prefixCls}-body`]: true,
