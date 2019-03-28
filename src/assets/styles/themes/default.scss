@@ -18,7 +18,11 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
+$font-family: 'Helvetica Neue',
+'PingFang SC',
+'Hiragino Sans GB',
+Arial,
+sans-serif;
 $line-height: 1.5;
 // size
 $font-size-icontext: 10px;
@@ -102,18 +106,14 @@ $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
 $button-active-bgColor: #e6e6e6;
-$button-size-map: (
-  xs: (
-    padding: 4px 10px,
-    fontSize: $font-size-icontext,
-  ),
-  sm: (
-    padding: 5px 12px,
-    fontSize: $font-size-caption-sm,
-  ),
-  lg: (
-    fontSize: $font-size-caption,
-  ),
+$button-size-map: (xs: (padding: 4px 10px,
+fontSize: $font-size-icontext,
+),
+sm: (padding: 5px 12px,
+fontSize: $font-size-caption-sm,
+),
+lg: (fontSize: $font-size-caption,
+),
 );
 // cell
 $cell-height: 48px;
@@ -127,7 +127,7 @@ $cell-label-margin-top: 4px;
 $collapse-bg-color: #fff;
 $collapse-inner-padding: 10px 15px;
 // tabs
-$tabs-bgColor:#fff;
+$tabs-bgColor: #fff;
 $tabs-nav-height: 48px;
 $tabs-nav-container-scrolling-padding: 0 32px;
 $tabs-nav-item-padding: 0 16px;
@@ -136,13 +136,22 @@ $tabs-nav-item-margin-right: 24px;
 $tabs-nav-ink-height: 2px;
 $tabs-nav-ink-position-width: 0px;
 $tabs-panel-padding: 16px;
-$tabs-card-item-bgColor: #F5F7FA;
-$tabs-card-item-active-color:#fff;
+$tabs-card-item-bgColor: #f5f7fa;
+$tabs-card-item-active-color: #fff;
 // tag
-$tag-padding:4px 6px;
-$tag-color:#657180;
-$tag-margin:0 8px 8px 0;
-$tag-border-color:#e3e8ee;
-$tag-bgColor:#f3f3f3;
-
-
+$tag-padding: 4px 6px;
+$tag-color: #657180;
+$tag-margin: 0 8px 8px 0;
+$tag-border-color: #e3e8ee;
+$tag-bgColor: #f3f3f3;
+// timeline
+$timeline-item-padding: 0 0 12px;
+$timeline-tail-left: 5px;
+$timeline-tail-border-width: 2px;
+$timeline-head-width:12px;
+$timeline-head-height:12px;
+$timeline-head-bgColor:#fff;
+$timeline-head-radius:100px;
+$timeline-head-border-width:2px;
+$timeline-content-padding:0 0 10px 24px;
+$timeline-content-top:-3px;

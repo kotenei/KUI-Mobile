@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Tag } from 'kui-mobile';
 
-export default class Example extends Component {
+export default class Demo extends Component {
   handleClose = () => {
     return true;
   };

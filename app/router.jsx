@@ -12,6 +12,7 @@ const Icon = lazy(() => import('./containers/Icon'));
 const Layout = lazy(() => import('./containers/Layout'));
 const Tabs = lazy(() => import('./containers/Tabs'));
 const Tag = lazy(() => import('./containers/Tag'));
+const Timeline = lazy(() => import('./containers/Timeline'));
 
 const Router = props => {
   return (
@@ -26,6 +27,7 @@ const Router = props => {
       <Route exact path="/layout" render={() => <Layout />} />
       <Route exact path="/tabs" render={() => <Tabs />} />
       <Route exact path="/tag" render={() => <Tag />} />
+      <Route exact path="/timeline" render={() => <Timeline />} />
     </AnimationRouter>
   );
 };

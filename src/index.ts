@@ -8,3 +8,4 @@ export * from './components/Icon';
 export * from './components/Layout';
 export * from './components/Tabs';
 export * from './components/Tag';
+export * from './components/Timeline';

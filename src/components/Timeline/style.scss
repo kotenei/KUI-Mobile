@@ -1,0 +1,36 @@
+@include bem-block('timeline') {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include bem-element('item') {
+        list-style: none;
+        margin: 0;
+        position: relative;
+        padding: $timeline-item-padding;
+    }
+
+    @include bem-element('tail') {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        left: $timeline-tail-left;
+        border: $timeline-tail-border-width $border-style-base #E5E5E5;
+    }
+
+    @include bem-element('head') {
+        position: absolute;
+        width: $timeline-head-width;
+        height: $timeline-head-height;
+        background-color: $timeline-head-bgColor;
+        border-radius: $timeline-head-radius;
+        border: $timeline-head-border-width $border-style-base transparent;
+    }
+
+    @include bem-element('content') {
+        position: relative;
+        padding: $timeline-content-padding;
+        top: $timeline-content-top;
+        font-size: $font-size-caption-sm;
+    }
+}

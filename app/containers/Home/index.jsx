@@ -27,6 +27,7 @@ export default class Home extends Component {
       { title: 'Badge 徽章', to: '/badge' },
       { title: 'Collapse 折叠面板', to: '/collapse' },
       { title: 'Tag 标签', to: '/tag' },
+      { title: 'Timeline 时间轴', to: '/timeline' },
     ];
     const nav = [{ title: 'Tabs 标签页', to: '/tabs' }];
     const feedback = [{ title: 'Alert 警告提示', to: '/alert' }];
