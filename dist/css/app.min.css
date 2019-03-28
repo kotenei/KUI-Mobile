@@ -22,6 +22,17 @@
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
+.fade-enter,
+.fade-exit-active {
+  opacity: 0; }
+
+.fade-enter-active {
+  opacity: 1; }
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity .3s ease; }
+
 *,
 *::after,
 *::before {

@@ -29,6 +29,7 @@ export default class Home extends Component {
       { title: 'Tag 标签', to: '/tag' },
     ];
     const nav = [{ title: 'Tabs 标签页', to: '/tabs' }];
+    const feedback = [{ title: 'Alert 警告提示', to: '/alert' }];
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
         <Collapse accordion>
@@ -40,6 +41,9 @@ export default class Home extends Component {
           </CollapsePanel>
           <CollapsePanel header="导航组件" id="3" border={false}>
             {this.renderCells(nav)}
+          </CollapsePanel>
+          <CollapsePanel header="反馈组件" id="4" border={false}>
+            {this.renderCells(feedback)}
           </CollapsePanel>
         </Collapse>
       </Page>

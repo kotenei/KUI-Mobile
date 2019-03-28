@@ -39,7 +39,7 @@ class Tag extends PureComponent<TagProps, TagState> {
 
   private handleClose = () => {
     const { onClose } = this.props;
-    if (onClose && onClose() === true) {
+    if (onClose && onClose() !== false) {
       this.setState({
         closed: true,
       });

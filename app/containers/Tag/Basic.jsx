@@ -3,27 +3,26 @@ import { Tag } from 'kui-mobile';
 
 export default class Example extends Component {
   handleClose = () => {
-    alert('ok');
     return true;
   };
   render() {
     return (
       <React.Fragment>
         <Tag>default</Tag>
-        <Tag closable>closable</Tag>
-        <Tag closable color="primary">
+        <Tag closable onClose={this.handleClose}>closable</Tag>
+        <Tag closable color="primary" onClose={this.handleClose}>
           primary
         </Tag>
-        <Tag closable color="info">
+        <Tag closable color="info" onClose={this.handleClose}>
           info
         </Tag>
         <Tag closable color="success" onClose={this.handleClose}>
           success
         </Tag>
-        <Tag closable color="warning">
+        <Tag closable color="warning" onClose={this.handleClose}>
           warning
         </Tag>
-        <Tag closable color="danger">
+        <Tag closable color="danger" onClose={this.handleClose}>
           danger
         </Tag>
       </React.Fragment>

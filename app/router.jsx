@@ -24,6 +24,7 @@ const Router = props => {
       <Route exact path="/collapse" render={() => <Collapse />} />
       <Route exact path="/icon" render={() => <Icon />} />
       <Route exact path="/layout" render={() => <Layout />} />
+      <Route exact path="/tabs" render={() => <Tabs />} />
       <Route exact path="/tag" render={() => <Tag />} />
     </AnimationRouter>
   );
