@@ -1104,7 +1104,8 @@ a {
       border-radius: 0;
       padding: 3px 0;
       -webkit-transform: translateY(-50%);
-              transform: translateY(-50%); }
+              transform: translateY(-50%);
+      background: transparent; }
   .k-timeline__content {
     position: relative;
     padding: 0 0 10px 24px;
