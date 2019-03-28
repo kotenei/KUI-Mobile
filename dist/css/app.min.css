@@ -980,6 +980,74 @@ a {
     z-index: 2;
     transition: all 0.3s; }
 
+.k-tag {
+  display: inline-block;
+  padding: 4px 6px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 8px 8px 0;
+  background: #f3f3f3;
+  border: 1px solid #e3e8ee;
+  color: #657180; }
+  .k-tag svg {
+    fill: #657180; }
+  .k-tag--primary {
+    background: #2196f3;
+    border-color: #2196f3;
+    color: #fff; }
+    .k-tag--primary svg {
+      fill: #fff; }
+    .k-tag--primary.k-tag--line {
+      color: #2196f3; }
+      .k-tag--primary.k-tag--line svg {
+        fill: #2196f3; }
+  .k-tag--info {
+    background: #03a9f4;
+    border-color: #03a9f4;
+    color: #fff; }
+    .k-tag--info svg {
+      fill: #fff; }
+    .k-tag--info.k-tag--line {
+      color: #03a9f4; }
+      .k-tag--info.k-tag--line svg {
+        fill: #03a9f4; }
+  .k-tag--success {
+    background: #4caf50;
+    border-color: #4caf50;
+    color: #fff; }
+    .k-tag--success svg {
+      fill: #fff; }
+    .k-tag--success.k-tag--line {
+      color: #4caf50; }
+      .k-tag--success.k-tag--line svg {
+        fill: #4caf50; }
+  .k-tag--warning {
+    background: #ff9800;
+    border-color: #ff9800;
+    color: #fff; }
+    .k-tag--warning svg {
+      fill: #fff; }
+    .k-tag--warning.k-tag--line {
+      color: #ff9800; }
+      .k-tag--warning.k-tag--line svg {
+        fill: #ff9800; }
+  .k-tag--danger {
+    background: #f44336;
+    border-color: #f44336;
+    color: #fff; }
+    .k-tag--danger svg {
+      fill: #fff; }
+    .k-tag--danger.k-tag--line {
+      color: #f44336; }
+      .k-tag--danger.k-tag--line svg {
+        fill: #f44336; }
+  .k-tag--line {
+    background: transparent; }
+
 body {
   font-family: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
   font-size: 14px;
