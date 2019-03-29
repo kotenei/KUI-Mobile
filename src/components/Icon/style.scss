@@ -9,30 +9,30 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     line-height: 0;
-    
+
     @include bem-modifier('spin') {
         animation: loadingCircle 1s infinite linear;
     }
-    @include bem-modifier('primary') {
-        @include text-color($primary-color);
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            @include text-color($value);
+        }
     }
-    @include bem-modifier('info') {
-        @include text-color($info-color);
-    }
-    @include bem-modifier('success') {
-        @include text-color($success-color);
-    }
-    @include bem-modifier('warning') {
-        @include text-color($warning-color);
-    }
-    @include bem-modifier('danger') {
-        @include text-color($danger-color);
-    }
+
 }
 
 @include bem-block("icon-svg") {
     width: $icon-svg-width;
     height: $icon-svg-height;
     display: inline-block;
-    fill: $text-color;
+    fill: currentColor;
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            fill: $value;
+        }
+    }
 }

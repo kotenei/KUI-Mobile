@@ -1,7 +1,11 @@
 @mixin text-color($color) {
     color: $color;
-    svg {
-        fill: $color;
+    // svg {
+    //     fill: $color;
+    // }
+
+    .#{$namespace}-icon {
+        color: $color;
     }
 }
 

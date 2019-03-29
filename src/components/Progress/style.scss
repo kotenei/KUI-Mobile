@@ -1,0 +1,96 @@
+@include bem-block('progress') {
+    display: inline-block;
+    position: relative;
+    margin-bottom: $progress-margin-bottom;
+
+    @include bem-modifier('textInside') {}
+
+    @include bem-modifier('line') {
+        width: 100%;
+    }
+
+    @include bem-modifier('circle') {}
+
+    @include bem-element('bar') {
+        vertical-align: middle;
+        display: inline-block;
+        width: calc(100% - 44px);
+
+        @include bem-modifier('hideText') {
+            margin: 0;
+            padding: 0;
+            width: 100%
+        }
+    }
+
+    @include bem-element('outer') {
+        position: relative;
+        overflow: hidden;
+        vertical-align: middle;
+        background: #e4e8f1;
+        border-radius: 100px;
+    }
+
+    @include bem-element('inner') {
+        left: 0;
+        top: 0;
+        height: 100%;
+        text-align: right;
+        line-height: 1;
+        background: #2196F3;
+        border-radius: 100px;
+        transition: width 0.6s ease;
+        color: white;
+        line-height: 1.5;
+
+        &--indeterminate1,
+        &--indeterminate2 {
+            width: auto;
+            transition: transform 0.2s linear;
+            transform-origin: left;
+            will-change: left, right;
+            position: absolute;
+        }
+        &--indeterminate1 {
+            animation: indeterminate1 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite
+        }
+        &--indeterminate2 {
+            animation: indeterminate2 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+            animation-delay: 1.15s;
+        }
+    }
+}
+
+@keyframes indeterminate1 {
+    0% {
+        left: -35%;
+        right: 100%;
+    }
+
+    60% {
+        left: 100%;
+        right: -90%;
+    }
+
+    100% {
+        left: 100%;
+        right: -90%;
+    }
+}
+
+@keyframes indeterminate2 {
+    0% {
+        left: -200%;
+        right: 100%;
+    }
+
+    60% {
+        left: 107%;
+        right: -8%;
+    }
+
+    100% {
+        left: 107%;
+        right: -8;
+    }
+}

@@ -11,7 +11,8 @@ export interface IconProps extends KUI.BaseProps {
 }
 
 export interface SvgIconProps extends KUI.BaseProps {
-  color?: string;
+  color?: KUI.ColorTypes;
+  nativeColor?: string;
   fontSize?: number;
   title?: string;
   viewBox?: string;

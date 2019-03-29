@@ -30,7 +30,10 @@ export default class Home extends Component {
       { title: 'Timeline 时间轴', to: '/timeline' },
     ];
     const nav = [{ title: 'Tabs 标签页', to: '/tabs' }];
-    const feedback = [{ title: 'Alert 警告提示', to: '/alert' }];
+    const feedback = [
+      { title: 'Alert 警告提示', to: '/alert' },
+      { title: 'Progress 进度条', to: '/progress' },
+    ];
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
         <Collapse accordion>

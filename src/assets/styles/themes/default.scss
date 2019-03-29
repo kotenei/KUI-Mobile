@@ -18,11 +18,7 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue',
-'PingFang SC',
-'Hiragino Sans GB',
-Arial,
-sans-serif;
+$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
 $line-height: 1.5;
 // size
 $font-size-icontext: 10px;
@@ -106,7 +102,19 @@ $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
 $button-active-bgColor: #e6e6e6;
-$button-size-map: (xs: (padding: 4px 10px, fontSize: $font-size-icontext, ), sm: (padding: 5px 12px, fontSize: $font-size-caption-sm, ), lg: (fontSize: $font-size-caption, ), );
+$button-size-map: (
+  xs: (
+    padding: 4px 10px,
+    fontSize: $font-size-icontext,
+  ),
+  sm: (
+    padding: 5px 12px,
+    fontSize: $font-size-caption-sm,
+  ),
+  lg: (
+    fontSize: $font-size-caption,
+  ),
+);
 // cell
 $cell-height: 48px;
 $cell-height-lg: 56px;
@@ -140,14 +148,16 @@ $tag-bgColor: #f3f3f3;
 $timeline-item-padding: 0 0 12px;
 $timeline-tail-left: 5px;
 $timeline-tail-border-width: 1px;
-$timeline-head-width:12px;
-$timeline-head-height:12px;
-$timeline-head-bgColor:#fff;
-$timeline-head-radius:100px;
-$timeline-head-border-width:2px;
-$timeline-head-dot-width:40px;
-$timeline-head-dot-left:14px;
-$timeline-head-margin-top:6px;
-$timeline-head-padding:3px 0;
-$timeline-content-padding:0 0 10px 24px;
-$timeline-content-top:0px;
+$timeline-head-width: 12px;
+$timeline-head-height: 12px;
+$timeline-head-bgColor: #fff;
+$timeline-head-radius: 100px;
+$timeline-head-border-width: 2px;
+$timeline-head-dot-width: 40px;
+$timeline-head-dot-left: 14px;
+$timeline-head-margin-top: 6px;
+$timeline-head-padding: 3px 0;
+$timeline-content-padding: 0 0 10px 24px;
+$timeline-content-top: 0px;
+// progress
+$progress-margin-bottom: 10px;

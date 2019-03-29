@@ -9,22 +9,38 @@ export default class SvgIcon extends PureComponent<SvgIconProps> {
     viewBox: '0 0 1024 1024',
   };
   public render() {
-    const { children, className, fontSize, viewBox, title, color, style } = this.props;
+    const {
+      children,
+      className,
+      fontSize,
+      viewBox,
+      title,
+      color,
+      nativeColor,
+      style,
+      ...others
+    } = this.props;
     const _style = {
       fontSize,
       ...style,
-      fill: `${color ? color : null}`,
     };
-    const classString = classnames(prefixCls, className);
+    const classString = classnames(
+      {
+        [prefixCls]: true,
+        [`${prefixCls}--${color}`]: !!color,
+      },
+      className,
+    );
 
     return (
       <svg
         className={classString}
         focusable="false"
         viewBox={viewBox}
-        fill={color}
+        color={nativeColor}
         aria-hidden={title ? 'false' : 'true'}
         style={_style}
+        {...others}
       >
         {title && <title>{title}</title>}
         {children}
