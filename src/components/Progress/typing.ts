@@ -9,4 +9,5 @@ export interface ProgressProps extends KUI.BaseProps {
   width?: number;
   indeterminate?: boolean;
   text?: string;
+  nativeColor?: string;
 }

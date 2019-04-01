@@ -8,7 +8,6 @@ const prefixCls = 'k-progress';
 
 class Progress extends PureComponent<ProgressProps> {
   private static defaultProps = {
-    color: 'primary',
     percent: 0,
     type: 'line',
     strokeWidth: 6,
@@ -29,12 +28,13 @@ class Progress extends PureComponent<ProgressProps> {
     }
   }
   public render() {
-    const { type, textInside, className } = this.props;
+    const { type, textInside, className, color } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
         [`${prefixCls}--textInside`]: textInside,
         [`${prefixCls}--${type}`]: type !== undefined,
+        [`${prefixCls}--${color}`]: !!color,
       },
       className,
     );

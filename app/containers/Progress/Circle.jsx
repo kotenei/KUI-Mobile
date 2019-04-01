@@ -6,7 +6,7 @@ export default class Demo extends Component {
     return (
       <React.Fragment>
         <Progress percent={30} type="circle" strokeWidth={10} />
-        <Progress percent={100} type="circle" status="success" strokeWidth={10} />
+        <Progress percent={100} type="circle" status="success" strokeWidth={10}  />
         <Progress percent={70} type="circle" status="error" strokeWidth={10} />
       </React.Fragment>
     );
