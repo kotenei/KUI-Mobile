@@ -29,7 +29,7 @@ export default class Home extends Component {
       { title: 'Tag 标签', to: '/tag' },
       { title: 'Timeline 时间轴', to: '/timeline' },
     ];
-    const nav = [{ title: 'Tabs 标签页', to: '/tabs' }];
+    const nav = [{ title: 'Steps 步骤条', to: '/steps' }, { title: 'Tabs 标签页', to: '/tabs' }];
     const feedback = [
       { title: 'Alert 警告提示', to: '/alert' },
       { title: 'Progress 进度条', to: '/progress' },

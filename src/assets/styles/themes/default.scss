@@ -18,7 +18,11 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
+$font-family: 'Helvetica Neue',
+'PingFang SC',
+'Hiragino Sans GB',
+Arial,
+sans-serif;
 $line-height: 1.5;
 // size
 $font-size-icontext: 10px;
@@ -102,18 +106,14 @@ $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
 $button-active-bgColor: #e6e6e6;
-$button-size-map: (
-  xs: (
-    padding: 4px 10px,
-    fontSize: $font-size-icontext,
-  ),
-  sm: (
-    padding: 5px 12px,
-    fontSize: $font-size-caption-sm,
-  ),
-  lg: (
-    fontSize: $font-size-caption,
-  ),
+$button-size-map: (xs: (padding: 4px 10px,
+fontSize: $font-size-icontext,
+),
+sm: (padding: 5px 12px,
+fontSize: $font-size-caption-sm,
+),
+lg: (fontSize: $font-size-caption,
+),
 );
 // cell
 $cell-height: 48px;
@@ -126,6 +126,30 @@ $cell-label-margin-top: 4px;
 // collapse
 $collapse-bg-color: #fff;
 $collapse-inner-padding: 10px 15px;
+// progress
+$progress-margin-bottom: 10px;
+$progress-bar-width: calc(100% - 44px);
+$progress-outer-radius: 100px;
+$progress-innter-radius: 100px;
+$progress-innerText-margin: 0 5px;
+$progress-text-margin-left: 8px;
+$progress-circle-margin-right: 10px;
+// steps
+$steps-tail-color: #e8e8e8;
+$steps-horizontal-title-top: 16px;
+$steps-horizontal-title-left: 100%;
+$steps-horizontal-step-margin-margin: 16px;
+$steps-title-line-height:32px;
+$steps-title-padding-right:16px;
+$steps-title-color:#999;
+$steps-description-color:#999;
+$steps-title-finish-color:#666;
+$steps-description-finish-color:#666;
+$steps-icon-color:#ccc;
+$steps-icon-width:32px;
+$steps-icon-height:32px;
+$steps-icon-line-height:32px;
+$steps-icon-margin-right:8px;
 // tabs
 $tabs-bgColor: #fff;
 $tabs-nav-height: 48px;
@@ -159,11 +183,3 @@ $timeline-head-margin-top: 6px;
 $timeline-head-padding: 3px 0;
 $timeline-content-padding: 0 0 10px 24px;
 $timeline-content-top: 0px;
-// progress
-$progress-margin-bottom: 10px;
-$progress-bar-width: calc(100% - 44px);
-$progress-outer-radius: 100px;
-$progress-innter-radius: 100px;
-$progress-innerText-margin: 0 5px;
-$progress-text-margin-left: 8px;
-$progress-circle-margin-right:10px;
