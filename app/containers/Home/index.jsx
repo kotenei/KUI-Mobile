@@ -34,6 +34,7 @@ export default class Home extends Component {
       { title: 'Alert 警告提示', to: '/alert' },
       { title: 'Progress 进度条', to: '/progress' },
     ];
+    const form = [{ title: 'Switch 开关', to: '/switch' }];
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
         <Collapse accordion>
@@ -48,6 +49,9 @@ export default class Home extends Component {
           </CollapsePanel>
           <CollapsePanel header="反馈组件" id="4" border={false}>
             {this.renderCells(feedback)}
+          </CollapsePanel>
+          <CollapsePanel header="表单组件" id="5" border={false}>
+            {this.renderCells(form)}
           </CollapsePanel>
         </Collapse>
       </Page>

@@ -12,6 +12,7 @@ const Icon = lazy(() => import('./containers/Icon'));
 const Layout = lazy(() => import('./containers/Layout'));
 const Progress = lazy(() => import('./containers/progress'));
 const Steps = lazy(() => import('./containers/Steps'));
+const Switch = lazy(() => import('./containers/Switch'));
 const Tabs = lazy(() => import('./containers/Tabs'));
 const Tag = lazy(() => import('./containers/Tag'));
 const Timeline = lazy(() => import('./containers/Timeline'));
@@ -29,6 +30,7 @@ const Router = props => {
       <Route exact path="/layout" render={() => <Layout />} />
       <Route exact path="/progress" render={() => <Progress />} />
       <Route exact path="/steps" render={() => <Steps />} />
+      <Route exact path="/switch" render={() => <Switch />} />
       <Route exact path="/tabs" render={() => <Tabs />} />
       <Route exact path="/tag" render={() => <Tag />} />
       <Route exact path="/timeline" render={() => <Timeline />} />
