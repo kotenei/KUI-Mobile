@@ -3,8 +3,6 @@ import classnames from 'classnames';
 import { StepProps } from './typing';
 import { Icon } from '../Icon';
 
-// const prefixCls = 'k-steps';
-
 class Step extends PureComponent<StepProps> {
   public static displayName = 'Step';
   public renderIcon() {

@@ -18,11 +18,7 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue',
-'PingFang SC',
-'Hiragino Sans GB',
-Arial,
-sans-serif;
+$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
 $line-height: 1.5;
 // size
 $font-size-icontext: 10px;
@@ -106,14 +102,18 @@ $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
 $button-active-bgColor: #e6e6e6;
-$button-size-map: (xs: (padding: 4px 10px,
-fontSize: $font-size-icontext,
-),
-sm: (padding: 5px 12px,
-fontSize: $font-size-caption-sm,
-),
-lg: (fontSize: $font-size-caption,
-),
+$button-size-map: (
+  xs: (
+    padding: 4px 10px,
+    fontSize: $font-size-icontext,
+  ),
+  sm: (
+    padding: 5px 12px,
+    fontSize: $font-size-caption-sm,
+  ),
+  lg: (
+    fontSize: $font-size-caption,
+  ),
 );
 // cell
 $cell-height: 48px;
@@ -135,21 +135,30 @@ $progress-innerText-margin: 0 5px;
 $progress-text-margin-left: 8px;
 $progress-circle-margin-right: 10px;
 // steps
-$steps-tail-color: #e8e8e8;
-$steps-horizontal-title-top: 16px;
-$steps-horizontal-title-left: 100%;
 $steps-horizontal-step-margin-margin: 16px;
-$steps-title-line-height:32px;
-$steps-title-padding-right:16px;
-$steps-title-color:#999;
-$steps-description-color:#999;
-$steps-title-finish-color:#666;
-$steps-description-finish-color:#666;
-$steps-icon-color:#ccc;
-$steps-icon-width:32px;
-$steps-icon-height:32px;
-$steps-icon-line-height:32px;
-$steps-icon-margin-right:8px;
+$steps-title-line-height: 24px;
+$steps-title-padding-right: 16px;
+$steps-title-color: #999;
+$steps-description-color: #999;
+$steps-description-max-width: 100px;
+$steps-title-finish-color: #666;
+$steps-description-finish-color: #666;
+$steps-icon-color: #ccc;
+$steps-icon-width: 24px;
+$steps-icon-height: 24px;
+$steps-icon-line-height: 24px;
+$steps-icon-margin-right: 8px;
+$steps-icon-customize-font-size: 24px;
+$steps-line-top: 11px;
+$steps-line-bgColor: #e8e8e8;
+$steps-line-center-left: calc(50% + 24px);
+$steps-line-center-width: calc(100% - 48px);
+$steps-vertical-tail-left: 11px;
+$steps-vertical-tail-top: 16px;
+$steps-vertical-tail-bottom: 16px;
+$steps-vertical-icon-margin-right: 16px;
+$steps-vertical-description-padding-bottom: 16px;
+
 // tabs
 $tabs-bgColor: #fff;
 $tabs-nav-height: 48px;

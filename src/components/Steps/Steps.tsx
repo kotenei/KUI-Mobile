@@ -7,7 +7,7 @@ const prefixCls = 'k-steps';
 
 class Steps extends PureComponent<StepsProps> {
   private static defaultProps = {
-    alignCenter: false,
+    alignCenter: true,
     current: 0,
     direction: 'horizontal',
     showNumber: true,
