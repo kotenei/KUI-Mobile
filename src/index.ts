@@ -12,3 +12,4 @@ export * from './components/Switch';
 export * from './components/Tabs';
 export * from './components/Tag';
 export * from './components/Timeline';
+export * from './components/Toast';
