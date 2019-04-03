@@ -18,7 +18,11 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
+$font-family: 'Helvetica Neue',
+'PingFang SC',
+'Hiragino Sans GB',
+Arial,
+sans-serif;
 $line-height: 1.5;
 // size
 $font-size-icontext: 10px;
@@ -60,10 +64,12 @@ $ease-in-out: ease-in-out;
 $zindex-spin: 8;
 $zindex-affix: 10;
 $zindex-back-top: 10;
+$zindex-mask:800;
 $zindex-select: 900;
 $zindex-modal: 1000;
 $zindex-message: 1010;
 $zindex-notification: 1010;
+$zindex-toast:1010;
 $zindex-tooltip: 1060;
 $zindex-transfer: 1060;
 $zindex-loading-bar: 2000;
@@ -102,18 +108,14 @@ $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
 $button-active-bgColor: #e6e6e6;
-$button-size-map: (
-  xs: (
-    padding: 4px 10px,
-    fontSize: $font-size-icontext,
-  ),
-  sm: (
-    padding: 5px 12px,
-    fontSize: $font-size-caption-sm,
-  ),
-  lg: (
-    fontSize: $font-size-caption,
-  ),
+$button-size-map: (xs: (padding: 4px 10px,
+fontSize: $font-size-icontext,
+),
+sm: (padding: 5px 12px,
+fontSize: $font-size-caption-sm,
+),
+lg: (fontSize: $font-size-caption,
+),
 );
 // cell
 $cell-height: 48px;
@@ -212,3 +214,8 @@ $timeline-head-margin-top: 6px;
 $timeline-head-padding: 3px 0;
 $timeline-content-padding: 0 0 10px 24px;
 $timeline-content-top: 0px;
+
+// toast
+$toast-padding:8px 12px;
+$toast-icon-margin-bottom:10px;
+$toast-icon-font-size:48px;

@@ -1,13 +1,7 @@
+export type ToastType = 'loading' | 'info' | 'success' | 'warning' | 'error';
+
 export interface ToastProps extends KUI.BaseProps {
-  duration?: number;
-  icon?: React.ReactNode;
-  mask?: boolean;
-  maskClose?: boolean;
-  message?: string;
-  type?: 'loading' | 'fail' | 'success' | 'waring';
-  onClose?: () => void;
+  type?: ToastType;
 }
 
-export interface ToastState {
-  open: boolean;
-}
+export interface ToastState {}

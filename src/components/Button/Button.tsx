@@ -21,6 +21,7 @@ class Button extends PureComponent<ButtonProps> {
       className,
       children,
       size,
+      full,
       ...others
     } = this.props;
 
@@ -31,6 +32,7 @@ class Button extends PureComponent<ButtonProps> {
         [`${prefixCls}--${size}`]: !!size,
         [`${prefixCls}--active`]: !!active,
         [`${prefixCls}--disabled`]: !!disabled,
+        [`${prefixCls}--full`]: !!full,
       },
       className,
     );

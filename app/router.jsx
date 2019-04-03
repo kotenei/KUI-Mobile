@@ -16,6 +16,7 @@ const Switch = lazy(() => import('./containers/Switch'));
 const Tabs = lazy(() => import('./containers/Tabs'));
 const Tag = lazy(() => import('./containers/Tag'));
 const Timeline = lazy(() => import('./containers/Timeline'));
+const Toast = lazy(() => import('./containers/Toast'));
 
 const Router = props => {
   return (
@@ -34,6 +35,7 @@ const Router = props => {
       <Route exact path="/tabs" render={() => <Tabs />} />
       <Route exact path="/tag" render={() => <Tag />} />
       <Route exact path="/timeline" render={() => <Timeline />} />
+      <Route exact path="/toast" render={() => <Toast />} />
     </AnimationRouter>
   );
 };

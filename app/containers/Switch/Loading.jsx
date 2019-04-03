@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch } from "kui-mobile";
 
-export default class Example extends Component {
+export default class Demo extends Component {
     render() {
         return (
             <React.Fragment>

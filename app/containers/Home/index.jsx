@@ -33,6 +33,7 @@ export default class Home extends Component {
     const feedback = [
       { title: 'Alert 警告提示', to: '/alert' },
       { title: 'Progress 进度条', to: '/progress' },
+      { title: 'Toast 轻提示', to: '/toast' },
     ];
     const form = [{ title: 'Switch 开关', to: '/switch' }];
     return (
