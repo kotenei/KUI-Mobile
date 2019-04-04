@@ -40,10 +40,12 @@ class Notification extends PureComponent<NotificationProps, NotificationState> {
 
   public add = (noticeProps: NoticeProps): void => {
     const { notices } = this.state;
+    const newNotices = [...notices];
+
     if (!notices.find(notice => notice.key === noticeProps.key)) {
-      notices.push(noticeProps);
+      newNotices.push(noticeProps);
       this.setState({
-        notices,
+        notices: newNotices,
         duration: noticeProps.duration,
       });
     }

@@ -3,17 +3,23 @@ import classnames from 'classnames';
 import ToastContent from './ToastContent';
 import { Notification } from '../Notification';
 import { ToastType } from './typing';
+import { guid } from '../../utils';
 
 const key = 'toast';
 const defaultDuration = 1500;
 let instance;
 
+interface Settings {
+  key?: string;
+  duration?: number;
+  onClose?: () => void;
+  mask?: boolean;
+}
+
 const notice = (
   content: React.ReactNode,
-  type: ToastType,
-  duration: number = defaultDuration,
-  onClose: (() => void) | undefined,
-  mask = true,
+  type,
+  settings: Settings = { key, duration: defaultDuration, mask: true, onClose: () => {} },
 ) => {
   const container = <ToastContent type={type}>{content}</ToastContent>;
   const strMask = 'k-toast-mask';
@@ -27,37 +33,43 @@ const notice = (
   }
 
   instance.notice({
-    key,
+    key: settings.key || key,
     className: classnames({
-      [strMask]: mask,
-      [`${strMask}--hide`]: !mask,
+      [strMask]: settings.mask,
+      [`${strMask}--hide`]: !settings.mask,
     }),
     content: container,
-    duration,
+    duration: settings.duration || defaultDuration,
     onClose() {
-      if (onClose) {
-        onClose();
+      if (settings.onClose) {
+        settings.onClose();
       }
       instance.destory();
       instance = null;
     },
   });
+
+  return {
+    remove() {
+      instance.remove(key);
+    },
+  };
 };
 
 export default {
-  loading(content: React.ReactNode, duration?: number, onClose?: () => void, mask?: boolean) {
-    return notice(content, 'loading', duration, onClose, mask);
+  loading(content: React.ReactNode, settings?: Settings) {
+    return notice(content, 'loading', settings);
   },
-  info(content: React.ReactNode, duration?: number, onClose?: () => void, mask?: boolean) {
-    return notice(content, 'info', duration, onClose, mask);
+  info(content: React.ReactNode, settings?: Settings) {
+    return notice(content, 'info', settings);
   },
-  success(content: React.ReactNode, duration?: number, onClose?: () => void, mask?: boolean) {
-    return notice(content, 'success', duration, onClose, mask);
+  success(content: React.ReactNode, settings?: Settings) {
+    return notice(content, 'success', settings);
   },
-  warning(content: React.ReactNode, duration?: number, onClose?: () => void, mask?: boolean) {
-    return notice(content, 'warning', duration, onClose, mask);
+  warning(content: React.ReactNode, settings?: Settings) {
+    return notice(content, 'warning', settings);
   },
-  fail(content: React.ReactNode, duration?: number, onClose?: () => void, mask?: boolean) {
-    return notice(content, 'error', duration, onClose, mask);
+  fail(content: React.ReactNode, settings?: Settings) {
+    return notice(content, 'error', settings);
   },
 };

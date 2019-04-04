@@ -17,7 +17,7 @@ export default class Demo extends Component {
         <Button
           full
           onClick={() => {
-            Toast.info('这是一条长文字提示，超过一定字数就会换行');
+            let t = Toast.info('这是一条长文字提示，超过一定字数就会换行');
           }}
         >
           长文字提示
@@ -26,7 +26,9 @@ export default class Demo extends Component {
         <Button
           full
           onClick={() => {
-            Toast.info('这是不带遮罩层提示', 1500, null, false);
+            Toast.info('这是不带遮罩层提示', {
+              mask: false,
+            });
           }}
         >
           不带遮罩层
