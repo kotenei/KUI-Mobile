@@ -6,6 +6,7 @@ export * from './components/Cell';
 export * from './components/Collapse';
 export * from './components/Icon';
 export * from './components/Layout';
+export * from './components/Message';
 export * from './components/Progress';
 export * from './components/Steps';
 export * from './components/Switch';

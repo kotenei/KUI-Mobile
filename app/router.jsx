@@ -10,6 +10,7 @@ const Collapse = lazy(() => import('./containers/Collapse'));
 const Home = lazy(() => import('./containers/Home'));
 const Icon = lazy(() => import('./containers/Icon'));
 const Layout = lazy(() => import('./containers/Layout'));
+const Message = lazy(() => import('./containers/Message'));
 const Progress = lazy(() => import('./containers/progress'));
 const Steps = lazy(() => import('./containers/Steps'));
 const Switch = lazy(() => import('./containers/Switch'));
@@ -29,6 +30,7 @@ const Router = props => {
       <Route exact path="/collapse" render={() => <Collapse />} />
       <Route exact path="/icon" render={() => <Icon />} />
       <Route exact path="/layout" render={() => <Layout />} />
+      <Route exact path="/message" render={() => <Message />} />
       <Route exact path="/progress" render={() => <Progress />} />
       <Route exact path="/steps" render={() => <Steps />} />
       <Route exact path="/switch" render={() => <Switch />} />

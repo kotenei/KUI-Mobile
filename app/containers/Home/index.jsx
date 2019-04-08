@@ -32,6 +32,7 @@ export default class Home extends Component {
     const nav = [{ title: 'Steps 步骤条', to: '/steps' }, { title: 'Tabs 标签页', to: '/tabs' }];
     const feedback = [
       { title: 'Alert 警告提示', to: '/alert' },
+      { title: 'Message 消息提示', to: '/message' },
       { title: 'Progress 进度条', to: '/progress' },
       { title: 'Toast 轻提示', to: '/toast' },
     ];

@@ -34,11 +34,7 @@ class Notice extends PureComponent<NoticeProps> {
       },
       className,
     );
-    return (
-      <div className={classString} style={style}>
-        {content}
-      </div>
-    );
+    return content;
   }
 
   private clearCloseTimer = () => {

@@ -887,6 +887,42 @@ a {
   .k-col-xxl-24 {
     width: 100%; } }
 
+.k-message {
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  line-height: 1.5;
+  text-align: center;
+  z-index: 1010;
+  padding: 6px 15px;
+  top: 0; }
+  .k-message--primary {
+    background: #2196f3;
+    color: #fff; }
+  .k-message--info {
+    background: #03a9f4;
+    color: #fff; }
+  .k-message--success {
+    background: #4caf50;
+    color: #fff; }
+  .k-message--warning {
+    background: #ff9800;
+    color: #fff; }
+  .k-message--danger {
+    background: #f44336;
+    color: #fff; }
+
+.message-enter,
+.message-exit-active {
+  top: -33px; }
+
+.message-enter-active {
+  top: 0; }
+
+.message-enter-active,
+.message-exit-active {
+  transition: top .3s ease; }
+
 .k-progress {
   display: inline-block;
   position: relative;
@@ -1259,10 +1295,10 @@ a {
       top: 50%;
       left: 50%;
       margin: 0;
-      margin-left: -7px;
-      margin-top: -7px;
+      margin-left: -11px;
+      margin-top: -11px;
       color: #2196f3;
-      font-size: 16px; }
+      font-size: 22px; }
 
 .k-tabs {
   overflow: hidden;

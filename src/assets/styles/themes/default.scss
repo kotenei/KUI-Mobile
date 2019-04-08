@@ -128,6 +128,9 @@ $cell-label-margin-top: 4px;
 // collapse
 $collapse-bg-color: #fff;
 $collapse-inner-padding: 10px 15px;
+// message
+$message-padding:6px 15px;
+$message-height:33px;
 // progress
 $progress-margin-bottom: 10px;
 $progress-bar-width: calc(100% - 44px);
@@ -174,8 +177,9 @@ $switch-dot-height: 28px;
 $switch-dot-left: 1px;
 $switch-dot-top: 1px;
 $switch-dot-bgColor: #fff;
-$switch-icon-margin-left: -7px;
-$switch-icon-margin-top: -7px;
+$switch-icon-margin-left: -11px;
+$switch-icon-margin-top: -11px;
+$switch-icon-font-size:22px;
 $switch-checked-before-margin-left: -29px;
 $switch-checked-inner-margin-left: 6px;
 $switch-checked-inner-margin-right: 34px;
