@@ -11,7 +11,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, "dist"),
-        filename: "js/[name].js"
+        filename: "js/[name].[hash].js"
     },
     module: {
         rules: [
@@ -83,7 +83,7 @@ module.exports = {
             filename: "index.html"
         }),
         new MiniCssExtractPlugin({
-            filename: "css/[name].min.css"
+            filename: "css/[name].[hash].min.css"
         }),
         new webpack.HotModuleReplacementPlugin()
     ],

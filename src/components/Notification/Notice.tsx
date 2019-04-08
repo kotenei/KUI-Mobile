@@ -19,6 +19,13 @@ class Notice extends PureComponent<NoticeProps> {
     this.clearCloseTimer();
   }
 
+  public componentWillReceiveProps(nextprops) {
+    if (this.props.duration !== nextprops.duration) {
+      this.clearCloseTimer();
+      this.startCloseTimer(nextprops.duration);
+    }
+  }
+
   public render() {
     const { content, className, style } = this.props;
     const classString = classnames(
@@ -41,11 +48,11 @@ class Notice extends PureComponent<NoticeProps> {
     }
   };
 
-  private startCloseTimer = () => {
-    if (this.props.duration) {
+  private startCloseTimer = (duration = this.props.duration) => {
+    if (duration) {
       this.timer = setTimeout(() => {
         this.close();
-      }, this.props.duration);
+      }, duration);
     }
   };
 

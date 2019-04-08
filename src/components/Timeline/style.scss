@@ -27,6 +27,7 @@
         background-color: $timeline-head-bgColor;
         border-radius: 50%;
         border: $timeline-head-border-width $border-style-base transparent;
+        margin-top: $timeline-head-margin-top;
         @each $color,
         $value in $colors {
             @include bem-modifier($color) {
@@ -36,13 +37,13 @@
         @include bem-modifier('dot') {
             text-align: center;
             width: $timeline-head-dot-width;
-            left: -$timeline-head-dot-left;
+            left: $timeline-head-dot-left;
             line-height: 1;
-            margin-top: $timeline-head-margin-top;
+            margin-top: $timeline-head-dot-margin-top;
             border: 0;
             height: auto;
             border-radius: 0;
-            padding: $timeline-head-padding;
+            padding: $timeline-head-dot-padding;
             transform: translateY(-50%);
             background: transparent;
         }
@@ -51,6 +52,5 @@
         position: relative;
         padding: $timeline-content-padding;
         top: $timeline-content-top;
-        font-size: $font-size-caption-sm;
     }
 }

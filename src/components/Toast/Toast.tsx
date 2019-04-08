@@ -5,24 +5,25 @@ import { Notification } from '../Notification';
 import { ToastType } from './typing';
 import { guid } from '../../utils';
 
-const key = 'toast';
-const defaultDuration = 1500;
+const defaultSettings: Settings = {
+  key: 'toast',
+  duration: 1500,
+  mask: true,
+  onClose: () => {},
+};
 let instance;
 
 interface Settings {
   key?: string;
   duration?: number;
-  onClose?: () => void;
   mask?: boolean;
+  onClose?: () => void;
 }
 
-const notice = (
-  content: React.ReactNode,
-  type,
-  settings: Settings = { key, duration: defaultDuration, mask: true, onClose: () => {} },
-) => {
+const notice = (content: React.ReactNode, type, settings?: Settings) => {
   const container = <ToastContent type={type}>{content}</ToastContent>;
   const strMask = 'k-toast-mask';
+  const options = { ...defaultSettings, ...settings };
 
   if (!content) {
     return;
@@ -33,25 +34,19 @@ const notice = (
   }
 
   instance.notice({
-    key: settings.key || key,
+    key: options.key,
     className: classnames({
-      [strMask]: settings.mask,
-      [`${strMask}--hide`]: !settings.mask,
+      [strMask]: options.mask,
+      [`${strMask}--hide`]: !options.mask,
     }),
     content: container,
-    duration: settings.duration || defaultDuration,
-    onClose() {
-      if (settings.onClose) {
-        settings.onClose();
-      }
-      instance.destory();
-      instance = null;
-    },
+    duration: options.duration,
+    onClose: options.onClose,
   });
 
   return {
     remove() {
-      instance.remove(key);
+      instance.remove(options.key);
     },
   };
 };

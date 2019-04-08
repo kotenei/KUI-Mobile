@@ -29,26 +29,29 @@ class Notification extends PureComponent<NotificationProps, NotificationState> {
         notice.onClose();
       };
       return (
-        <CSSTransition timeout={duration} key={notice.key} classNames={transitionName}>
+        <CSSTransition timeout={300} key={notice.key} classNames={transitionName}>
           <Notice {...notice} onClose={onClose.bind(this, notice.key)} />
         </CSSTransition>
       );
     });
 
-    return <TransitionGroup>{nodes}</TransitionGroup>;
+    return <TransitionGroup component={React.Fragment}>{nodes}</TransitionGroup>;
   }
 
   public add = (noticeProps: NoticeProps): void => {
     const { notices } = this.state;
     const newNotices = [...notices];
-
-    if (!notices.find(notice => notice.key === noticeProps.key)) {
+    const index = notices.findIndex(notice => notice.key === noticeProps.key);
+    if (index < 0) {
       newNotices.push(noticeProps);
-      this.setState({
-        notices: newNotices,
-        duration: noticeProps.duration,
-      });
+    } else {
+      newNotices.splice(index, 1);
+      newNotices.push(noticeProps);
     }
+    this.setState({
+      notices: newNotices,
+      duration: noticeProps.duration,
+    });
   };
 
   public remove = key => {
