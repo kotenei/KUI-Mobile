@@ -1,5 +1,5 @@
 export interface BadgeProps extends KUI.BaseProps {
-  count?: number;
+  text?: number | string;
   dot?: boolean;
   overflowCount?: number;
   color?: KUI.ColorTypes;

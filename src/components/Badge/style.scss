@@ -3,7 +3,7 @@
     display: inline-block;
     vertical-align: middle;
     margin: $badge-margin;
-    color:#fff;
+    
     line-height: 1;
 
     @include bem-modifier('notwrap'){
@@ -24,10 +24,11 @@
         font-weight: $badge-sup-font-weight;
         text-align: center;
         line-height: 1;
+        color:#fff;
     }
 
 
-    @include bem-element('count') {
+    @include bem-element('text') {
         z-index: $badge-sup-zindex;
         position: absolute;
         right: $badge-sup-right;

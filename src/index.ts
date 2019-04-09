@@ -11,6 +11,7 @@ export * from './components/NavBar';
 export * from './components/Progress';
 export * from './components/Steps';
 export * from './components/Switch';
+export * from './components/TabBar';
 export * from './components/Tabs';
 export * from './components/Tag';
 export * from './components/Timeline';

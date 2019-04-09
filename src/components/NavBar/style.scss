@@ -28,7 +28,7 @@
 
     @include bem-modifier('light') {
         background: #fff;
-        color: $primary-color;
+        // color: $primary-color;
 
         @include element('navbar__middle') {
             color: $title-color;

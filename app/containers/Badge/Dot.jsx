@@ -18,7 +18,7 @@ export default class Demo extends Component {
                     />
                 </Badge>
                 &nbsp;&nbsp;
-                <Badge count={11} overflowCount={10}>
+                <Badge text={11} overflowCount={10}>
                     <a
                         href="javascript:void(0);"
                         style={{

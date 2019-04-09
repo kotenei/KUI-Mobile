@@ -11,22 +11,27 @@ class Badge extends PureComponent<BadgeProps> {
     dot: false,
     overflowCount: 99,
   };
-  public renderCount() {
-    const { count, dot, overflowCount } = this.props;
-    let num: any = count || 0;
-    if (count !== undefined && count <= 0 && !dot) {
-      return null;
-    }
+  public renderText() {
+    const { dot, overflowCount, text } = this.props;
+
     if (dot) {
       return <sup className={`${prefixCls}__sup ${prefixCls}__dot`} />;
     }
-    if (overflowCount !== undefined && count !== undefined && count > overflowCount) {
-      num = overflowCount + '+';
+
+    if (text !== undefined && text !== null) {
+      let content = text;
+      if (typeof text === 'number') {
+        if (overflowCount !== undefined && text > overflowCount) {
+          content = overflowCount + '+';
+        }
+      }
+      return <sup className={`${prefixCls}__sup ${prefixCls}__text`}>{content}</sup>;
     }
-    return <sup className={`${prefixCls}__sup ${prefixCls}__count`}>{num}</sup>;
+
+    return null;
   }
   public render() {
-    const { count, children, className, color } = this.props;
+    const { children, className, color } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
@@ -38,7 +43,7 @@ class Badge extends PureComponent<BadgeProps> {
     return (
       <span className={classString}>
         {children}
-        {this.renderCount()}
+        {this.renderText()}
       </span>
     );
   }

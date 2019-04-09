@@ -203,7 +203,6 @@ a {
   display: inline-block;
   vertical-align: middle;
   margin: 0 2px;
-  color: #fff;
   line-height: 1; }
   .k-badge--notwrap sup {
     position: relative;
@@ -219,8 +218,9 @@ a {
     border-radius: 10px;
     font-weight: 700;
     text-align: center;
-    line-height: 1; }
-  .k-badge__count {
+    line-height: 1;
+    color: #fff; }
+  .k-badge__text {
     z-index: 10;
     position: absolute;
     right: 10px;
@@ -945,8 +945,7 @@ a {
     padding-right: 16px;
     justify-content: flex-end; }
   .k-navbar--light {
-    background: #fff;
-    color: #2196f3; }
+    background: #fff; }
     .k-navbar--light .k-navbar__middle {
       color: #1c2438; }
   .k-navbar--dark {
@@ -1329,6 +1328,26 @@ a {
       margin-top: -11px;
       color: #2196f3;
       font-size: 22px; }
+
+.k-tabbar {
+  display: flex;
+  height: 50px;
+  background: #fff; }
+
+.k-tabbar-item {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column; }
+  .k-tabbar-item__icon {
+    margin-bottom: 3px; }
+    .k-tabbar-item__icon .k-badge__text {
+      top: 4px; }
+    .k-tabbar-item__icon .k-icon {
+      font-size: 17px; }
+  .k-tabbar-item__text {
+    font-size: 12px; }
 
 .k-tabs {
   overflow: hidden;
