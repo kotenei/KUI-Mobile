@@ -18,11 +18,7 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue',
-'PingFang SC',
-'Hiragino Sans GB',
-Arial,
-sans-serif;
+$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
 $line-height: 1.5;
 // size
 $font-size-icontext: 10px;
@@ -108,14 +104,18 @@ $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
 $button-active-bgColor: #e6e6e6;
-$button-size-map: (xs: (padding: 4px 10px,
-fontSize: $font-size-icontext,
-),
-sm: (padding: 5px 12px,
-fontSize: $font-size-caption-sm,
-),
-lg: (fontSize: $font-size-caption,
-),
+$button-size-map: (
+  xs: (
+    padding: 4px 10px,
+    fontSize: $font-size-icontext,
+  ),
+  sm: (
+    padding: 5px 12px,
+    fontSize: $font-size-caption-sm,
+  ),
+  lg: (
+    fontSize: $font-size-caption,
+  ),
 );
 // cell
 $cell-height: 48px;
@@ -129,8 +129,13 @@ $cell-label-margin-top: 4px;
 $collapse-bg-color: #fff;
 $collapse-inner-padding: 10px 15px;
 // message
-$message-padding:6px 15px;
-$message-height:33px;
+$message-padding: 6px 15px;
+$message-height: 33px;
+// navbar
+$navbar-height: 48px;
+$navbar-left-padding-left:16px;
+$navbar-right-padding-right:16px;
+
 // progress
 $progress-margin-bottom: 10px;
 $progress-bar-width: calc(100% - 44px);
@@ -179,7 +184,7 @@ $switch-dot-top: 1px;
 $switch-dot-bgColor: #fff;
 $switch-icon-margin-left: -11px;
 $switch-icon-margin-top: -11px;
-$switch-icon-font-size:22px;
+$switch-icon-font-size: 22px;
 $switch-checked-before-margin-left: -29px;
 $switch-checked-inner-margin-left: 6px;
 $switch-checked-inner-margin-right: 34px;
@@ -212,7 +217,7 @@ $timeline-head-height: 14px;
 $timeline-head-bgColor: #fff;
 $timeline-head-radius: 100px;
 $timeline-head-border-width: 2px;
-$timeline-head-margin-top:1px;
+$timeline-head-margin-top: 1px;
 $timeline-head-dot-width: 40px;
 $timeline-head-dot-left: -13px;
 $timeline-head-dot-margin-top: 7px;

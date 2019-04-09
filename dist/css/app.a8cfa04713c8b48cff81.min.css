@@ -923,6 +923,36 @@ a {
 .message-exit-active {
   transition: top .3s ease; }
 
+.k-navbar {
+  display: flex;
+  height: 48px;
+  position: relative; }
+  .k-navbar__left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 16px; }
+  .k-navbar__middle {
+    flex: 1;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .k-navbar__right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
+    justify-content: flex-end; }
+  .k-navbar--light {
+    background: #fff;
+    color: #2196f3; }
+    .k-navbar--light .k-navbar__middle {
+      color: #1c2438; }
+  .k-navbar--dark {
+    background: #2196f3;
+    color: #fff; }
+
 .k-progress {
   display: inline-block;
   position: relative;
@@ -1589,17 +1619,6 @@ body {
 
 .app-block:first-child .app-block-title {
   padding-top: 20px; }
-
-.app-header {
-  display: flex;
-  height: 48px;
-  align-items: center;
-  text-align: center;
-  position: relative; }
-  .app-header-left, .app-header-right {
-    width: 40px; }
-  .app-header-middle {
-    flex: 1; }
 
 .page {
   position: absolute;

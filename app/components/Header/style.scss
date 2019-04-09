@@ -1,15 +1,3 @@
 .app-header {
-    display: flex;
-    height: 48px;
-    align-items: center;
-    text-align: center;
-    position: relative;
-
-    &-left,
-    &-right {
-        width:40px;
-    }
-    &-middle {
-        flex: 1;
-    }
+    
 }
