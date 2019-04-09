@@ -18,7 +18,11 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
+$font-family: 'Helvetica Neue',
+'PingFang SC',
+'Hiragino Sans GB',
+Arial,
+sans-serif;
 $line-height: 1.5;
 // size
 $font-size-icontext: 10px;
@@ -104,18 +108,14 @@ $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
 $button-active-bgColor: #e6e6e6;
-$button-size-map: (
-  xs: (
-    padding: 4px 10px,
-    fontSize: $font-size-icontext,
-  ),
-  sm: (
-    padding: 5px 12px,
-    fontSize: $font-size-caption-sm,
-  ),
-  lg: (
-    fontSize: $font-size-caption,
-  ),
+$button-size-map: (xs: (padding: 4px 10px,
+fontSize: $font-size-icontext,
+),
+sm: (padding: 5px 12px,
+fontSize: $font-size-caption-sm,
+),
+lg: (fontSize: $font-size-caption,
+),
 );
 // cell
 $cell-height: 48px;
@@ -135,6 +135,12 @@ $message-height: 33px;
 $navbar-height: 48px;
 $navbar-left-padding-left:16px;
 $navbar-right-padding-right:16px;
+// noticebar
+$noticebar-height:36px;
+$noticebar-bgColor:#fefcec;
+$noticebar-color:#ed6a0c;
+$noticebar-left-padding-left:16px;
+$noticebar-right-padding-right:16px;
 
 // progress
 $progress-margin-bottom: 10px;

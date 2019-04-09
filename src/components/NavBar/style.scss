@@ -11,7 +11,7 @@
     }
 
     @include bem-element('middle') {
-        flex: 1;
+        flex: 2;
         font-size: $font-size-caption;
         display: flex;
         justify-content: center;

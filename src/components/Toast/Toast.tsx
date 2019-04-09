@@ -21,9 +21,19 @@ interface Settings {
 }
 
 const notice = (content: React.ReactNode, type, settings?: Settings) => {
-  const container = <ToastContent type={type}>{content}</ToastContent>;
   const strMask = 'k-toast-mask';
   const options = { ...defaultSettings, ...settings };
+
+  const container = (
+    <div
+      className={classnames({
+        [strMask]: options.mask,
+        [`${strMask}--hide`]: !options.mask,
+      })}
+    >
+      <ToastContent type={type}>{content}</ToastContent>
+    </div>
+  );
 
   if (!content) {
     return;
@@ -35,10 +45,6 @@ const notice = (content: React.ReactNode, type, settings?: Settings) => {
 
   instance.notice({
     key: options.key,
-    className: classnames({
-      [strMask]: options.mask,
-      [`${strMask}--hide`]: !options.mask,
-    }),
     content: container,
     duration: options.duration,
     onClose: options.onClose,

@@ -26,6 +26,7 @@ export default class Home extends Component {
     const display = [
       { title: 'Badge 徽章', to: '/badge' },
       { title: 'Collapse 折叠面板', to: '/collapse' },
+      { title: 'NoticeBar 通告栏', to: '/noticebar' },
       { title: 'Tag 标签', to: '/tag' },
       { title: 'Timeline 时间轴', to: '/timeline' },
     ];
