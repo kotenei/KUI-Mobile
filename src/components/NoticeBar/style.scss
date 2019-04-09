@@ -25,6 +25,10 @@
         display: inline-block;
         position: relative;
 
+        @include bem-modifier('play'){
+            animation: marquee linear both;
+        }
+
         @include bem-modifier('loop') {
             animation: marquee linear infinite both;
         }
@@ -37,16 +41,6 @@
         padding-right: $noticebar-right-padding-right;
     }
 }
-
-// @keyframes marquee {
-//     0% {
-//         right: -100%;
-//     }
-
-//     100% {
-//         right: 100%
-//     }
-// }
 
 @keyframes marquee {
     to { transform: translate3d(-100%, 0, 0); }

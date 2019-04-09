@@ -11,4 +11,5 @@ export interface NoticeBarProps extends KUI.BaseProps {
 
 export interface NoticeBarState {
   loop?: boolean;
+  firstRound?: boolean;
 }

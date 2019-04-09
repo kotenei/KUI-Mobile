@@ -7,15 +7,14 @@ import domUtils from '../../utils/domUtils';
 
 const prefixCls = 'k-noticebar';
 
-class NoticeBar extends PureComponent<NoticeBarProps, NoticeBarState> {
+class NoticeBar extends React.Component<NoticeBarProps, NoticeBarState> {
   private static defaultProps = {
     delay: 1,
     mode: 'closable',
     icon: 'sound',
-    speed: 50,
+    speed: 100,
   };
-  private marqueeTimer: number;
-  private firstRound: boolean = true;
+
   private duration: number = 5;
   private wrapWidth: number = 0;
   private contentWidth: number = 0;
@@ -24,14 +23,20 @@ class NoticeBar extends PureComponent<NoticeBarProps, NoticeBarState> {
     super(props);
     this.state = {
       loop: false,
+      firstRound: true,
     };
   }
   public componentDidMount() {
     this.measureText();
   }
+
+  public componentDidUpdate() {
+    console.log(this.state);
+  }
+
   public render() {
     const { children, className, icon, mode, action } = this.props;
-    const { loop } = this.state;
+    const { loop, firstRound } = this.state;
     const classString = classnames(
       {
         [prefixCls]: true,
@@ -40,10 +45,15 @@ class NoticeBar extends PureComponent<NoticeBarProps, NoticeBarState> {
     );
 
     const contentStyle = {
-      paddingLeft: this.firstRound ? 0 : this.wrapWidth + 'px',
-      animationDelay: (this.firstRound ? this.props.delay : 0) + 's',
+      paddingLeft: firstRound ? 0 : this.wrapWidth + 'px',
+      animationDelay: (firstRound ? this.props.delay : 0) + 's',
       animationDuration: this.duration + 's',
     };
+    const contentClass = classnames({
+      [`${prefixCls}__content`]: true,
+      [`${prefixCls}__content--play`]: loop && firstRound,
+      [`${prefixCls}__content--loop`]: loop && !firstRound,
+    });
 
     return (
       <div className={classString} ref="container">
@@ -52,12 +62,10 @@ class NoticeBar extends PureComponent<NoticeBarProps, NoticeBarState> {
         </div>
         <div className={`${prefixCls}__wrap`} ref="wrap">
           <div
-            className={classnames({
-              [`${prefixCls}__content`]: true,
-              [`${prefixCls}__content--loop`]: loop,
-            })}
+            className={contentClass}
             ref="content"
             style={contentStyle}
+            onAnimationEnd={this.animationEnd}
           >
             {children}
           </div>
@@ -81,6 +89,17 @@ class NoticeBar extends PureComponent<NoticeBarProps, NoticeBarState> {
       });
     }
   }
+
+  private animationEnd = () => {
+    const { speed } = this.props;
+    if (!this.state.firstRound) {
+      return;
+    }
+    this.duration = (this.contentWidth + this.wrapWidth) / (speed || 0);
+    this.setState({
+      firstRound: false,
+    });
+  };
 }
 
 export default NoticeBar;
