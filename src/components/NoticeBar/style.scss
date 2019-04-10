@@ -15,17 +15,18 @@
     @include bem-element('wrap') {
         overflow: hidden;
         position: relative;
-        // overflow: hidden;
-        // text-overflow: ellipsis;
         white-space: nowrap;
         flex: 1;
+        margin: 0 5px;
+
     }
 
     @include bem-element('content') {
         display: inline-block;
         position: relative;
 
-        @include bem-modifier('play'){
+
+        @include bem-modifier('play') {
             animation: marquee linear both;
         }
 
@@ -43,5 +44,7 @@
 }
 
 @keyframes marquee {
-    to { transform: translate3d(-100%, 0, 0); }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
 }

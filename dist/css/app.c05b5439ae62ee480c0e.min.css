@@ -967,10 +967,14 @@ a {
     overflow: hidden;
     position: relative;
     white-space: nowrap;
-    flex: 1; }
+    flex: 1;
+    margin: 0 5px; }
   .k-noticebar__content {
     display: inline-block;
     position: relative; }
+    .k-noticebar__content--play {
+      -webkit-animation: marquee linear both;
+              animation: marquee linear both; }
     .k-noticebar__content--loop {
       -webkit-animation: marquee linear infinite both;
               animation: marquee linear infinite both; }
