@@ -1,5 +1,6 @@
 @import "./mixins/animation";
 @import "./mixins/bem";
+@import "./mixins/element-size";
 @import "./mixins/text";
 @mixin element($element){
     .#{$namespace + '-' + $element} {

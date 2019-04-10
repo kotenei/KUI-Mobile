@@ -1,5 +1,6 @@
-export { default as Alert } from './components/Alert';
-export { default as AnimationRouter } from './components/AnimationRouter';
+export * from './components/Alert';
+export * from './components/AnimationRouter';
+export * from './components/Avatar';
 export * from './components/Button';
 export * from './components/Badge';
 export * from './components/Cell';

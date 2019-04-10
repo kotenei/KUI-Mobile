@@ -18,11 +18,7 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue',
-'PingFang SC',
-'Hiragino Sans GB',
-Arial,
-sans-serif;
+$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
 $line-height: 1.5;
 // size
 $font-size-icontext: 10px;
@@ -89,6 +85,10 @@ $alert-icon-width: 16px;
 $alert-icon-lg-font-size: 30px;
 $alert-close-text-top: 15px;
 $alert-close-text-right: 16px;
+// avatar
+$avatar-bgColor: #bdbdbd;
+$avatar-color: #fafafa;
+$avatar-size-map: ( lg: 48px, md: 32px, sm: 24px);
 // Badge
 $badge-margin: 0 2px;
 $badge-sup-padding: 4px 8px;
@@ -108,14 +108,18 @@ $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
 $button-active-bgColor: #e6e6e6;
-$button-size-map: (xs: (padding: 4px 10px,
-fontSize: $font-size-icontext,
-),
-sm: (padding: 5px 12px,
-fontSize: $font-size-caption-sm,
-),
-lg: (fontSize: $font-size-caption,
-),
+$button-size-map: (
+  xs: (
+    padding: 4px 10px,
+    fontSize: $font-size-icontext,
+  ),
+  sm: (
+    padding: 5px 12px,
+    fontSize: $font-size-caption-sm,
+  ),
+  lg: (
+    fontSize: $font-size-caption,
+  ),
 );
 // cell
 $cell-height: 48px;
@@ -133,14 +137,14 @@ $message-padding: 6px 15px;
 $message-height: 33px;
 // navbar
 $navbar-height: 48px;
-$navbar-left-padding-left:16px;
-$navbar-right-padding-right:16px;
+$navbar-left-padding-left: 16px;
+$navbar-right-padding-right: 16px;
 // noticebar
-$noticebar-height:36px;
-$noticebar-bgColor:#fefcec;
-$noticebar-color:#ed6a0c;
-$noticebar-left-padding-left:16px;
-$noticebar-right-padding-right:16px;
+$noticebar-height: 36px;
+$noticebar-bgColor: #fefcec;
+$noticebar-color: #ed6a0c;
+$noticebar-left-padding-left: 16px;
+$noticebar-right-padding-right: 16px;
 
 // progress
 $progress-margin-bottom: 10px;
@@ -197,8 +201,8 @@ $switch-checked-inner-margin-right: 34px;
 $switch-checked-dot-margin-left: -29px;
 
 // tabBar
-$tabbar-height:50px;
-$tabbar-icon-margin-bottom:3px;
+$tabbar-height: 50px;
+$tabbar-icon-margin-bottom: 3px;
 
 // tabs
 $tabs-bgColor: #fff;

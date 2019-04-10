@@ -3,6 +3,7 @@ import { AnimationRouter } from 'kui-mobile';
 import { Route } from 'react-router-dom';
 
 const Alert = lazy(() => import('./containers/Alert'));
+const Avatar = lazy(() => import('./containers/Avatar'));
 const Badge = lazy(() => import('./containers/Badge'));
 const Button = lazy(() => import('./containers/Button'));
 const Cell = lazy(() => import('./containers/Cell'));
@@ -27,6 +28,7 @@ const Router = props => {
     <AnimationRouter {...props} fallback={<React.Fragment />}>
       <Route exact path="/" render={() => <Home />} />
       <Route exact path="/alert" render={() => <Alert />} />
+      <Route exact path="/avatar" render={() => <Avatar />} />
       <Route exact path="/badge" render={() => <Badge />} />
       <Route exact path="/button" render={() => <Button />} />
       <Route exact path="/cell" render={() => <Cell />} />

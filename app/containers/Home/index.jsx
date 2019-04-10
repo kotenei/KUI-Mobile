@@ -24,6 +24,7 @@ export default class Home extends Component {
       { title: 'Layout 布局', to: '/layout' },
     ];
     const display = [
+      { title: 'Avatar 头像', to: '/avatar' },
       { title: 'Badge 徽章', to: '/badge' },
       { title: 'Collapse 折叠面板', to: '/collapse' },
       { title: 'NoticeBar 通告栏', to: '/noticebar' },

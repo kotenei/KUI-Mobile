@@ -1,2 +1,1 @@
-import AnimationRouter from './AnimationRouter';
-export default AnimationRouter;
+export { default as AnimationRouter } from './AnimationRouter';
