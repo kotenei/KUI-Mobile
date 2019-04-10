@@ -24,6 +24,7 @@ export default class Home extends Component {
       { title: 'Layout 布局', to: '/layout' },
     ];
     const display = [
+      { title: 'Card 卡片', to: '/card' },
       { title: 'Avatar 头像', to: '/avatar' },
       { title: 'Badge 徽章', to: '/badge' },
       { title: 'Collapse 折叠面板', to: '/collapse' },

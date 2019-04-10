@@ -379,6 +379,40 @@ a {
   .k-button-group .k-button--danger {
     border-left-color: #f32c1e; }
 
+.k-card {
+  border: 1px solid #dddee1;
+  border-radius: 4px;
+  background: #fff;
+  padding-bottom: 8px; }
+  .k-card--full {
+    border-left: none;
+    border-right: none;
+    border-radius: 0; }
+
+.k-card-header {
+  padding: 8px 16px;
+  border-bottom: 1px solid #dddee1;
+  display: flex;
+  justify-items: center;
+  font-size: 17px; }
+  .k-card-header__title {
+    flex: 1;
+    text-align: left;
+    color: #1c2438; }
+  .k-card-header__extra {
+    color: #80848f; }
+
+.k-card-body {
+  padding: 16px; }
+
+.k-card-footer {
+  display: flex;
+  justify-items: center;
+  color: #80848f;
+  padding: 0 16px; }
+  .k-card-footer__content {
+    flex: 1; }
+
 .k-cell {
   overflow: hidden;
   background: #fff;
@@ -1704,7 +1738,8 @@ a {
 body {
   font-family: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
   font-size: 14px;
-  color: #495060; }
+  color: #495060;
+  line-height: 1.5; }
 
 .app-block-title {
   padding-top: 35px;

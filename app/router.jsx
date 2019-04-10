@@ -6,6 +6,7 @@ const Alert = lazy(() => import('./containers/Alert'));
 const Avatar = lazy(() => import('./containers/Avatar'));
 const Badge = lazy(() => import('./containers/Badge'));
 const Button = lazy(() => import('./containers/Button'));
+const Card = lazy(() => import('./containers/Card'));
 const Cell = lazy(() => import('./containers/Cell'));
 const Collapse = lazy(() => import('./containers/Collapse'));
 const Home = lazy(() => import('./containers/Home'));
@@ -31,6 +32,7 @@ const Router = props => {
       <Route exact path="/avatar" render={() => <Avatar />} />
       <Route exact path="/badge" render={() => <Badge />} />
       <Route exact path="/button" render={() => <Button />} />
+      <Route exact path="/card" render={() => <Card />} />
       <Route exact path="/cell" render={() => <Cell />} />
       <Route exact path="/collapse" render={() => <Collapse />} />
       <Route exact path="/icon" render={() => <Icon />} />

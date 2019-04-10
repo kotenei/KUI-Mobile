@@ -121,6 +121,11 @@ $button-size-map: (
     fontSize: $font-size-caption,
   ),
 );
+// card
+$card-padding-bottom:8px;
+$card-header-padding:8px 16px;
+$card-body-padding:16px;
+$card-footer-padding:0 16px;
 // cell
 $cell-height: 48px;
 $cell-height-lg: 56px;

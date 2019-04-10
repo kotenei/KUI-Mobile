@@ -14,13 +14,13 @@ export default class Demo extends Component {
           &nbsp;
         </div>
         <div style={{ marginBottom: 10 }}>
-          <Avatar src="https://avatars0.githubusercontent.com/u/7446962?s=460&v=4" size="sm">
+          <Avatar src="https://avatars2.githubusercontent.com/u/3725164?s=460&v=4" size="sm">
             LS
           </Avatar>
           &nbsp;
-          <Avatar src="https://avatars0.githubusercontent.com/u/7446962?s=460&v=4">LS</Avatar>
+          <Avatar src="https://avatars2.githubusercontent.com/u/3725164?s=460&v=4">LS</Avatar>
           &nbsp;
-          <Avatar src="https://avatars0.githubusercontent.com/u/7446962?s=460&v=4" size="lg">
+          <Avatar src="https://avatars2.githubusercontent.com/u/3725164?s=460&v=4" size="lg">
             LS
           </Avatar>
           &nbsp;

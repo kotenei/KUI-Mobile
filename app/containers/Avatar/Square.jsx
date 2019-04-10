@@ -13,7 +13,7 @@ export default class Demo extends Component {
           LS
         </Avatar>
         &nbsp;
-        <Avatar src="https://avatars0.githubusercontent.com/u/7446962?s=460&v=4" square />
+        <Avatar src="https://avatars2.githubusercontent.com/u/3725164?s=460&v=4" square />
       </React.Fragment>
     );
   }

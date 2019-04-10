@@ -9,7 +9,7 @@ export default class Demo extends Component {
         &nbsp;
         <Avatar square color="danger" icon="folder" />&nbsp;
         <Avatar color="primary">LS</Avatar>&nbsp;
-        <Avatar src="https://avatars0.githubusercontent.com/u/7446962?s=460&v=4" />
+        <Avatar src="https://avatars2.githubusercontent.com/u/3725164?s=460&v=4" />
       </React.Fragment>
     );
   }
