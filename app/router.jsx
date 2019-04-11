@@ -12,6 +12,7 @@ const Collapse = lazy(() => import('./containers/Collapse'));
 const Home = lazy(() => import('./containers/Home'));
 const Icon = lazy(() => import('./containers/Icon'));
 const Layout = lazy(() => import('./containers/Layout'));
+const LazyLoad = lazy(() => import('./containers/LazyLoad'));
 const Message = lazy(() => import('./containers/Message'));
 const NavBar = lazy(() => import('./containers/NavBar'));
 const NoticeBar = lazy(() => import('./containers/NoticeBar'));
@@ -37,6 +38,7 @@ const Router = props => {
       <Route exact path="/collapse" render={() => <Collapse />} />
       <Route exact path="/icon" render={() => <Icon />} />
       <Route exact path="/layout" render={() => <Layout />} />
+      <Route exact path="/lazyload" render={() => <LazyLoad />} />
       <Route exact path="/message" render={() => <Message />} />
       <Route exact path="/navbar" render={() => <NavBar />} />
       <Route exact path="/noticebar" render={() => <NoticeBar />} />

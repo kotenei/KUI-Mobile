@@ -6,15 +6,31 @@ import domUtils from '../../utils/domUtils';
 const prefixCls = 'k-lazyload';
 
 class LazyLoad extends PureComponent<LazyLoadProps> {
+  private static defaultProps = {
+    container: window,
+  };
+
+  private container: any;
   private timer: number;
-  private loading: object;
-  private cache: object[];
-  private count: number;
+  private loading: object = {};
+  private cache: object[] = [];
+  private count: number = 0;
 
   public componentDidMount() {
-    const { loading } = this.props;
-    const container = this.refs.container as HTMLDivElement;
-    const elmImgs = container.querySelectorAll('img');
+    const { loading, container } = this.props;
+    let elmImgs;
+    if (container === window) {
+      this.container = window;
+      elmImgs = document.querySelectorAll('img');
+    } else {
+      if (container) {
+        this.container = document.querySelector(container);
+      } else {
+        this.container = this.refs.container;
+      }
+      elmImgs = this.container.querySelectorAll(`img`);
+    }
+
     elmImgs.forEach(img => {
       if (!img.getAttribute('data-src')) {
         return;
@@ -38,11 +54,13 @@ class LazyLoad extends PureComponent<LazyLoadProps> {
         this.load();
       }, 300);
     }
+    this.container.addEventListener('scroll', this.handleScroll);
   }
   public componentWillUnmount() {
     if (this.timer) {
       clearTimeout(this.timer);
     }
+    this.container.removeEventListener('scroll', this.handleScroll);
   }
   public render() {
     const { className, style, children } = this.props;
@@ -50,7 +68,7 @@ class LazyLoad extends PureComponent<LazyLoadProps> {
       [prefixCls]: true,
     });
     return (
-      <div className={classString} style={style} ref="container" onScroll={this.handleScroll}>
+      <div className={classString} style={style} ref="container">
         {children}
       </div>
     );
@@ -64,8 +82,14 @@ class LazyLoad extends PureComponent<LazyLoadProps> {
       return;
     }
     const { onSuccess, onError, error } = this.props;
-    const containerHeight = domUtils.height(this.refs.container);
-    const containerTop = domUtils.offset(this.refs.container).top;
+    const containerHeight =
+      this.container === window
+        ? document.documentElement.offsetHeight
+        : domUtils.height(this.refs.container);
+    const containerTop =
+      this.container === window
+        ? document.body.scrollTop || document.documentElement.scrollTop
+        : domUtils.offset(this.refs.container).top;
 
     this.cache.forEach((img: HTMLElement) => {
       const src = img.getAttribute('data-src');
