@@ -10,14 +10,15 @@ const LoadMore: StatelessComponent<LoadMoreProps> = props => {
   const classString = classnames(
     {
       [prefixCls]: true,
-      [`${prefixCls}__line`]: !loading,
+      [`${prefixCls}--line`]: !loading,
+      [`${prefixCls}--dot`]: !loading && !tip,
     },
     className,
   );
   return (
     <div className={classString} {...others}>
       <div className={`${prefixCls}__tip`}>
-        {loading ? <Icon type="loading" /> : null}
+        {loading ? <Icon className={`${prefixCls}__icon`} type="loading" /> : null}
         {tip}
       </div>
     </div>
@@ -26,7 +27,6 @@ const LoadMore: StatelessComponent<LoadMoreProps> = props => {
 
 LoadMore.defaultProps = {
   loading: true,
-  tip: '正在加载',
 };
 
 export default LoadMore;
