@@ -9,6 +9,7 @@ const Button = lazy(() => import('./containers/Button'));
 const Card = lazy(() => import('./containers/Card'));
 const Cell = lazy(() => import('./containers/Cell'));
 const Collapse = lazy(() => import('./containers/Collapse'));
+const Divider = lazy(() => import('./containers/Divider'));
 const Home = lazy(() => import('./containers/Home'));
 const Icon = lazy(() => import('./containers/Icon'));
 const Layout = lazy(() => import('./containers/Layout'));
@@ -37,6 +38,7 @@ const Router = props => {
       <Route exact path="/card" render={() => <Card />} />
       <Route exact path="/cell" render={() => <Cell />} />
       <Route exact path="/collapse" render={() => <Collapse />} />
+      <Route exact path="/divider" render={() => <Divider />} />
       <Route exact path="/icon" render={() => <Icon />} />
       <Route exact path="/layout" render={() => <Layout />} />
       <Route exact path="/lazyload" render={() => <LazyLoad />} />

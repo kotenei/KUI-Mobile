@@ -20,14 +20,16 @@
     @include bem-modifier('line') {
         &:after {
             content: ' ';
-            height: 2px;
-            border-top: $border-width-base $border-style-base $border-color-base;
+            height: 1px;
+            border: none;
+            // border-top: $border-width-base $border-style-base $border-color-base;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
             z-index: 8;
+            background: $border-color-base;
         }
     }
 
@@ -38,12 +40,16 @@
                 @include element-size($loadmore-dot-size);
                 border-radius: 50%;
                 background: $border-color-base;
-                top:50%;
-                left:50%;
+                top: 50%;
+                left: 50%;
                 position: relative;
                 display: inline-block;
                 transform: translate(-50%, -50%);
             }
         }
+    }
+
+    @include bem-modifier('full'){
+        width: 100%;
     }
 }

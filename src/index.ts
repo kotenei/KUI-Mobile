@@ -6,6 +6,7 @@ export * from './components/Button';
 export * from './components/Card';
 export * from './components/Cell';
 export * from './components/Collapse';
+export * from './components/Divider';
 export * from './components/Icon';
 export * from './components/Layout';
 export * from './components/LazyLoad';

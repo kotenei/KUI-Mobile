@@ -6,12 +6,13 @@ import { Icon } from '../Icon';
 const prefixCls = 'k-loadmore';
 
 const LoadMore: StatelessComponent<LoadMoreProps> = props => {
-  const { className, tip, loading, ...others } = props;
+  const { className, full, tip, loading, ...others } = props;
   const classString = classnames(
     {
       [prefixCls]: true,
       [`${prefixCls}--line`]: !loading,
       [`${prefixCls}--dot`]: !loading && !tip,
+      [`${prefixCls}--full`]: !!full,
     },
     className,
   );

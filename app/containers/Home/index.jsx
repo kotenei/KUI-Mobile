@@ -28,6 +28,7 @@ export default class Home extends Component {
       { title: 'Avatar 头像', to: '/avatar' },
       { title: 'Badge 徽章', to: '/badge' },
       { title: 'Collapse 折叠面板', to: '/collapse' },
+      { title: 'Divider 分隔符', to: '/divider' },
       { title: 'LazyLoad 图片懒加载', to: '/lazyload' },
       { title: 'LoadMore 加载更多', to: '/loadmore' },
       { title: 'NoticeBar 通告栏', to: '/noticebar' },
