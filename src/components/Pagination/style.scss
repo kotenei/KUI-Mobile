@@ -1,0 +1,14 @@
+@include bem-block('pagination') {
+    display: flex;
+    align-items: center;
+
+    @include bem-element('middle') {
+        flex: 1;
+        text-align: center;
+        font-size: $font-size-caption;
+    }
+
+    @include bem-element('current') {
+        color: $primary-color;
+    }
+}

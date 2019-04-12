@@ -1127,6 +1127,16 @@ a {
     -webkit-transform: translate3d(-100%, 0, 0);
             transform: translate3d(-100%, 0, 0); } }
 
+.k-pagination {
+  display: flex;
+  align-items: center; }
+  .k-pagination__middle {
+    flex: 1;
+    text-align: center;
+    font-size: 16px; }
+  .k-pagination__current {
+    color: #2196f3; }
+
 .k-progress {
   display: inline-block;
   position: relative;

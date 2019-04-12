@@ -18,6 +18,7 @@ const LoadMore = lazy(() => import('./containers/LoadMore'));
 const Message = lazy(() => import('./containers/Message'));
 const NavBar = lazy(() => import('./containers/NavBar'));
 const NoticeBar = lazy(() => import('./containers/NoticeBar'));
+const Pagination = lazy(() => import('./containers/Pagination'));
 const Progress = lazy(() => import('./containers/progress'));
 const Steps = lazy(() => import('./containers/Steps'));
 const TabBar = lazy(() => import('./containers/TabBar'));
@@ -46,6 +47,7 @@ const Router = props => {
       <Route exact path="/message" render={() => <Message />} />
       <Route exact path="/navbar" render={() => <NavBar />} />
       <Route exact path="/noticebar" render={() => <NoticeBar />} />
+      <Route exact path="/pagination" render={() => <Pagination />} />
       <Route exact path="/progress" render={() => <Progress />} />
       <Route exact path="/steps" render={() => <Steps />} />
       <Route exact path="/switch" render={() => <Switch />} />

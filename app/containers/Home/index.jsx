@@ -37,6 +37,7 @@ export default class Home extends Component {
     ];
     const nav = [
       { title: 'NavBar 导航栏', to: '/navbar' },
+      { title: 'Pagination 分页', to: '/pagination' },
       { title: 'Steps 步骤条', to: '/steps' },
       { title: 'TabBar 标签栏', to: '/tabbar' },
       { title: 'Tabs 标签页', to: '/tabs' },
