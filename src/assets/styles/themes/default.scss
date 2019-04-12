@@ -157,7 +157,11 @@ $noticebar-bgColor: #fefcec;
 $noticebar-color: #ed6a0c;
 $noticebar-left-padding-left: 16px;
 $noticebar-right-padding-right: 16px;
-
+// pagination
+$pagination-dot-size:8px;
+$pagination-dot-bgColor:#ccc;
+$pagination-dot-current-bgColor:#888;
+$pagination-dot-margin:0 2px;
 // progress
 $progress-margin-bottom: 10px;
 $progress-bar-width: calc(100% - 44px);

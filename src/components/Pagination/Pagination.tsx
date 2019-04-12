@@ -30,7 +30,20 @@ class Pagination extends PureComponent<PaginationProps, PaginationState> {
     );
   }
   public renderPointer() {
-    return null;
+    const { total } = this.props;
+    const { current } = this.state;
+    const dots: any = [];
+    if (total) {
+      for (let i = 0; i < total; i++) {
+        dots.push(
+          <span
+            className={`${prefixCls}__dot ${current === i + 1 ? `${prefixCls}__dot--current` : ''}`}
+          />,
+        );
+      }
+    }
+
+    return dots;
   }
   public render() {
     const { className, mode, locale, simple, total } = this.props;
