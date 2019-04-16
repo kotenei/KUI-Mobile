@@ -29,10 +29,13 @@ export default class Cell extends PureComponent<CellProps> {
         })}
         onClick={onClick}
       >
-        <div className={`${prefixCls}-middle__text`}>
-          <div className={`${prefixCls}-middle__title`}>{title}</div>
-          {label && <div className={`${prefixCls}-middle__label`}>{label}</div>}
-        </div>
+        {title || label ? (
+          <div className={`${prefixCls}-middle__text`}>
+            <div className={`${prefixCls}-middle__title`}>{title}</div>
+            {label && <div className={`${prefixCls}-middle__label`}>{label}</div>}
+          </div>
+        ) : null}
+
         <div className={`${prefixCls}-middle__value`}>
           {value}
           {showArrow ? <Icon type={arrowDirection} /> : null}

@@ -12,6 +12,7 @@ const Collapse = lazy(() => import('./containers/Collapse'));
 const Divider = lazy(() => import('./containers/Divider'));
 const Home = lazy(() => import('./containers/Home'));
 const Icon = lazy(() => import('./containers/Icon'));
+const Input = lazy(() => import('./containers/Input'));
 const Layout = lazy(() => import('./containers/Layout'));
 const LazyLoad = lazy(() => import('./containers/LazyLoad'));
 const LoadMore = lazy(() => import('./containers/LoadMore'));
@@ -41,6 +42,7 @@ const Router = props => {
       <Route exact path="/collapse" render={() => <Collapse />} />
       <Route exact path="/divider" render={() => <Divider />} />
       <Route exact path="/icon" render={() => <Icon />} />
+      <Route exact path="/input" render={() => <Input />} />
       <Route exact path="/layout" render={() => <Layout />} />
       <Route exact path="/lazyload" render={() => <LazyLoad />} />
       <Route exact path="/loadmore" render={() => <LoadMore />} />

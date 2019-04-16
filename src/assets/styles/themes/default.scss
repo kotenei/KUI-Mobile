@@ -75,6 +75,13 @@ $icon-margin-x: 3px;
 $icon-vertical-align: -2px;
 $icon-svg-width: 1em;
 $icon-svg-height: 1em;
+// input
+$input-line-height:24px;
+$input-label-max-width:90px;
+$input-control-padding-left:26px;
+$input-control-padding-right:26px;
+$input-padding:10px 15px;
+$input-textarea-height:24px;
 // alert
 $alert-padding: 15px 35px 15px 15px;
 $alert-font-color: #fff;
@@ -130,10 +137,12 @@ $card-footer-padding:0 16px;
 $cell-height: 48px;
 $cell-height-lg: 56px;
 $cell-middle-padding: 0 15px;
+$cell-line-height:24px;
 $cell-bg-color: #fff;
 $cell-label-font-size: 12px;
 $cell-value-font-size: 12px;
 $cell-label-margin-top: 4px;
+$cell-border-left:15px;
 // collapse
 $collapse-bg-color: #fff;
 $collapse-inner-padding: 10px 15px;

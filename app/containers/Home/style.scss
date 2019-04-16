@@ -1,20 +1,32 @@
-.app-home{
-    .k-collapse-panel{
+.app-home {
+    .k-collapse-panel {
         margin-bottom: 15px;
-        .k-collapse-panel__header{
+
+        .k-collapse-panel__header {
             border-bottom: none;
             height: 56px;
             font-size: 16px;
+
+            &:after {}
         }
-        .k-collapse-panel__body{
-        
-            .k-cell-middle{
-                padding:0;
-                
+
+        .k-collapse-panel__body {
+
+            .k-cell-middle {
+                padding: 0;
+
             }
-            .k-collapse-panel__inner{
-                padding-top:0;
+
+            .k-collapse-panel__inner {
+                padding-top: 0;
                 padding-bottom: 0;
+                border-top: none;
+            }
+
+            .k-cell--border {
+                &::after {
+                    left: 0;
+                }
             }
         }
     }
