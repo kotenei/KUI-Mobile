@@ -24,9 +24,9 @@ export default class View extends Component {
         <Block title="禁用输入框" bodyPadding={false} >
           <Disabled />
         </Block>
-        {/* <Block title="多行文本" bodyPadding={false} >
+        <Block title="多行文本" bodyPadding={false} >
           <TextArea />
-        </Block> */}
+        </Block>
       </Page>
     );
   }

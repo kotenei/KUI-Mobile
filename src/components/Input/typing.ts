@@ -8,11 +8,15 @@ export interface InputProps extends KUI.BaseProps {
   value?: string;
   placeholder?: string;
   extra?: React.ReactNode | string;
-  // addonBefore: React.ReactNode;
-  // addonAfter: React.ReactNode;
   prefix: React.ReactNode;
   suffix: React.ReactNode;
   onChange?: (value: string) => void;
+}
+
+export interface InputState {
+  height?: number | string;
+  value?: string;
+  rows?: number;
 }
 
 export interface InputGroupProps extends KUI.BaseProps {
