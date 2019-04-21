@@ -14,9 +14,7 @@ export interface InputProps extends KUI.BaseProps {
 }
 
 export interface InputState {
-  height?: number | string;
   value?: string;
-  rows?: number;
 }
 
 export interface InputGroupProps extends KUI.BaseProps {

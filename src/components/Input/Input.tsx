@@ -14,7 +14,6 @@ class Input extends PureComponent<InputProps, InputState> {
   constructor(props) {
     super(props);
     this.state = {
-      rows: 1,
       value: props.value || props.defaultValue || '',
     };
   }
@@ -50,14 +49,13 @@ class Input extends PureComponent<InputProps, InputState> {
     );
   }
   public renderTextArea() {
-    const { height, rows } = this.state;
     return (
       <div className={`${prefixCls}__wrap`}>
         <textarea
           ref="textarea"
           className={`${prefixCls}__control`}
+          rows={1}
           onChange={this.handleChange}
-          rows={rows}
         />
       </div>
     );
@@ -74,21 +72,24 @@ class Input extends PureComponent<InputProps, InputState> {
   }
 
   private adpHeight = () => {
-    const { value } = this.state;
     const el = this.refs.textarea as HTMLElement;
     if (el) {
+      el.style.height = 'auto';
+      el.style.height = el.scrollHeight + 'px';
     }
   };
 
   private handleChange = e => {
     const { target } = e;
-    const { onChange } = this.props;
+    const { onChange, type } = this.props;
     const value = target.value;
-    console.log(value.length)
     if (!('value' in this.props)) {
       this.setState({
         value,
       });
+      if (type === 'textarea') {
+        this.adpHeight();
+      }
     }
     if (onChange) {
       onChange(value);
