@@ -8,6 +8,7 @@ const Badge = lazy(() => import('./containers/Badge'));
 const Button = lazy(() => import('./containers/Button'));
 const Card = lazy(() => import('./containers/Card'));
 const Cell = lazy(() => import('./containers/Cell'));
+const Checkbox = lazy(() => import('./containers/Checkbox'));
 const Collapse = lazy(() => import('./containers/Collapse'));
 const Divider = lazy(() => import('./containers/Divider'));
 const Home = lazy(() => import('./containers/Home'));
@@ -21,6 +22,7 @@ const NavBar = lazy(() => import('./containers/NavBar'));
 const NoticeBar = lazy(() => import('./containers/NoticeBar'));
 const Pagination = lazy(() => import('./containers/Pagination'));
 const Progress = lazy(() => import('./containers/Progress'));
+const Radio = lazy(() => import('./containers/Radio'));
 const SearchBar = lazy(() => import('./containers/SearchBar'));
 const Steps = lazy(() => import('./containers/Steps'));
 const TabBar = lazy(() => import('./containers/TabBar'));
@@ -40,6 +42,7 @@ const Router = props => {
       <Route exact path="/button" render={() => <Button />} />
       <Route exact path="/card" render={() => <Card />} />
       <Route exact path="/cell" render={() => <Cell />} />
+      <Route exact path="/checkbox" render={() => <Checkbox />} />
       <Route exact path="/collapse" render={() => <Collapse />} />
       <Route exact path="/divider" render={() => <Divider />} />
       <Route exact path="/icon" render={() => <Icon />} />
@@ -52,6 +55,7 @@ const Router = props => {
       <Route exact path="/noticebar" render={() => <NoticeBar />} />
       <Route exact path="/pagination" render={() => <Pagination />} />
       <Route exact path="/progress" render={() => <Progress />} />
+      <Route exact path="/radio" render={() => <Radio />} />
       <Route exact path="/searchbar" render={() => <SearchBar />} />
       <Route exact path="/steps" render={() => <Steps />} />
       <Route exact path="/switch" render={() => <Switch />} />

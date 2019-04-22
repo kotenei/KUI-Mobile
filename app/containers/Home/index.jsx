@@ -49,7 +49,9 @@ export default class Home extends Component {
       { title: 'Toast 轻提示', to: '/toast' },
     ];
     const form = [
+      { title: 'Checkbox 复选框', to: '/checkbox' },
       { title: 'Input 输入框', to: '/input' },
+      { title: 'Radio 单选框', to: '/radio' },
       { title: 'SearchBar 搜索栏', to: '/searchbar' },
       { title: 'Switch 开关', to: '/switch' },
     ];
