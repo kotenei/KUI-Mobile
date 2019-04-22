@@ -48,7 +48,11 @@ export default class Home extends Component {
       { title: 'Progress 进度条', to: '/progress' },
       { title: 'Toast 轻提示', to: '/toast' },
     ];
-    const form = [{ title: 'Input 输入框', to: '/input' }, { title: 'Switch 开关', to: '/switch' }];
+    const form = [
+      { title: 'Input 输入框', to: '/input' },
+      { title: 'SearchBar 搜索栏', to: '/searchbar' },
+      { title: 'Switch 开关', to: '/switch' },
+    ];
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
         <Collapse accordion>

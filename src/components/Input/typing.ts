@@ -8,8 +8,10 @@ export interface InputProps extends KUI.BaseProps {
   value?: string;
   placeholder?: string;
   extra?: React.ReactNode | string;
-  prefix: React.ReactNode;
-  suffix: React.ReactNode;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
+  onFocus?: () => void;
+  onBlur?: () => void;
   onChange?: (value: string) => void;
 }
 

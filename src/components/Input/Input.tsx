@@ -28,7 +28,17 @@ class Input extends PureComponent<InputProps, InputState> {
     }
   }
   public renderInput() {
-    const { type, placeholder, prefix, suffix, disabled, extra, defaultValue } = this.props;
+    const {
+      type,
+      placeholder,
+      prefix,
+      suffix,
+      disabled,
+      extra,
+      defaultValue,
+      onFocus,
+      onBlur,
+    } = this.props;
     const { value } = this.state;
     return (
       <React.Fragment>
@@ -41,6 +51,8 @@ class Input extends PureComponent<InputProps, InputState> {
             value={value}
             disabled={disabled}
             onChange={this.handleChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
           />
           {suffix && <span className={`${prefixCls}__suffix`}>{suffix}</span>}
         </div>
@@ -49,6 +61,7 @@ class Input extends PureComponent<InputProps, InputState> {
     );
   }
   public renderTextArea() {
+    const { onFocus, onBlur } = this.props;
     return (
       <div className={`${prefixCls}__wrap`}>
         <textarea
@@ -56,15 +69,22 @@ class Input extends PureComponent<InputProps, InputState> {
           className={`${prefixCls}__control`}
           rows={1}
           onChange={this.handleChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </div>
     );
   }
   public render() {
-    const { label, type } = this.props;
+    const { label, type, className } = this.props;
     return (
       <Cell
-        className={prefixCls}
+        className={classnames(
+          {
+            [prefixCls]: true,
+          },
+          className,
+        )}
         title={label}
         value={type !== 'textarea' ? this.renderInput() : this.renderTextArea()}
       />

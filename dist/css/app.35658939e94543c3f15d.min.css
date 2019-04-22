@@ -523,7 +523,7 @@ textarea {
     background: #f44336; }
 
 .k-input {
-  line-height: 24px;
+  line-height: 28px;
   height: auto; }
   .k-input .k-cell-middle {
     align-items: initial;
@@ -559,7 +559,8 @@ textarea {
     line-height: 0;
     z-index: 2;
     -webkit-transform: translateY(-50%);
-            transform: translateY(-50%); }
+            transform: translateY(-50%);
+    left: 4px; }
   .k-input__suffix {
     position: absolute;
     top: 50%;
@@ -567,7 +568,9 @@ textarea {
     z-index: 2;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
-    right: 0; }
+    right: 4px; }
+  .k-input__extra {
+    padding: 0 0 0 5px; }
 
 .k-row {
   display: flex;
@@ -1349,6 +1352,12 @@ textarea {
   100% {
     left: 107%;
     right: -8; } }
+
+.k-searchbar {
+  background: #EFEFF4; }
+  .k-searchbar .k-input__control {
+    background: #fff;
+    border-radius: 4px; }
 
 .k-steps--horizontal {
   display: flex; }

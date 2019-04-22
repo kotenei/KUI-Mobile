@@ -53,6 +53,7 @@
         line-height: 0;
         z-index: 2;
         transform: translateY(-50%);
+        left:4px;
     }
 
     @include bem-element('suffix') {
@@ -61,10 +62,12 @@
         line-height: 0;
         z-index: 2;
         transform: translateY(-50%);
-        right: 0;
+        right: 4px;
     }
 
-    @include bem-element('extra') {}
+    @include bem-element('extra') {
+        padding:$input-extra-padding;
+    }
 
 
 }

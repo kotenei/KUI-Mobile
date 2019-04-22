@@ -76,12 +76,13 @@ $icon-vertical-align: -2px;
 $icon-svg-width: 1em;
 $icon-svg-height: 1em;
 // input
-$input-line-height:24px;
+$input-line-height:28px;
 $input-label-max-width:90px;
 $input-control-padding-left:26px;
 $input-control-padding-right:26px;
 $input-padding:10px 15px;
-$input-textarea-height:24px;
+$input-textarea-height:28px;
+$input-extra-padding:0 0 0 5px;
 // alert
 $alert-padding: 15px 35px 15px 15px;
 $alert-font-color: #fff;
@@ -179,6 +180,8 @@ $progress-innter-radius: 100px;
 $progress-innerText-margin: 0 5px;
 $progress-text-margin-left: 8px;
 $progress-circle-margin-right: 10px;
+// searchbar
+$searchbar-bgColor:#EFEFF4;
 // steps
 $steps-horizontal-step-margin-margin: 16px;
 $steps-title-line-height: 24px;
