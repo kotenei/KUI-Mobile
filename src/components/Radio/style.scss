@@ -1,0 +1,6 @@
+@include bem-block('radio') {
+    @include bem-element('icon') {
+        font-size: $font-size-base;
+        color: $primary-color;
+    }
+}

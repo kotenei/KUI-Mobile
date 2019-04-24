@@ -19,9 +19,25 @@ $group:#{$prefix}-group;
                 background: $border-color-base;
                 position: absolute;
                 bottom: 0px;
-                left:$cell-border-left;
-                right:0;
+                left: $cell-border-left;
+                right: 0;
             }
+        }
+    }
+
+    @include bem-modifier('disabled') {
+        @include text-color($disabled-color);
+
+        @include element('cell-middle__title') {
+            @include text-color($disabled-color);
+        }
+
+        @include element('cell-middle__label') {
+            @include text-color($disabled-color);
+        }
+
+        @include element('cell-middle__value') {
+            @include text-color($disabled-color);
         }
     }
 
@@ -50,17 +66,17 @@ $group:#{$prefix}-group;
     }
 
     @include bem-element('title') {
-        @include text-color($title-color);
+        color: $title-color;
     }
 
     @include bem-element('label') {
-        @include text-color($text-color);
+        color: $subsidiary-color;
         font-size: $cell-label-font-size;
         margin-top: $cell-label-margin-top;
     }
 
     @include bem-element('value') {
-        @include text-color($subsidiary-color);
+        color: $subsidiary-color;
         font-size: $cell-value-font-size;
     }
 }

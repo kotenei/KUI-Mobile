@@ -16,12 +16,14 @@ class CellGroup extends PureComponent<CellGroupProps> {
     });
     return (
       <div className={classString}>
-        {React.Children.map(children, (child: any) => {
+        {/* {React.Children.map(children, (child: any) => {
+          console.log(child);
           if (!child || !child.type || child.type.displayName !== 'Cell') {
             return null;
           }
           return child;
-        })}
+        })} */}
+        {children}
       </div>
     );
   }

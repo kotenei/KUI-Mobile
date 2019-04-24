@@ -21,13 +21,13 @@ export default class Cell extends PureComponent<CellProps> {
     return <div className={`${prefixCls}-right`} />;
   }
   public renderCellMiddle() {
-    const { title, label, value, showArrow, arrowDirection, onClick } = this.props;
+    const { title, label, value, showArrow, arrowDirection } = this.props;
     return (
       <div
         className={classnames({
           [`${prefixCls}-middle`]: true,
         })}
-        onClick={onClick}
+        onClick={this.handleClick}
       >
         {title || label ? (
           <div className={`${prefixCls}-middle__text`}>
@@ -44,12 +44,13 @@ export default class Cell extends PureComponent<CellProps> {
     );
   }
   public render() {
-    const { className, border, to, url, large, ...others } = this.props;
+    const { className, border, to, url, large, disabled, ...others } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
         [`${prefixCls}--lg`]: !!large,
         [`${prefixCls}--border`]: !!border,
+        [`${prefixCls}--disabled`]: !!disabled,
       },
       className,
     );
@@ -71,6 +72,12 @@ export default class Cell extends PureComponent<CellProps> {
   }
 
   private handleClick = () => {
-    const { onClick } = this.props;
+    const { onClick, disabled } = this.props;
+    if (disabled) {
+      return;
+    }
+    if (onClick) {
+      onClick();
+    }
   };
 }
