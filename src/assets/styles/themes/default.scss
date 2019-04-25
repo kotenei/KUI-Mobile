@@ -27,10 +27,7 @@ $font-size-base: 14px;
 $font-size-subhead: 15px;
 $font-size-caption: 16px;
 $font-size-heading: 17px;
-// radio
-$radio-circle-size:20px;
-$radio-label-margin-left:10px;
-$radio-group-item-margin-bottom:10px;
+
 // radius
 $radius-xs: 2px;
 $radius-sm: 3px;
@@ -148,6 +145,10 @@ $cell-label-font-size: 12px;
 $cell-value-font-size: 12px;
 $cell-label-margin-top: 3px;
 $cell-border-left:15px;
+// checkbox
+$checkbox-icon-size:20px;
+$checkbox-label-margin-left:10px;
+$checkbox-group-item-margin-bottom:10px;
 // collapse
 $collapse-bg-color: #fff;
 $collapse-inner-padding: 10px 15px;
@@ -184,6 +185,10 @@ $progress-innter-radius: 100px;
 $progress-innerText-margin: 0 5px;
 $progress-text-margin-left: 8px;
 $progress-circle-margin-right: 10px;
+// radio
+$radio-circle-size:20px;
+$radio-label-margin-left:10px;
+$radio-group-item-margin-bottom:10px;
 // searchbar
 $searchbar-bgColor:#EFEFF4;
 // steps

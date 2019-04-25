@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
-import { Cell } from '../Cell';
 import { RadioProps, RadioState } from './typing';
 import { Icon } from '../Icon';
 
