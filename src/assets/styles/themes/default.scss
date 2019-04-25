@@ -27,6 +27,10 @@ $font-size-base: 14px;
 $font-size-subhead: 15px;
 $font-size-caption: 16px;
 $font-size-heading: 17px;
+// radio
+$radio-circle-size:20px;
+$radio-label-margin-left:10px;
+$radio-group-item-margin-bottom:10px;
 // radius
 $radius-xs: 2px;
 $radius-sm: 3px;
@@ -142,7 +146,7 @@ $cell-line-height:24px;
 $cell-bg-color: #fff;
 $cell-label-font-size: 12px;
 $cell-value-font-size: 12px;
-$cell-label-margin-top: 8px;
+$cell-label-margin-top: 4px;
 $cell-border-left:15px;
 // collapse
 $collapse-bg-color: #fff;

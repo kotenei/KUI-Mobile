@@ -2,8 +2,9 @@ export interface RadioProps extends KUI.BaseProps {
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
-  label: string | React.ReactNode;
+  title: string | React.ReactNode;
   desc?: string | React.ReactNode;
+  circle?: boolean;
   value?: string;
   onChange?: (value: string) => void;
 }
@@ -13,6 +14,7 @@ export interface RadioState {
 }
 
 export interface RadioGroupProps extends KUI.BaseProps {
+  cell?: boolean;
   value?: string;
   defaultValue?: string;
   onChange?: (value: string) => void;

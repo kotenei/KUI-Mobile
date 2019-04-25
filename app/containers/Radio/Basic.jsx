@@ -6,8 +6,8 @@ export default class Demo extends Component {
     return (
       <React.Fragment>
         <RadioGroup>
-          <Radio label="单选项一" value="选项一" />
-          <Radio label="单选项二" value="选项二" />
+          <Radio value="选项一">单选框一</Radio>
+          <Radio value="选项二">单选框二</Radio>
         </RadioGroup>
       </React.Fragment>
     );
