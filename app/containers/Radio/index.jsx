@@ -19,7 +19,7 @@ export default class View extends Component {
         <Block title="禁用">
           <Disabled />
         </Block>
-        <Block title="与Cell组合" bodyPadding={false}>
+        <Block title="与 Cell 组件组合" bodyPadding={false}>
           <Cell />
         </Block>
       </Page>

@@ -3,7 +3,7 @@ export interface RadioProps extends KUI.BaseProps {
   defaultChecked?: boolean;
   disabled?: boolean;
   title: string | React.ReactNode;
-  desc?: string | React.ReactNode;
+  label?: string | React.ReactNode;
   circle?: boolean;
   value?: string;
   onChange?: (value: string) => void;

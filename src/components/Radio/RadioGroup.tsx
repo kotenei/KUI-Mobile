@@ -30,7 +30,7 @@ class RadioGroup extends PureComponent<RadioGroupProps, RadioGroupState> {
     return (
       <CellGroup>
         {React.Children.map(children, (child: any, index: number) => {
-          const { title, desc, disabled } = child.props;
+          const { title, label, disabled } = child.props;
           const childValue = child.props.value !== undefined ? child.props.value : index;
           const radio = React.cloneElement(child, {
             disabled,
@@ -38,8 +38,11 @@ class RadioGroup extends PureComponent<RadioGroupProps, RadioGroupState> {
             checked: value === childValue,
             onChange: this.handleChange,
           });
+          const onClick = () => {
+            this.handleChange(childValue);
+          };
 
-          return <Cell title={title} label={desc} value={radio} disabled={disabled} />;
+          return <Cell title={title} label={label} disabled={disabled} value={radio} onClick={onClick} />;
         })}
       </CellGroup>
     );
