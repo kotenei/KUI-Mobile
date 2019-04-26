@@ -31,6 +31,9 @@ class CheckboxGroup extends PureComponent<CheckboxGroupProps, CheckboxGroupState
     return (
       <CellGroup border>
         {React.Children.map(children, (child: any, index: number) => {
+          if (!child || !child.type || child.type.displayName !== 'Checkbox') {
+            return null;
+          }
           const { title, label, disabled } = child.props;
           const childValue = child.props.value !== undefined ? child.props.value : index;
           const checkbox = React.cloneElement(child, {
@@ -48,7 +51,7 @@ class CheckboxGroup extends PureComponent<CheckboxGroupProps, CheckboxGroupState
               title={title}
               label={label}
               disabled={disabled}
-              right={position === 'right' && checkbox}
+              value={position === 'right' && checkbox}
               onClick={onClick}
             />
           );
@@ -68,6 +71,9 @@ class CheckboxGroup extends PureComponent<CheckboxGroupProps, CheckboxGroupState
     return !cell ? (
       <div className={classString}>
         {React.Children.map(children, (child: any, index: number) => {
+          if (!child || !child.type || child.type.displayName !== 'Checkbox') {
+            return null;
+          }
           const childValue = child.props.value !== undefined ? child.props.value : index;
           return React.cloneElement(child, {
             ...child.props,

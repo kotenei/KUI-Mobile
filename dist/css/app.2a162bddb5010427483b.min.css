@@ -488,6 +488,9 @@ textarea {
   .k-cell--lg {
     height: 56px;
     font-size: 16px; }
+  .k-cell__link {
+    flex: 1;
+    height: 100%; }
 
 .k-cell-left {
   margin-right: 10px; }

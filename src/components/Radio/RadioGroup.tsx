@@ -30,6 +30,9 @@ class RadioGroup extends PureComponent<RadioGroupProps, RadioGroupState> {
     return (
       <CellGroup border>
         {React.Children.map(children, (child: any, index: number) => {
+          if (!child || !child.type || child.type.displayName !== 'Radio') {
+            return null;
+          }
           const { title, label, disabled } = child.props;
           const childValue = child.props.value !== undefined ? child.props.value : index;
           const radio = React.cloneElement(child, {
@@ -42,7 +45,9 @@ class RadioGroup extends PureComponent<RadioGroupProps, RadioGroupState> {
             this.handleChange(childValue);
           };
 
-          return <Cell title={title} label={label} disabled={disabled} value={radio} onClick={onClick} />;
+          return (
+            <Cell title={title} label={label} disabled={disabled} value={radio} onClick={onClick} />
+          );
         })}
       </CellGroup>
     );
@@ -60,6 +65,9 @@ class RadioGroup extends PureComponent<RadioGroupProps, RadioGroupState> {
     return !cell ? (
       <div className={classString}>
         {React.Children.map(children, (child: any, index: number) => {
+          if (!child || !child.type || child.type.displayName !== 'Radio') {
+            return null;
+          }
           const childValue = child.props.value !== undefined ? child.props.value : index;
           return React.cloneElement(child, {
             ...child.props,

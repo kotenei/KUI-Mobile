@@ -61,9 +61,9 @@ export default class Cell extends PureComponent<CellProps> {
       <div className={classString}>
         {this.renderCellLeft()}
         {to ? (
-          <NavLink to={to}> {this.renderCellMiddle()}</NavLink>
+          <NavLink className={`${prefixCls}__link`} to={to}> {this.renderCellMiddle()}</NavLink>
         ) : url ? (
-          <a href={url}>{this.renderCellMiddle()}</a>
+          <a className={`${prefixCls}__link`} href={url}>{this.renderCellMiddle()}</a>
         ) : (
           this.renderCellMiddle()
         )}

@@ -48,6 +48,11 @@ $group:#{$prefix}-group;
         height: $cell-height-lg;
         font-size: $font-size-caption;
     }
+
+    @include bem-element('link'){
+        flex:1;
+        height: 100%;
+    }
 }
 
 @include bem-block($prefix-left) {
