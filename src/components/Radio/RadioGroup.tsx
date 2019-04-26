@@ -28,7 +28,7 @@ class RadioGroup extends PureComponent<RadioGroupProps, RadioGroupState> {
     const { children } = this.props;
     const { value } = this.state;
     return (
-      <CellGroup>
+      <CellGroup border>
         {React.Children.map(children, (child: any, index: number) => {
           const { title, label, disabled } = child.props;
           const childValue = child.props.value !== undefined ? child.props.value : index;

@@ -44,3 +44,9 @@
         margin-left: $checkbox-label-margin-left;
     }
 }
+
+@include bem-block('checkbox-group') {
+    @include element('checkbox') {
+        margin-bottom: $checkbox-group-item-margin-bottom;
+    }
+}

@@ -16,9 +16,10 @@ export interface CheckboxGroupProps extends KUI.BaseProps {
   cell?: boolean;
   value?: string[];
   defaultValue?: string[];
+  position?: 'left' | 'right';
   onChange?: (value: string[]) => void;
 }
 
 export interface CheckboxGroupState {
-  value?: string[];
+  value: string[];
 }

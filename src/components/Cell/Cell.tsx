@@ -15,10 +15,12 @@ export default class Cell extends PureComponent<CellProps> {
     arrowDirection: 'right',
   };
   public renderCellLeft() {
-    return <div className={`${prefixCls}-left`} />;
+    const { left } = this.props;
+    return left && <div className={`${prefixCls}-left`}>{left}</div>;
   }
   public renderCellRight() {
-    return <div className={`${prefixCls}-right`} />;
+    const { right } = this.props;
+    return right && <div className={`${prefixCls}-right`}>{right}</div>;
   }
   public renderCellMiddle() {
     const { title, label, value, showArrow, arrowDirection } = this.props;

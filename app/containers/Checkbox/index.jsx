@@ -4,6 +4,8 @@ import Header from '../../components/Header';
 import Block from '../../components/Block';
 import Basic from './Basic';
 import Group from './Group';
+import Disabled from './Disabled';
+import Cell from './Cell';
 
 const prefixCls = 'app-icon';
 
@@ -17,6 +19,12 @@ export default class View extends Component {
         </Block>
         <Block title="复选框组" >
           <Group />
+        </Block>
+        <Block title="禁用" >
+          <Disabled />
+        </Block>
+        <Block title="与 Cell 组件组合" bodyPadding={false}>
+          <Cell />
         </Block>
       </Page>
     );

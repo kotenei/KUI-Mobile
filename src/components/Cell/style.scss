@@ -9,6 +9,9 @@ $group:#{$prefix}-group;
     background: $cell-bg-color;
     height: $cell-height;
     position: relative;
+    display: flex;
+    align-items:center;
+    padding:$cell-padding;
 
     @include bem-modifier('border') {
         &:not(:last-child) {
@@ -48,10 +51,11 @@ $group:#{$prefix}-group;
 }
 
 @include bem-block($prefix-left) {
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
+    // height: 100%;
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    margin-right: $cell-space;
 }
 
 @include bem-block($prefix-middle) {
@@ -59,7 +63,8 @@ $group:#{$prefix}-group;
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    padding: $cell-middle-padding;
+    // padding: $cell-middle-padding;
+    flex:1;
 
     @include bem-element('text') {
         flex: 1;
@@ -67,6 +72,8 @@ $group:#{$prefix}-group;
 
     @include bem-element('title') {
         color: $title-color;
+        display: flex;
+        align-items: center;
     }
 
     @include bem-element('label') {
@@ -82,10 +89,11 @@ $group:#{$prefix}-group;
 }
 
 @include bem-block($prefix-right) {
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
+    // height: 100%;
+    // position: absolute;
+    // right: 0;
+    // top: 0;
+    margin-left: $cell-space;
 }
 
 @include bem-block($group) {
