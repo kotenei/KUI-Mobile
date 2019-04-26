@@ -13,7 +13,7 @@ export interface CollapsePanelProps extends KUI.BaseProps {
   border?: boolean;
   index?: number;
   id: string;
-  icon?: string;
+  icon?: React.ReactNode | string;
   header?: React.ReactNode | string;
   activeIds?: string[];
   disabled?: boolean;

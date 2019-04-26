@@ -7,18 +7,18 @@
             height: 56px;
             font-size: 16px;
 
-            &:after {}
+
+
+            .k-cell-middle__value {
+                font-size: 24px;
+                // color: black;
+            }
         }
 
         .k-collapse-panel__body {
 
             .k-cell {
                 padding: 0;
-            }
-
-            .k-cell-middle {
-                // padding: 0;
-
             }
 
             .k-collapse-panel__inner {

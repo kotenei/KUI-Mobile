@@ -573,7 +573,7 @@ textarea {
   height: auto; }
   .k-input .k-cell-middle {
     align-items: initial;
-    padding: 10px 15px; }
+    padding: 10px 0px; }
   .k-input .k-cell-middle__text {
     max-width: 90px; }
   .k-input .k-cell-middle__value {
@@ -2012,6 +2012,8 @@ body {
     border-bottom: none;
     height: 56px;
     font-size: 16px; }
+    .app-home .k-collapse-panel .k-collapse-panel__header .k-cell-middle__value {
+      font-size: 24px; }
   .app-home .k-collapse-panel .k-collapse-panel__body .k-cell {
     padding: 0; }
   .app-home .k-collapse-panel .k-collapse-panel__body .k-collapse-panel__inner {

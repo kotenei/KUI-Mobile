@@ -57,7 +57,8 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
           })}
           onClick={this.handleClick}
           title={header}
-          showArrow
+          showArrow={!icon}
+          value={icon ? typeof icon === 'string' ? <Icon type={icon} /> : icon : null}
           arrowDirection={isShow ? 'down' : 'right'}
         />
 

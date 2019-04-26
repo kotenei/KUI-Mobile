@@ -58,19 +58,19 @@ export default class Home extends Component {
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
         <Collapse accordion>
-          <CollapsePanel header="基础组件" id="1" border={false}>
+          <CollapsePanel header="基础组件" id="1" icon="layout" border={false} >
             {this.renderCells(basic)}
           </CollapsePanel>
-          <CollapsePanel header="展示组件" id="2" border={false}>
+          <CollapsePanel header="展示组件" id="2" icon="picture" border={false}>
             {this.renderCells(display)}
           </CollapsePanel>
-          <CollapsePanel header="导航组件" id="3" border={false}>
+          <CollapsePanel header="导航组件" id="3" icon="bars" border={false}>
             {this.renderCells(nav)}
           </CollapsePanel>
-          <CollapsePanel header="反馈组件" id="4" border={false}>
+          <CollapsePanel header="反馈组件" id="4" icon="check-circle" border={false}>
             {this.renderCells(feedback)}
           </CollapsePanel>
-          <CollapsePanel header="表单组件" id="5" border={false}>
+          <CollapsePanel header="表单组件" id="5" icon="form" border={false}>
             {this.renderCells(form)}
           </CollapsePanel>
         </Collapse>
