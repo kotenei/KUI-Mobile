@@ -14,6 +14,7 @@ export * from './components/Layout';
 export * from './components/LazyLoad';
 export * from './components/LoadMore';
 export * from './components/Message';
+export * from './components/Modal';
 export * from './components/NavBar';
 export * from './components/NoticeBar';
 export * from './components/Pagination';
