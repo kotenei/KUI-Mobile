@@ -13,19 +13,23 @@ class SearchBar extends PureComponent<SearchBarProps, SearchBarState> {
     disabled: false,
     showCancelButton: false,
   };
+
+  private static getDerivedStateFromProps(nextProps, prevState) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value,
+      };
+    }
+    return null;
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       value: props.value || props.defaultValue,
     };
   }
-  public componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
-      this.setState({
-        value: nextProps.value,
-      });
-    }
-  }
+
   public renderCancelButton() {
     const { cancelText, showCancelButton } = this.props;
     return showCancelButton && <div onClick={this.handleClear}>{cancelText}</div>;

@@ -24,6 +24,7 @@ const NoticeBar = lazy(() => import('./containers/NoticeBar'));
 const Pagination = lazy(() => import('./containers/Pagination'));
 const Progress = lazy(() => import('./containers/Progress'));
 const Radio = lazy(() => import('./containers/Radio'));
+const Rate = lazy(() => import('./containers/Rate'));
 const SearchBar = lazy(() => import('./containers/SearchBar'));
 const Steps = lazy(() => import('./containers/Steps'));
 const TabBar = lazy(() => import('./containers/TabBar'));
@@ -58,6 +59,7 @@ const Router = props => {
       <Route exact path="/pagination" render={() => <Pagination />} />
       <Route exact path="/progress" render={() => <Progress />} />
       <Route exact path="/radio" render={() => <Radio />} />
+      <Route exact path="/rate" render={() => <Rate />} />
       <Route exact path="/searchbar" render={() => <SearchBar />} />
       <Route exact path="/steps" render={() => <Steps />} />
       <Route exact path="/switch" render={() => <Switch />} />

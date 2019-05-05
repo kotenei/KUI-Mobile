@@ -53,6 +53,7 @@ export default class Home extends Component {
       { title: 'Checkbox 复选框', to: '/checkbox' },
       { title: 'Input 输入框', to: '/input' },
       { title: 'Radio 单选框', to: '/radio' },
+      { title: 'Rate 评分', to: '/rate' },
       { title: 'SearchBar 搜索栏', to: '/searchbar' },
       { title: 'Switch 开关', to: '/switch' },
     ];

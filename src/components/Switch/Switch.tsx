@@ -11,6 +11,16 @@ class Switch extends PureComponent<SwitchProps, SwitchState> {
     disabled: false,
     loading: false,
   };
+
+  private static getDerivedStateFromProps(nextProps, prevState) {
+    if ('checked' in nextProps) {
+      return {
+        checked: nextProps.checked,
+      };
+    }
+    return null;
+  }
+
   constructor(props) {
     super(props);
     const checked = props.checked || props.defaultChecked;
@@ -18,13 +28,7 @@ class Switch extends PureComponent<SwitchProps, SwitchState> {
       checked,
     };
   }
-  public componentWillReceiveProps(nextProps) {
-    if ('checked' in nextProps) {
-      this.setState({
-        checked: nextProps.checked,
-      });
-    }
-  }
+
   public renderInner() {
     const { checkedContent, unCheckedContent } = this.props;
     const { checked } = this.state;
