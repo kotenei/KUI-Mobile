@@ -18,7 +18,11 @@ $disabled-cursor: not-allowed;
 $title-color: #1c2438;
 $text-color: #495060;
 $background-color-base: #f8f8f9;
-$font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
+$font-family: 'Helvetica Neue',
+'PingFang SC',
+'Hiragino Sans GB',
+Arial,
+sans-serif;
 $line-height: 1.5;
 // size
 $font-size-icontext: 10px;
@@ -97,7 +101,7 @@ $alert-close-text-right: 16px;
 // avatar
 $avatar-bgColor: #bdbdbd;
 $avatar-color: #fafafa;
-$avatar-size-map: ( lg: 48px, md: 32px, sm: 24px);
+$avatar-size-map: (lg: 48px, md: 32px, sm: 24px);
 // Badge
 $badge-margin: 0 2px;
 $badge-sup-padding: 4px 8px;
@@ -117,18 +121,14 @@ $button-border-radius: $radius-base;
 $button-color: $text-color;
 $button-bgColor: #fff;
 $button-active-bgColor: #e6e6e6;
-$button-size-map: (
-  xs: (
-    padding: 4px 10px,
-    fontSize: $font-size-icontext,
-  ),
-  sm: (
-    padding: 5px 12px,
-    fontSize: $font-size-caption-sm,
-  ),
-  lg: (
-    fontSize: $font-size-caption,
-  ),
+$button-size-map: (xs: (padding: 4px 10px,
+fontSize: $font-size-icontext,
+),
+sm: (padding: 5px 12px,
+fontSize: $font-size-caption-sm,
+),
+lg: (fontSize: $font-size-caption,
+),
 );
 // card
 $card-padding-bottom:8px;
@@ -164,6 +164,10 @@ $loadmore-dot-size:3px;
 // message
 $message-padding: 6px 15px;
 $message-height: 33px;
+// modal
+$modal-width:85%;
+$modal-header-padding:25px 0 0 0;
+$modal-body-padding:12px 20px 20px 20px;
 // navbar
 $navbar-height: 48px;
 $navbar-left-padding-left: 16px;
