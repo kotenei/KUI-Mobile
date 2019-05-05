@@ -13,6 +13,14 @@ class Tabs extends PureComponent<TabsProps, TabsState> {
     tabPosition: 'top',
     type: 'line',
   };
+  private static getDerivedStateFromProps(nextProps, prevState) {
+    if ('activeIndex' in nextProps) {
+      return {
+        activeIndex: nextProps.activeIndex,
+      };
+    }
+    return null;
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -34,13 +42,6 @@ class Tabs extends PureComponent<TabsProps, TabsState> {
     if (hasMatch) {
       this.setState({
         activeIndex: 0,
-      });
-    }
-  }
-  public componentWillReceiveProps(nextProps) {
-    if ('activeIndex' in nextProps) {
-      this.setState({
-        activeIndex: nextProps.activeIndex,
       });
     }
   }

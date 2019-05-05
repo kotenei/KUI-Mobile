@@ -11,6 +11,16 @@ class Input extends PureComponent<InputProps, InputState> {
     type: 'text',
     disabled: false,
   };
+
+  private static getDerivedStateFromProps(nextProps, prevState) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value,
+      };
+    }
+    return null;
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -20,13 +30,7 @@ class Input extends PureComponent<InputProps, InputState> {
   public componentDidMount() {
     this.adpHeight();
   }
-  public componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
-      this.setState({
-        value: nextProps.value,
-      });
-    }
-  }
+
   public renderInput() {
     const {
       type,
