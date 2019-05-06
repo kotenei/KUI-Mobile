@@ -3,6 +3,6 @@ import { Rate } from 'kui-mobile';
 
 export default class Demo extends Component {
   render() {
-    return <Rate />;
+    return <Rate disabled defaultValue={2} />;
   }
 }

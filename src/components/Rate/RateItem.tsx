@@ -17,18 +17,19 @@ class RateItem extends PureComponent<RateItemProps> {
       [`${prefixCls}--half`]: current === value - 0.5 && !!allowHalf,
       [`${prefixCls}--full`]: current >= value && value.toString().indexOf('.') === -1,
     });
+
     return (
       <li className={classString}>
         <div
-          className={`${prefixCls}__first`}
-          onTouchMove={this.handleFirstMove}
+          className={`${prefixCls}__item ${prefixCls}__first`}
+          data-value={allowHalf ? value - 0.5 : value}
           onClick={this.handleFirstClick}
         >
           {character}
         </div>
         <div
-          className={`${prefixCls}__second`}
-          onTouchMove={this.handleSecondMove}
+          className={`${prefixCls}__item ${prefixCls}__second`}
+          data-value={value}
           onClick={this.handleSecondClick}
         >
           {character}
@@ -37,26 +38,11 @@ class RateItem extends PureComponent<RateItemProps> {
     );
   }
 
-  private handleFirstMove = e => {
-    const { allowHalf, value, onHover } = this.props;
-    const val = allowHalf ? value - 0.5 : value;
-    if (onHover) {
-      onHover(value);
-    }
-  };
-
   private handleFirstClick = e => {
     const { allowHalf, value, onClick } = this.props;
-    const val = allowHalf ? value - 0.5 : value;
+    const newValue = allowHalf ? value - 0.5 : value;
     if (onClick) {
-      onClick(val);
-    }
-  };
-
-  private handleSecondMove = e => {
-    const { onHover, value } = this.props;
-    if (onHover) {
-      onHover(value);
+      onClick(newValue);
     }
   };
 

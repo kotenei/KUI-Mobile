@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[21],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[22],{
 
 /***/ "./app/containers/Icon/Basic.jsx":
 /*!***************************************!*\

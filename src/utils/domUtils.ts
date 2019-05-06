@@ -125,6 +125,20 @@ const domUtils = {
     }
     return ret;
   },
+  parents(el, selector) {
+    const result: any = [];
+    const matchesSelector =
+      el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
+
+    el = el.parentElement;
+    while (el) {
+      if (matchesSelector.call(el, selector)) {
+        result.push(el);
+      }
+      el = el.parentElement;
+    }
+    return result;
+  },
 };
 
 export default domUtils;

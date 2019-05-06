@@ -10,6 +10,16 @@
         @include element('rate-star') {
             cursor: $disabled-cursor;
         }
+
+        @include element('rate-star--full') {
+            color: $disabled-color;
+        }
+
+        @include element('rate-star-half') {
+            @include element('rate-star__first') {
+                color: $disabled-color;
+            }
+        }
     }
 }
 
@@ -23,6 +33,7 @@
     @include bem-modifier('half') {
         @include element('rate-star__first') {
             color: $rate-start-color;
+            opacity: 1;
         }
     }
 

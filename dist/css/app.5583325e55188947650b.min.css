@@ -1165,6 +1165,61 @@ textarea {
 .message-exit-active {
   transition: top .3s ease; }
 
+.k-modal {
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #fff;
+  width: 85%;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #dddee1;
+  transition: all .3s ease;
+  display: none; }
+  .k-modal--in {
+    display: block; }
+  .k-modal__header {
+    font-weight: 500;
+    text-align: center;
+    padding: 25px 0 0 0;
+    font-size: 16px;
+    color: #1c2438;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px; }
+  .k-modal__body {
+    padding: 12px 20px 20px 20px;
+    color: #80848f;
+    text-align: center; }
+  .k-modal__footer {
+    display: flex;
+    align-items: center; }
+    .k-modal__footer button {
+      flex: 1;
+      border-radius: 0;
+      border-bottom: none;
+      border-left: none;
+      height: 50px;
+      font-size: 16px; }
+      .k-modal__footer button:last-child {
+        border-right: none; }
+  .k-modal__ok {
+    color: #2196f3; }
+
+.k-modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 800;
+  background: rgba(0, 0, 0, 0.7);
+  display: none; }
+  .k-modal-mask--in {
+    display: block; }
+
 .k-navbar {
   display: flex;
   height: 48px;
@@ -1433,6 +1488,44 @@ textarea {
 
 .k-radio-group .k-radio {
   margin-bottom: 10px; }
+
+.k-rate {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 20px;
+  color: #e8e8e8;
+  display: inline-block; }
+  .k-rate--disabled .k-rate-star {
+    cursor: not-allowed; }
+  .k-rate--disabled .k-rate-star--full {
+    color: #c3cbd6; }
+  .k-rate--disabled .k-rate-star-half .k-rate-star__first {
+    color: #c3cbd6; }
+
+.k-rate-star {
+  margin-right: 0;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s;
+  cursor: pointer; }
+  .k-rate-star--half .k-rate-star__first {
+    color: #fadb14;
+    opacity: 1; }
+  .k-rate-star--full {
+    color: #fadb14; }
+  .k-rate-star__first {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
 
 .k-searchbar {
   background: #EFEFF4; }

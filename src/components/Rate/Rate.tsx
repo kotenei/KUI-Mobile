@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { RateProps, RateState } from './typing';
 import RateItem from './RateItem';
 import { Icon } from '../Icon';
+import domUtils from '../../utils/domUtils';
 
 const prefixCls = 'k-rate';
 
@@ -50,7 +51,6 @@ class Rate extends PureComponent<RateProps, RateState> {
             value={i + 1}
             character={character}
             allowHalf={allowHalf}
-            onHover={this.handleStarHover}
             onClick={this.handleStarClick}
           />,
         );
@@ -70,7 +70,7 @@ class Rate extends PureComponent<RateProps, RateState> {
       className,
     );
     return (
-      <ul className={classString} onTouchEnd={this.handleLeave} style={style}>
+      <ul className={classString} style={style} onTouchMove={this.handleTouchMove}>
         {this.renderStars()}
       </ul>
     );
@@ -92,23 +92,33 @@ class Rate extends PureComponent<RateProps, RateState> {
     }
   };
 
-  private handleStarHover = value => {
-    const { onHoverChange, disabled } = this.props;
-    if (disabled) {
+  private handleTouchMove = e => {
+    const { disabled } = this.props;
+
+    if (disabled || !document.elementFromPoint) {
       return;
     }
-    this.setState({
-      value,
-    });
-    if (onHoverChange) {
-      onHoverChange(value);
-    }
-  };
 
-  private handleLeave = () => {
-    this.setState({
-      value: this.state.orgValue,
-    });
+    const { clientX, clientY } = e.touches[0];
+    const target = document.elementFromPoint(clientX, clientY) as HTMLElement;
+
+    if (target) {
+      let value;
+      if (target.dataset) {
+        value = target.dataset.value;
+      }
+      if (value === undefined) {
+        const elms = domUtils.parents(target, '.k-rate-star__item');
+        if (elms.length > 0 && elms[0].dataset) {
+          value = elms[0].dataset.value;
+        }
+      }
+      if (value !== undefined && /^\d+(\.\d*)?$/.test(value)) {
+        this.setState({
+          value: Number(value),
+        });
+      }
+    }
   };
 }
 
