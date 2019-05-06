@@ -92,7 +92,9 @@ class Modal extends PureComponent<ModalProps, ModalState> {
             <Button className={`${prefixCls}__cancel`} onClick={this.handleCnacel}>
               {cancelText}
             </Button>
-            <Button className={`${prefixCls}__ok`}>{okText}</Button>
+            <Button className={`${prefixCls}__ok`} onClick={this.handleOK}>
+              {okText}
+            </Button>
           </div>
         </div>
         <div

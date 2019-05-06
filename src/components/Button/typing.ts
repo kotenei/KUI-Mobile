@@ -6,6 +6,7 @@ export interface ButtonProps extends KUI.BaseProps {
   type?: 'button' | 'reset' | 'submit';
   active?: boolean;
   size?: KUI.SizeTypes;
+  onClick?: (e) => void;
 }
 
 export interface ButtonGroupProps extends KUI.BaseProps {}

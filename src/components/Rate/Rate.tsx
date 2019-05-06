@@ -70,7 +70,7 @@ class Rate extends PureComponent<RateProps, RateState> {
       className,
     );
     return (
-      <ul className={classString} style={style} onTouchMove={this.handleTouchMove}>
+      <ul className={classString} style={style}  onTouchMoveCapture={this.handleTouchMove}>
         {this.renderStars()}
       </ul>
     );
@@ -93,7 +93,7 @@ class Rate extends PureComponent<RateProps, RateState> {
   };
 
   private handleTouchMove = e => {
-    const { disabled } = this.props;
+    const { disabled, onChange } = this.props;
 
     if (disabled || !document.elementFromPoint) {
       return;
@@ -114,9 +114,14 @@ class Rate extends PureComponent<RateProps, RateState> {
         }
       }
       if (value !== undefined && /^\d+(\.\d*)?$/.test(value)) {
+        const newValue = Number(value);
         this.setState({
-          value: Number(value),
+          value: newValue,
         });
+
+        if (onChange) {
+          onChange(newValue);
+        }
       }
     }
   };
