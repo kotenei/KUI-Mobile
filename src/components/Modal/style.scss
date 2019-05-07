@@ -75,12 +75,12 @@
 
 .modal-enter {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(.9);
+    transform: translate(-50%, -50%) scale(.7);
 }
 
 .modal-enter-active {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .modal-exit-active {

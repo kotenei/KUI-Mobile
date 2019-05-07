@@ -1216,13 +1216,13 @@ textarea {
 
 .modal-enter {
   opacity: 0;
-  -webkit-transform: translate(-50%, -50%) scale(0.9);
-          transform: translate(-50%, -50%) scale(0.9); }
+  -webkit-transform: translate(-50%, -50%) scale(0.7);
+          transform: translate(-50%, -50%) scale(0.7); }
 
 .modal-enter-active {
   opacity: 1;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1); }
+  -webkit-transform: translate(-50%, -50%) scale(1.1);
+          transform: translate(-50%, -50%) scale(1.1); }
 
 .modal-exit-active {
   -webkit-transform: translate(-50%, -50%) scale(0.9);
