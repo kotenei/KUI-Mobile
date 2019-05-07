@@ -27,11 +27,14 @@ const notice = (content: React.ReactNode, settings?: Settings) => {
     return;
   }
 
-  if (!instance) {
-    instance = Notification.newInstance({
-      transitionName: 'message',
-    });
+  if (instance) {
+    instance.destory();
+    instance = null;
   }
+
+  instance = Notification.newInstance({
+    transitionName: 'message',
+  });
 
   instance.notice({
     key: options.key,

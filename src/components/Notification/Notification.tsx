@@ -12,6 +12,8 @@ class Notification extends PureComponent<NotificationProps, NotificationState> {
     transitionName: 'fade',
   };
 
+  private isAdd: boolean = false;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -46,7 +48,6 @@ class Notification extends PureComponent<NotificationProps, NotificationState> {
       newNotices.push(noticeProps);
     } else {
       newNotices.splice(index, 1);
-      newNotices.push(noticeProps);
     }
     this.setState({
       notices: newNotices,

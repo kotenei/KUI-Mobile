@@ -39,9 +39,12 @@ const notice = (content: React.ReactNode, type, settings?: Settings) => {
     return;
   }
 
-  if (!instance) {
-    instance = Notification.newInstance();
+  if (instance) {
+    instance.destory();
+    instance = null;
   }
+
+  instance = Notification.newInstance();
 
   instance.notice({
     key: options.key,
