@@ -15,12 +15,16 @@ export default class Demo extends Component {
       open: false,
     });
   };
+  handleOK=()=>{
+    this.handleClose();
+    Message('点击了确定')
+  }
   render() {
     const { open } = this.state;
     return (
       <React.Fragment>
         <Button onClick={this.handleOpen}>提示框</Button>
-        <Modal title="标题" content="这里是内容" onCancel={this.handleClose} open={open} />
+        <Modal title="标题" content="这里是内容" onCancel={this.handleClose} onOK={this.handleOK} open={open} />
       </React.Fragment>
     );
   }

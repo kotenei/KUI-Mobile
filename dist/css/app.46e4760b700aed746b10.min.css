@@ -1177,10 +1177,7 @@ textarea {
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid #dddee1;
-  transition: all .3s ease;
-  display: none; }
-  .k-modal--in {
-    display: block; }
+  transition: all .3s ease; }
   .k-modal__header {
     font-weight: 500;
     text-align: center;
@@ -1215,10 +1212,22 @@ textarea {
   right: 0;
   bottom: 0;
   z-index: 800;
-  background: rgba(0, 0, 0, 0.7);
-  display: none; }
-  .k-modal-mask--in {
-    display: block; }
+  background: rgba(0, 0, 0, 0.5); }
+
+.modal-enter {
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) scale(0.9);
+          transform: translate(-50%, -50%) scale(0.9); }
+
+.modal-enter-active {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1); }
+
+.modal-exit-active {
+  -webkit-transform: translate(-50%, -50%) scale(0.9);
+          transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0; }
 
 .k-navbar {
   display: flex;

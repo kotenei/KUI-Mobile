@@ -10,11 +10,11 @@
     overflow: hidden;
     border: $border-width-base $border-style-base $border-color-base;
     transition: all .3s ease;
-    display: none;
+    // display: none;
 
-    @include bem-modifier('in'){
-        display: block;
-    }
+    // @include bem-modifier('in'){
+    //     display: block;
+    // }
 
     @include bem-element('header') {
         font-weight: 500;
@@ -65,10 +65,25 @@
     right: 0;
     bottom: 0;
     z-index: $zindex-mask;
-    background: rgba(0, 0, 0, .7);
-    display: none;
+    background: rgba(0, 0, 0, .5);
+    // display: none;
 
-    @include bem-modifier('in') {
-        display: block;
-    }
+    // @include bem-modifier('in') {
+    //     display: block;
+    // }
+}
+
+.modal-enter {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.9);
+}
+
+.modal-enter-active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-exit-active {
+    transform: translate(-50%, -50%) scale(.9);
+    opacity: 0;
 }

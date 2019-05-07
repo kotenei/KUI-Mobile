@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import { ModalProps, ModalState } from './typing';
 import { Button, ButtonGroup } from '../Button';
+import { CSSTransition } from 'react-transition-group';
 
 let seed = 1;
 let zIndex = 1000;
@@ -12,7 +13,7 @@ const prefixCls = 'k-modal';
 class Modal extends PureComponent<ModalProps, ModalState> {
   private static defaultProps = {
     mask: true,
-    maskClose: true,
+    maskClose: false,
     open: false,
     okText: '确定',
     cancelText: '取消',
@@ -80,29 +81,33 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     const _style = { zIndex, ...style };
 
     return ReactDOM.createPortal(
-      <div id={`${this.id}`}>
-        <div className={classString} ref="modal" style={_style}>
-          <div className={`${prefixCls}__header`} ref="header">
-            {title}
+      <React.Fragment>
+        <CSSTransition in={open} timeout={300} classNames="modal" unmountOnExit>
+          <div className={classString} ref="modal" style={_style}>
+            <div className={`${prefixCls}__header`} ref="header">
+              {title}
+            </div>
+            <div className={`${prefixCls}__body`} ref="body">
+              {content}
+            </div>
+            <div className={`${prefixCls}__footer`} ref="footer">
+              <Button className={`${prefixCls}__cancel`} onClick={this.handleCnacel}>
+                {cancelText}
+              </Button>
+              <Button className={`${prefixCls}__ok`} onClick={this.handleOK}>
+                {okText}
+              </Button>
+            </div>
           </div>
-          <div className={`${prefixCls}__body`} ref="body">
-            {content}
-          </div>
-          <div className={`${prefixCls}__footer`} ref="footer">
-            <Button className={`${prefixCls}__cancel`} onClick={this.handleCnacel}>
-              {cancelText}
-            </Button>
-            <Button className={`${prefixCls}__ok`} onClick={this.handleOK}>
-              {okText}
-            </Button>
-          </div>
-        </div>
-        <div
-          className={maskClassString}
-          style={{ zIndex: zIndex - 1 }}
-          onClick={this.handleMaskClick}
-        />
-      </div>,
+        </CSSTransition>
+        <CSSTransition in={open} timeout={300} classNames="fade" unmountOnExit>
+          <div
+            className={maskClassString}
+            style={{ zIndex: zIndex - 1 }}
+            onClick={this.handleMaskClick}
+          />
+        </CSSTransition>
+      </React.Fragment>,
       document.body,
     );
   }
