@@ -30,19 +30,25 @@
         padding: $modal-body-padding;
         color: $subsidiary-color;
         text-align: center;
+        @include bem-modifier('notitle'){
+            padding: $modal-body-notitle-padding;
+        }
     }
 
     @include bem-element('footer') {
-        display: flex;
-        align-items: center;
+        // display: flex;
+        // align-items: center;
 
         button {
             flex: 1;
             border-radius: 0;
             border-bottom: none;
-            border-left: none;
             height: 50px;
             font-size: $font-size-caption;
+
+            &:first-child{
+                border-left: none;
+            }
 
             &:last-child {
                 border-right: none;
@@ -55,6 +61,10 @@
 
     @include bem-element('ok') {
         color: $primary-color;
+    }
+
+    @include bem-element('btns'){
+        display: flex;
     }
 }
 

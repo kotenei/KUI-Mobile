@@ -23,14 +23,15 @@ export default class Demo extends Component {
     const { open } = this.state;
     return (
       <React.Fragment>
-        <Button onClick={this.handleOpen} full>打开模态框</Button>
+        <Button onClick={this.handleOpen} full>
+          打开无标题模态框
+        </Button>
         <Modal
-        
-        title="标题"
           content="这里是内容"
           onCancel={this.handleClose}
           onOK={this.handleOK}
           open={open}
+          showHeader={false}
         />
       </React.Fragment>
     );

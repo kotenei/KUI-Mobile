@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { ModalProps, ModalState } from './typing';
 import { Button, ButtonGroup } from '../Button';
 import { CSSTransition } from 'react-transition-group';
+import confirm from './confirm';
 
 let seed = 1;
 let zIndex = 1000;
@@ -11,12 +12,18 @@ let zIndex = 1000;
 const prefixCls = 'k-modal';
 
 class Modal extends PureComponent<ModalProps, ModalState> {
+  public static alert: any;
+  public static confirm: any;
+
   private static defaultProps = {
     mask: true,
     maskClose: false,
     open: false,
     okText: '确定',
     cancelText: '取消',
+    showCancel: true,
+    showHeader: true,
+    showFooter: true,
   };
 
   private static getDerivedStateFromProps(nextProps, prevState) {
@@ -64,8 +71,45 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     seed--;
   }
 
+  public renderFooter() {
+    const { cancelText, okText, showFooter, showCancel, footer } = this.props;
+    if (!showFooter) {
+      return null;
+    }
+    return (
+      <div className={`${prefixCls}__footer`} ref="footer">
+        {footer ? (
+          footer
+        ) : (
+          <ButtonGroup className={`${prefixCls}__btns`}>
+            {showCancel && (
+              <Button className={`${prefixCls}__cancel`} onClick={this.handleCnacel}>
+                {cancelText}
+              </Button>
+            )}
+            <Button className={`${prefixCls}__ok`} onClick={this.handleOK}>
+              {okText}
+            </Button>
+          </ButtonGroup>
+        )}
+      </div>
+    );
+  }
+
+  public renderHeader() {
+    const { title, showHeader } = this.props;
+    if (!showHeader || !title) {
+      return null;
+    }
+    return (
+      <div className={`${prefixCls}__header`} ref="header">
+        {title}
+      </div>
+    );
+  }
+
   public render() {
-    const { className, mask, title, content, cancelText, okText, style } = this.props;
+    const { className, mask, title, content, style } = this.props;
     const { open } = this.state;
     const classString = classnames(
       {
@@ -84,20 +128,17 @@ class Modal extends PureComponent<ModalProps, ModalState> {
       <React.Fragment>
         <CSSTransition in={open} timeout={300} classNames="modal" unmountOnExit>
           <div className={classString} ref="modal" style={_style}>
-            <div className={`${prefixCls}__header`} ref="header">
-              {title}
-            </div>
-            <div className={`${prefixCls}__body`} ref="body">
+            {this.renderHeader()}
+            <div
+              className={classnames({
+                [`${prefixCls}__body`]: true,
+                [`${prefixCls}__body--notitle`]: !title,
+              })}
+              ref="body"
+            >
               {content}
             </div>
-            <div className={`${prefixCls}__footer`} ref="footer">
-              <Button className={`${prefixCls}__cancel`} onClick={this.handleCnacel}>
-                {cancelText}
-              </Button>
-              <Button className={`${prefixCls}__ok`} onClick={this.handleOK}>
-                {okText}
-              </Button>
-            </div>
+            {this.renderFooter()}
           </div>
         </CSSTransition>
         <CSSTransition in={open} timeout={300} classNames="fade" unmountOnExit>
@@ -151,5 +192,16 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     });
   };
 }
+
+Modal.alert = props => {
+  return confirm({
+    ...props,
+    showCancel: false,
+  });
+};
+
+Modal.confirm = props => {
+  return confirm(props);
+};
 
 export default Modal;
