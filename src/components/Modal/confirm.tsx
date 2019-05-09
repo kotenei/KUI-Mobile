@@ -23,7 +23,7 @@ export default function confirm(config: ModalProps) {
       if (unmountResult && div.parentNode) {
         div.parentNode.removeChild(div);
       }
-    });
+    }, 300);
   }
 
   function closeModal(callback) {

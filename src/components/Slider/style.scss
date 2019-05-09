@@ -1,0 +1,45 @@
+@include bem-block('slider') {
+    width: 100%;
+    position: relative;
+    height: $slider-height;
+    padding: $slider-padding;
+
+    @include bem-element('rail') {
+        position: absolute;
+        width: 100%;
+        background: $slider-rail-bgColor;
+        height: $slider-rail-height;
+        border-radius: $radius-xs;
+        transition: all .3s ease;
+    }
+
+    @include bem-element('track') {
+        position: absolute;
+        height: $slider-track-height;
+        background: $primary-color;
+    }
+
+    @include bem-element('step') {
+        position: absolute;
+        width: 100%;
+        height: $slider-step-height;
+        background: transparent;
+    }
+
+    @include bem-modifier('vertical') {}
+
+    @include bem-modifier('disabled') {
+        opacity: .5;
+
+    }
+}
+
+@include bem-block('slider-handle') {
+    position: absolute;
+    @include element-size($slider-handle-size);
+    margin-left: $slider-handle-margin-left;
+    margin-top: $slider-handle-margin-top;
+    border: 2px solid $primary-color;
+    background: white;
+    border-radius: 50%;
+}

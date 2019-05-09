@@ -55,6 +55,7 @@ export default class Home extends Component {
       { title: 'Radio 单选框', to: '/radio' },
       { title: 'Rate 评分', to: '/rate' },
       { title: 'SearchBar 搜索栏', to: '/searchbar' },
+      { title: 'Slider 滑块', to: '/slider' },
       { title: 'Switch 开关', to: '/switch' },
     ];
     return (
