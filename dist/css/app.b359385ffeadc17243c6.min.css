@@ -1190,20 +1190,22 @@ textarea {
     padding: 12px 20px 20px 20px;
     color: #80848f;
     text-align: center; }
-  .k-modal__footer {
-    display: flex;
-    align-items: center; }
-    .k-modal__footer button {
-      flex: 1;
-      border-radius: 0;
-      border-bottom: none;
-      border-left: none;
-      height: 50px;
-      font-size: 16px; }
-      .k-modal__footer button:last-child {
-        border-right: none; }
+    .k-modal__body--notitle {
+      padding: 20px; }
+  .k-modal__footer button {
+    flex: 1;
+    border-radius: 0;
+    border-bottom: none;
+    height: 50px;
+    font-size: 16px; }
+    .k-modal__footer button:first-child {
+      border-left: none; }
+    .k-modal__footer button:last-child {
+      border-right: none; }
   .k-modal__ok {
     color: #2196f3; }
+  .k-modal__btns {
+    display: flex; }
 
 .k-modal-mask {
   position: fixed;

@@ -18,7 +18,6 @@ class Modal extends PureComponent<ModalProps, ModalState> {
   private static defaultProps = {
     mask: true,
     maskClose: false,
-    open: false,
     okText: '确定',
     cancelText: '取消',
     showCancel: true,
@@ -27,16 +26,18 @@ class Modal extends PureComponent<ModalProps, ModalState> {
   };
 
   private static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.open) {
-      zIndex += 2;
-    } else {
-      zIndex -= 2;
-    }
+    if ('open' in nextProps) {
+      if (nextProps.open) {
+        zIndex += 2;
+      } else {
+        zIndex -= 2;
+      }
 
-    if (prevState.open !== nextProps.open) {
-      return {
-        open: nextProps.open,
-      };
+      if (prevState.open !== nextProps.open) {
+        return {
+          open: nextProps.open,
+        };
+      }
     }
 
     return null;
@@ -48,7 +49,7 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     super(props);
     this.id = seed++;
     this.state = {
-      open: false,
+      open: props.open || false,
     };
   }
 
@@ -65,9 +66,7 @@ class Modal extends PureComponent<ModalProps, ModalState> {
   }
 
   public componentWillUnmount() {
-    this.setState({
-      open: false,
-    });
+    this.close();
     seed--;
   }
 
@@ -175,21 +174,25 @@ class Modal extends PureComponent<ModalProps, ModalState> {
   };
 
   private close = () => {
-    if (!this.state.open) {
-      return;
+    if (!('open' in this.props)) {
+      if (!this.state.open) {
+        return;
+      }
+      this.setState({
+        open: false,
+      });
     }
-    this.setState({
-      open: false,
-    });
   };
 
   private open = () => {
-    if (this.state.open) {
-      return;
+    if (!('open' in this.props)) {
+      if (this.state.open) {
+        return;
+      }
+      this.setState({
+        open: true,
+      });
     }
-    this.setState({
-      open: true,
-    });
   };
 }
 
@@ -197,6 +200,7 @@ Modal.alert = props => {
   return confirm({
     ...props,
     showCancel: false,
+    onCancel: null,
   });
 };
 

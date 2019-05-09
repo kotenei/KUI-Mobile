@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Message, Button, Modal } from 'kui-mobile';
+import { Message, Button, Modal, Toast } from 'kui-mobile';
 
 export default class Demo extends Component {
   handleAlert = () => {
@@ -8,7 +8,15 @@ export default class Demo extends Component {
       content: '内容',
     });
   };
-  handleConfirm = () => {};
+  handleConfirm = () => {
+    Modal.confirm({
+      title: '标题',
+      content: '您确认要删除吗？',
+      onOK() {
+        Toast.success('删除成功')
+      },
+    });
+  };
 
   render() {
     return (

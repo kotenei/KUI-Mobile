@@ -14,8 +14,6 @@ export default function confirm(config: ModalProps) {
       closeModal(config.onOK);
     },
   };
-  const div = document.createElement('div');
-  document.body.appendChild(div);
 
   function close() {
     instance.close();
@@ -25,7 +23,7 @@ export default function confirm(config: ModalProps) {
       if (unmountResult && div.parentNode) {
         div.parentNode.removeChild(div);
       }
-    }, 300);
+    });
   }
 
   function closeModal(callback) {
@@ -36,7 +34,11 @@ export default function confirm(config: ModalProps) {
     }
   }
 
-  instance = ReactDOM.render(<Modal {...props} open />, div);
+  const div = document.createElement('div');
+  document.body.appendChild(div);
+
+  instance = ReactDOM.render(<Modal {...props} />, div);
+  instance.open();
 
   return {
     destory: close,
