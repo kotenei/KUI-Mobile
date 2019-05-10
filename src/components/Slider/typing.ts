@@ -1,4 +1,5 @@
 export interface SliderProps extends KUI.BaseProps {
+  color?: KUI.ColorTypes;
   disabled?: boolean;
   range?: boolean;
   step: number;
@@ -13,14 +14,13 @@ export interface SliderProps extends KUI.BaseProps {
 
 export interface SliderState {
   value?: number | number[];
-  activeValue?: number;
 }
 
 export interface SliderHandleProps extends KUI.BaseProps {
   title?: React.ReactNode;
   value: number;
   disabled?: boolean;
-  onStart?: (e) => void;
+  onStart?: (e, value: number) => void;
   onChange?: (e) => void;
   onEnd?: (e) => void;
 }

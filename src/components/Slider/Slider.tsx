@@ -4,11 +4,13 @@ import classnames from 'classnames';
 import SliderHandle from './SliderHandle';
 import { SliderProps, SliderState } from './typing';
 import domUtils from '../../utils/domUtils';
+import { getCoord } from '../../utils';
 
 const prefixCls = 'k-slider';
 
 class Slider extends PureComponent<SliderProps, SliderState> {
   private static defaultProps = {
+    color: 'primary',
     disabled: false,
     min: 0,
     max: 100,
@@ -20,17 +22,15 @@ class Slider extends PureComponent<SliderProps, SliderState> {
       return value;
     },
   };
-  //   private static getDerivedStateFromProps(nextProps, prevState) {
-  //       return null
-  //   }
 
   private elmSlider: HTMLDivElement;
+  private dragIndex: number = -1;
+  private isMoving: boolean = false;
 
   constructor(props) {
     super(props);
     this.state = {
       value: props.value || props.defaultValue,
-      activeValue: -1,
     };
   }
 
@@ -38,9 +38,13 @@ class Slider extends PureComponent<SliderProps, SliderState> {
     this.init();
   }
 
+  public componentWillReceiveProps(nextProps) {
+    this.init(nextProps);
+  }
+
   public renderHandles() {
     const { vertical, tipFormatter, range } = this.props;
-    const { value, activeValue } = this.state;
+    const { value } = this.state;
     if (range) {
       return (
         Array.isArray(value) &&
@@ -53,7 +57,7 @@ class Slider extends PureComponent<SliderProps, SliderState> {
     }
   }
   public render() {
-    const { disabled, vertical } = this.props;
+    const { disabled, vertical, color } = this.props;
     const { value } = this.state;
     const trackStyle = this.getTrackStyle();
 
@@ -64,7 +68,9 @@ class Slider extends PureComponent<SliderProps, SliderState> {
           [prefixCls]: true,
           [`${prefixCls}--vertical`]: !!vertical,
           [`${prefixCls}--disabled`]: !!disabled,
+          [`${prefixCls}--${color}`]: !!color,
         })}
+        onClick={this.handleClick}
       >
         <div className={`${prefixCls}__rail`} />
         <div className={`${prefixCls}__track`} style={trackStyle} />
@@ -77,33 +83,105 @@ class Slider extends PureComponent<SliderProps, SliderState> {
     this.elmSlider = element;
   };
 
-  private handleStart = e => {};
+  private handleClick = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    e.nativeEvent.stopImmediatePropagation();
+    const { disabled, range, onChange } = this.props;
+    if (disabled) {
+      return;
+    }
+
+    const activeValue = this.getValue(e);
+
+    if (range && Array.isArray(this.state.value) && this.state.value.length > 0) {
+      const valueRange = this.getValueRange();
+      for (const key in valueRange) {
+        if (valueRange.hasOwnProperty(key)) {
+          const v = valueRange[key];
+          if (activeValue >= v[0] && activeValue <= v[1]) {
+            const value = [...this.state.value];
+            value[key] = activeValue;
+            if (!('value' in this.props)) {
+              this.setState({
+                value,
+              });
+            }
+            if (onChange) {
+              onChange(value);
+            }
+            break;
+          }
+        }
+      }
+    } else {
+      if (!('value' in this.props)) {
+        this.setState({
+          value: activeValue,
+        });
+      }
+      if (onChange) {
+        onChange(activeValue);
+      }
+    }
+  };
+
+  private handleStart = (e, val) => {
+    const { range } = this.props;
+    const { value } = this.state;
+    if (range && Array.isArray(value) && value.length > 0) {
+      this.dragIndex = value.findIndex(item => {
+        return item === val;
+      });
+    }
+    this.isMoving = true;
+  };
 
   private handleChange = e => {
     const { onChange, disabled, range } = this.props;
+    const { value } = this.state;
     const activeValue = this.getValue(e);
-    // let value = activeValue;
-    // if (range) {
-    //   let newValue = [...this.state.value];
-    //   newValue[this.tmpDragIndex] = activeValue;
-    //   value = newValue;
-    // }
-    // this.setState({
-    //   value,
-    //   activeValue,
-    // });
-    // if (onChange) {
-    //   let returnValue = range
-    //     ? [...value].sort((a, b) => {
-    //         return a - b;
-    //       })
-    //     : value;
+    let newValue: number | number[] = activeValue;
 
-    //   onChange(returnValue);
-    // }
+    if (range && Array.isArray(value) && value.length > 0) {
+      newValue = [...value];
+      newValue[this.dragIndex] = activeValue;
+    }
+
+    if (!('value' in this.props)) {
+      this.setState({
+        value: newValue,
+      });
+    }
+
+    if (onChange) {
+      const returnValue =
+        range && Array.isArray(newValue) && newValue.length > 0
+          ? [...newValue].sort((a, b) => {
+              return a - b;
+            })
+          : newValue;
+
+      onChange(returnValue);
+    }
   };
 
-  private handleEnd = e => {};
+  private handleEnd = e => {
+    const { range } = this.props;
+    const { value } = this.state;
+    let newValue = value;
+    this.isMoving = false;
+    if (range && Array.isArray(value) && value.length > 0) {
+      newValue = value.sort((a, b) => {
+        return a - b;
+      });
+      if (!('value' in this.props)) {
+        this.setState({
+          value: newValue,
+        });
+      }
+    }
+  };
 
   private toValue(percentage) {
     const { min, max, step } = this.props;
@@ -125,11 +203,10 @@ class Slider extends PureComponent<SliderProps, SliderState> {
 
   private getValue(event) {
     const sliderInfo = this.getSliderInfo();
-    console.log(sliderInfo);
-    // let mouseCoord = getMouseCoord(mouseEvent);
-    // let percentage = this.getPercentage(mouseCoord, sliderInfo);
-    // let value = this.toValue(percentage);
-    // return value;
+    const coord = getCoord(event);
+    const percentage = this.getPercentage(coord, sliderInfo);
+    const value = this.toValue(percentage);
+    return value;
   }
 
   private getValueRange(value = this.state.value) {
@@ -158,16 +235,16 @@ class Slider extends PureComponent<SliderProps, SliderState> {
     return range;
   }
 
-  private getPercentage(mouseCoord, sliderInfo) {
+  private getPercentage(coord, sliderInfo) {
     const { vertical, min, max, step } = this.props;
     const num = (step * 100) / (max - min);
     let distanceToSlide, percentage;
 
     if (vertical) {
-      distanceToSlide = mouseCoord.y - sliderInfo.offsetTop;
+      distanceToSlide = coord.y - sliderInfo.offsetTop;
       percentage = (distanceToSlide / sliderInfo.height) * 100;
     } else {
-      distanceToSlide = mouseCoord.x - sliderInfo.offsetLeft;
+      distanceToSlide = coord.x - sliderInfo.offsetLeft;
       percentage = (distanceToSlide / sliderInfo.width) * 100;
     }
     if (vertical) {
@@ -192,7 +269,6 @@ class Slider extends PureComponent<SliderProps, SliderState> {
 
   private getSliderHandle = (value, key = 0) => {
     const { tipFormatter, vertical, disabled } = this.props;
-    const { activeValue } = this.state;
     const title = tipFormatter && typeof tipFormatter === 'function' ? tipFormatter(value) : null;
     const percentage = this.toPercentage(value);
     const style = vertical ? { bottom: `${percentage}%` } : { left: `${percentage}%` };
@@ -200,18 +276,13 @@ class Slider extends PureComponent<SliderProps, SliderState> {
     return (
       <SliderHandle
         key={`slider-handle-${key}`}
-        // ref={`slider-handle-${value}`}
         disabled={disabled}
         title={title}
         style={style}
         value={value}
-        // showTooltip={value === activeValue}
         onStart={this.handleStart}
         onChange={this.handleChange}
         onEnd={this.handleEnd}
-        // onDragStop={this.handleDragStop}
-        // onMouseEnter={this.handleMouseEnter}
-        // onMouseLeave={this.handleMouseLeave}
       />
     );
   };
@@ -290,9 +361,11 @@ class Slider extends PureComponent<SliderProps, SliderState> {
       val = range ? [val] : val;
     }
 
-    this.setState({
-      value: val,
-    });
+    if (!('value' in props)) {
+      this.setState({
+        value: val,
+      });
+    }
   }
 }
 

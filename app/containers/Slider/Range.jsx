@@ -3,6 +3,6 @@ import { Slider } from 'kui-mobile';
 
 export default class Demo extends Component {
   render() {
-    return <Slider defaultValue={50}   />;
+    return <Slider range defaultValue={[20,80]} color="danger"  />;
   }
 }

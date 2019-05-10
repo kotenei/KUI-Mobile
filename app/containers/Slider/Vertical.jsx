@@ -3,6 +3,10 @@ import { Slider } from 'kui-mobile';
 
 export default class Demo extends Component {
   render() {
-    return <Slider defaultValue={50}   />;
+    return (
+      <div style={{ height: 150 }}>
+        <Slider defaultValue={10} vertical />
+      </div>
+    );
   }
 }

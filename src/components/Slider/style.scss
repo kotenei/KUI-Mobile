@@ -3,6 +3,7 @@
     position: relative;
     height: $slider-height;
     padding: $slider-padding;
+    touch-action:none;
 
     @include bem-element('rail') {
         position: absolute;
@@ -16,22 +17,50 @@
     @include bem-element('track') {
         position: absolute;
         height: $slider-track-height;
-        background: $primary-color;
     }
 
-    @include bem-element('step') {
-        position: absolute;
-        width: 100%;
-        height: $slider-step-height;
-        background: transparent;
-    }
 
-    @include bem-modifier('vertical') {}
+
+    @include bem-modifier('vertical') {
+        width: $slider-v-width;
+        height: 100%;
+        padding: $slider-v-padding;
+        margin: $slider-v-margin;
+
+        @include element('slider__rail') {
+            width: $slider-v-inner-width;
+            height: 100%;
+        }
+
+        @include element('slider__track') {
+            width: $slider-v-inner-width;
+            height: 100%;
+        }
+
+        @include element('slider-handle') {
+            margin-left: $slider-v-handle-margin-left;
+            margin-bottom: $slider-v-handle-margin-bottom;
+        }
+
+    }
 
     @include bem-modifier('disabled') {
         opacity: .5;
-
     }
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            @include element('slider-handle') {
+                border-color: $value;
+            }
+
+            @include element('slider__track') {
+                background: $value;
+            }
+        }
+    }
+
 }
 
 @include bem-block('slider-handle') {
