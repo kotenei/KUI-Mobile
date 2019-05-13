@@ -1,0 +1,65 @@
+@include bem-block('actionsheet') {
+    position: fixed;
+    bottom: 0;
+    background: $background-color-base;
+    overflow-y: auto;
+    max-height: 90%;
+    left: 0;
+    right: 0;
+    top: auto;
+    font-size: $font-size-caption;
+    z-index: $zindex-actionsheet;
+    transition: all .3s ease;
+
+    @include bem-element('header'){
+        background: #fff;
+        line-height: $actionsheet-header-height;
+        border-bottom: $border-width-base $border-style-base $border-color-base;
+        text-align: center;
+        position: relative;
+    }
+
+    @include bem-element('item') {
+        text-align: center;
+        line-height: $actionsheet-item-height;
+        border-bottom: $border-width-base $border-style-base $border-color-base;
+        background: #fff;
+        position: relative;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        @include bem-modifier('disabled'){
+            background: $disabled-bgColor;
+            color:$disabled-color;
+            // border-color: $disabled-color;
+        }
+    }
+
+    @include bem-element('content'){
+        background: #fff;
+    }
+
+    @include bem-element('cancel') {
+        background: $actionsheet-cancel-bgColor;
+        padding-top: $actionsheet-cancel-padding-top;
+    }
+}
+
+
+.actionsheet-enter {
+    bottom: -100%;
+}
+
+.actionsheet-enter-active {
+    bottom: 0;
+}
+
+.actionsheet-exit {
+    bottom: -100%;
+}
+
+.actionsheet-exit-active {
+    // bottom: -100%;
+}

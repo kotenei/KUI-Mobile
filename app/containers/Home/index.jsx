@@ -43,6 +43,7 @@ export default class Home extends Component {
       { title: 'Tabs 标签页', to: '/tabs' },
     ];
     const feedback = [
+      { title: 'ActionSheet 动作面板', to: '/actionsheet' },
       { title: 'Alert 警告提示', to: '/alert' },
       { title: 'Message 消息提示', to: '/message' },
       { title: 'Modal 对话框', to: '/modal' },

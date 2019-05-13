@@ -26,12 +26,12 @@ export default class Demo extends Component {
         <Button
           full
           onClick={() => {
-            Toast.info('这是不带遮罩层提示', {
-              mask: false,
+            Toast.info('带遮罩层提示', {
+              mask: true,
             });
           }}
         >
-          不带遮罩层
+          带遮罩层
         </Button>
         <br />
         <Button

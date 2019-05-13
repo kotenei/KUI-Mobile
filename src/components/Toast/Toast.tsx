@@ -8,7 +8,7 @@ import { guid } from '../../utils';
 const defaultSettings: Settings = {
   key: 'toast',
   duration: 1500,
-  mask: true,
+  mask: false,
   onClose: () => {},
 };
 let instance;

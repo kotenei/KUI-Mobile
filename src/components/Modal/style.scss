@@ -10,11 +10,7 @@
     overflow: hidden;
     border: $border-width-base $border-style-base $border-color-base;
     transition: all .3s ease;
-    // display: none;
-
-    // @include bem-modifier('in'){
-    //     display: block;
-    // }
+    
 
     @include bem-element('header') {
         font-weight: 500;
@@ -36,8 +32,6 @@
     }
 
     @include bem-element('footer') {
-        // display: flex;
-        // align-items: center;
 
         button {
             flex: 1;
@@ -66,21 +60,6 @@
     @include bem-element('btns'){
         display: flex;
     }
-}
-
-@include bem-block('modal-mask') {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: $zindex-mask;
-    background: rgba(0, 0, 0, .5);
-    // display: none;
-
-    // @include bem-modifier('in') {
-    //     display: block;
-    // }
 }
 
 .modal-enter {

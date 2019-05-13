@@ -1,3 +1,4 @@
+export * from './components/ActionSheet';
 export * from './components/Alert';
 export * from './components/AnimationRouter';
 export * from './components/Avatar';
@@ -13,6 +14,7 @@ export * from './components/Input';
 export * from './components/Layout';
 export * from './components/LazyLoad';
 export * from './components/LoadMore';
+export * from './components/Mask';
 export * from './components/Message';
 export * from './components/Modal';
 export * from './components/NavBar';

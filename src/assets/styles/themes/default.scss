@@ -75,6 +75,7 @@ $zindex-tooltip: 1060;
 $zindex-transfer: 1060;
 $zindex-loading-bar: 2000;
 $zindex-spin-fullscreen: 2010;
+$zindex-actionsheet: 1000;
 // icon
 $icon-margin-x: 3px;
 $icon-vertical-align: -2px;
@@ -88,6 +89,11 @@ $input-control-padding-right:26px;
 $input-padding:10px 0px;
 $input-textarea-height:28px;
 $input-extra-padding:0 0 0 5px;
+// actionsheet
+$actionsheet-item-height:50px;
+$actionsheet-header-height:44px;
+$actionsheet-cancel-padding-top:10px;
+$actionsheet-cancel-bgColor:#e7e7ed;
 // alert
 $alert-padding: 15px 35px 15px 15px;
 $alert-font-color: #fff;

@@ -5,6 +5,7 @@ import { ModalProps, ModalState } from './typing';
 import { Button, ButtonGroup } from '../Button';
 import { CSSTransition } from 'react-transition-group';
 import confirm from './confirm';
+import { Mask } from '../Mask';
 
 let seed = 1;
 let zIndex = 1000;
@@ -140,13 +141,7 @@ class Modal extends PureComponent<ModalProps, ModalState> {
             {this.renderFooter()}
           </div>
         </CSSTransition>
-        <CSSTransition in={open} timeout={300} classNames="fade" unmountOnExit>
-          <div
-            className={maskClassString}
-            style={{ zIndex: zIndex - 1 }}
-            onClick={this.handleMaskClick}
-          />
-        </CSSTransition>
+        <Mask show={open} zIndex={zIndex - 1} onClick={this.handleMaskClick} />
       </React.Fragment>,
       document.body,
     );
