@@ -53,6 +53,7 @@ export default class Home extends Component {
     const form = [
       { title: 'Checkbox 复选框', to: '/checkbox' },
       { title: 'Input 输入框', to: '/input' },
+      { title: 'InputNumber 数字输入框', to: '/inputnumber' },
       { title: 'Radio 单选框', to: '/radio' },
       { title: 'Rate 评分', to: '/rate' },
       { title: 'SearchBar 搜索栏', to: '/searchbar' },
