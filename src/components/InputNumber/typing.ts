@@ -10,5 +10,5 @@ export interface InputNumberProps extends KUI.BaseProps {
 }
 
 export interface InputNumberState {
-  value: number;
+  value: number ;
 }

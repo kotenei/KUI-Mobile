@@ -3,16 +3,33 @@ import classnames from 'classnames';
 import { InputNumberProps, InputNumberState } from './typing';
 import { Icon } from '../Icon';
 import { Button } from '../Button';
+import { Input } from '../Input';
 
 const prefixCls = 'k-inputnumber';
 
 class InputNumber extends PureComponent<InputNumberProps, InputNumberState> {
   private static defaultProps = {
-    min: 1,
+    min: 0,
     max: 10,
     step: 1,
-    defaultValue: 1,
+    defaultValue: 0,
   };
+  private static getDerivedStateFromProps(nextProps, prevState) {
+    if ('value' in nextProps) {
+      const { min, max } = nextProps;
+      let newValue = nextProps.value;
+      if (newValue <= min) {
+        newValue = min;
+      }
+      if (newValue >= max) {
+        newValue = max;
+      }
+      return {
+        value: newValue,
+      };
+    }
+    return null;
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +37,7 @@ class InputNumber extends PureComponent<InputNumberProps, InputNumberState> {
     };
   }
   public render() {
-    const { className, style, disabled, disableInput } = this.props;
+    const { className, style, disabled, disableInput, min, max } = this.props;
     const { value } = this.state;
     const classString = classnames({
       [prefixCls]: true,
@@ -28,11 +45,27 @@ class InputNumber extends PureComponent<InputNumberProps, InputNumberState> {
     });
     return (
       <div className={classString} style={style}>
-        <Button size="sm" className={`${prefixCls}__minus`} onClick={this.handleMinus}>
+        <Button
+          size="sm"
+          className={`${prefixCls}__minus`}
+          onClick={this.handleMinus}
+          disabled={value.toString() === '' || value === min || disabled}
+        >
           <Icon type="minus" />
         </Button>
-        <input className={`${prefixCls}__input`} type="text" value={value} />
-        <Button size="sm" className={`${prefixCls}__plus`} onClick={this.handlePlus}>
+        <input
+          className={`${prefixCls}__input`}
+          type="number"
+          value={value}
+          disabled={disabled}
+          onChange={this.handleChange}
+        />
+        <Button
+          size="sm"
+          className={`${prefixCls}__plus`}
+          onClick={this.handlePlus}
+          disabled={value === max || disabled}
+        >
           <Icon type="plus" />
         </Button>
       </div>
@@ -41,8 +74,11 @@ class InputNumber extends PureComponent<InputNumberProps, InputNumberState> {
 
   private handleMinus = () => {
     const { value } = this.state;
-    const { step, min } = this.props;
+    const { step, min, onChange, disabled } = this.props;
     let newValue = value - step;
+    if (disabled) {
+      return;
+    }
     if (newValue <= min) {
       newValue = min;
     }
@@ -51,12 +87,18 @@ class InputNumber extends PureComponent<InputNumberProps, InputNumberState> {
         value: newValue,
       });
     }
+    if (onChange) {
+      onChange(newValue);
+    }
   };
 
   private handlePlus = () => {
     const { value } = this.state;
-    const { step, max } = this.props;
+    const { step, max, onChange, disabled } = this.props;
     let newValue = value + step;
+    if (disabled) {
+      return;
+    }
     if (newValue >= max) {
       newValue = max;
     }
@@ -65,7 +107,45 @@ class InputNumber extends PureComponent<InputNumberProps, InputNumberState> {
         value: newValue,
       });
     }
+    if (onChange) {
+      onChange(newValue);
+    }
   };
+
+  private handleChange = e => {
+    const { target } = e;
+    const { onChange, min, max, disabled } = this.props;
+    const { value } = this.state;
+    let newValue = target.value.trim();
+    if (disabled) {
+      return;
+    }
+
+    if (newValue && this.isNumber(newValue)) {
+      newValue = Number(newValue);
+      if (newValue <= min) {
+        newValue = min;
+      }
+      if (newValue >= max) {
+        newValue = max;
+      }
+    } else {
+      newValue = '';
+    }
+
+    if (!('value' in this.props)) {
+      this.setState({
+        value: newValue,
+      });
+    }
+    if (onChange) {
+      onChange(newValue);
+    }
+  };
+
+  private isNumber(value: string) {
+    return !Number.isNaN(Number(value));
+  }
 }
 
 export default InputNumber;

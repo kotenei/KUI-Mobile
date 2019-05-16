@@ -662,6 +662,27 @@ textarea {
   .k-input__extra {
     padding: 0 0 0 5px; }
 
+.k-inputnumber {
+  display: inline-flex; }
+  .k-inputnumber__input {
+    width: 30px;
+    text-align: center;
+    margin: 0 1px;
+    border: 1px solid #dddee1;
+    outline: none;
+    color: #495060; }
+  .k-inputnumber button {
+    padding: 4px; }
+  .k-inputnumber__minus {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; }
+  .k-inputnumber__plus {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; }
+  .k-inputnumber--disabled input {
+    background: #f7f7f7;
+    color: #c3cbd6; }
+
 .k-row {
   display: flex;
   flex-flow: row wrap; }

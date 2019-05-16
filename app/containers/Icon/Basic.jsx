@@ -38,7 +38,7 @@ export default class Demo extends Component {
           items.push(
             <li
               key={key}
-              className={iconName === key ? 'active' : ''}
+              className={iconName === key && typeIndex === i ? 'active' : ''}
               onClick={this.handleClick.bind(this, i, key, theme)}
             >
               <Icon type={key} className="anticon" theme={theme} />
@@ -62,9 +62,14 @@ export default class Demo extends Component {
       iconTheme: theme,
     });
   };
+  handleChange = a => {
+    this.setState({
+      iconName: '',
+    });
+  };
   render() {
     return (
-      <Tabs>
+      <Tabs onTabClick={this.handleChange}>
         <TabPanel tab="线框风格">{this.renderIcons('outline')}</TabPanel>
         <TabPanel tab="实底风格">{this.renderIcons('filled')}</TabPanel>
       </Tabs>
