@@ -21,6 +21,7 @@ export * from './components/Modal';
 export * from './components/NavBar';
 export * from './components/NoticeBar';
 export * from './components/Pagination';
+export * from './components/Picker';
 export * from './components/Progress';
 export * from './components/Radio';
 export * from './components/Rate';

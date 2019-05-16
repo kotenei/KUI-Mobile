@@ -24,6 +24,7 @@ const Modal = lazy(() => import('./containers/Modal'));
 const NavBar = lazy(() => import('./containers/NavBar'));
 const NoticeBar = lazy(() => import('./containers/NoticeBar'));
 const Pagination = lazy(() => import('./containers/Pagination'));
+const Picker = lazy(() => import('./containers/Picker'));
 const Progress = lazy(() => import('./containers/Progress'));
 const Radio = lazy(() => import('./containers/Radio'));
 const Rate = lazy(() => import('./containers/Rate'));
@@ -62,6 +63,7 @@ const Router = props => {
       <Route exact path="/navbar" render={() => <NavBar />} />
       <Route exact path="/noticebar" render={() => <NoticeBar />} />
       <Route exact path="/pagination" render={() => <Pagination />} />
+      <Route exact path="/picker" render={() => <Picker />} />
       <Route exact path="/progress" render={() => <Progress />} />
       <Route exact path="/radio" render={() => <Radio />} />
       <Route exact path="/rate" render={() => <Rate />} />

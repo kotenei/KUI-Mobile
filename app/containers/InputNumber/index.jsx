@@ -7,7 +7,7 @@ import Basic from './Basic';
 import Disabled from './Disabled';
 import Step from './Step';
 
-const prefixCls = 'app-input';
+const prefixCls = 'app-inputnumber';
 
 export default class View extends Component {
   render() {
