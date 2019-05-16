@@ -11,7 +11,7 @@ const prefixCls = 'app-input';
 
 export default class View extends Component {
   render() {
-    const header = <Header goBack>input 输入框</Header>;
+    const header = <Header goBack>InputNumber 数字输入框</Header>;
     return (
       <Page header={header} fixedHeader>
         <Block title="基础用法"  >
