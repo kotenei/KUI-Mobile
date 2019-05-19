@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import classnames from 'classnames';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, Transition } from 'react-transition-group';
 import ActionSheetItem from './ActionSheetItem';
 import { ActionSheetProps, Action } from './typing';
 import { Mask } from '../Mask';
+import domUtils from '../../utils/domUtils';
 
 const prefixCls = 'k-actionsheet';
 
@@ -16,6 +17,7 @@ class ActionSheet extends PureComponent<ActionSheetProps> {
     cancelText: '取消',
     maskClose: true,
   };
+  private contentElement: HTMLDivElement;
   public renderItems() {
     const { actions } = this.props;
     const items: any = [];
@@ -44,27 +46,70 @@ class ActionSheet extends PureComponent<ActionSheetProps> {
     );
     return ReactDOM.createPortal(
       <React.Fragment>
-        <CSSTransition in={show} timeout={300} classNames="actionsheet" unmountOnExit>
-          <div className={classString}>
-            {title && <div className={`${prefixCls}__header`}>{title}</div>}
-            <div className={`${prefixCls}__content`}>
-              {this.renderItems()}
-              {children}
-            </div>
-            {showCancel && (
-              <div className={`${prefixCls}__cancel`}>
-                <div className={`${prefixCls}__item`} onClick={this.handleCancel}>
-                  {cancelText}
+        {/* <CSSTransition
+          in={show}
+          timeout={300}
+          classNames="actionsheet"
+          unmountOnExit
+          mountOnEnter
+        /> */}
+        <Transition
+          in={show}
+          timeout={300}
+          onEnter={this.handleEnter}
+          onEntering={this.handleEntering}
+          onEntered={this.handleEntered}
+          // onExit={this.handleExit}
+          // onExiting={this.handleExiting}
+          unmountOnExit
+        >
+          {state => {
+            return (
+              <div className={classString} ref={this.handleRef}>
+                {title && <div className={`${prefixCls}__header`}>{title}</div>}
+                <div className={`${prefixCls}__content`}>
+                  {this.renderItems()}
+                  {children}
                 </div>
+                {showCancel && (
+                  <div className={`${prefixCls}__cancel`}>
+                    <div className={`${prefixCls}__item`} onClick={this.handleCancel}>
+                      {cancelText}
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        </CSSTransition>
+            );
+          }}
+        </Transition>
         <Mask className={`${prefixCls}__mask`} show={show} onClick={this.handleMaskClick} />
       </React.Fragment>,
       document.body,
     );
   }
+
+  private handleRef = (element: HTMLDivElement) => {
+    this.contentElement = element;
+  };
+
+  private handleEnter = (node, isAppearing) => {
+    // node.style.bottom = `-${domUtils.height(this.contentElement)}px`;
+  };
+
+  private handleEntering = (node, isAppearing) => {};
+
+  private handleEntered = (node, isAppearing) => {};
+
+  private handleExit = node => {
+    // node.style.height = this.getContentHeight() + 'px';
+    // tslint:disable-next-line:no-unused-expression
+    // node.offsetHeight;
+  };
+
+  private handleExiting = node => {
+    // node.style.height = '0px';
+  };
+
   private handleCancel = () => {
     const { onCancel } = this.props;
     if (onCancel) {
@@ -81,7 +126,7 @@ class ActionSheet extends PureComponent<ActionSheetProps> {
 
   private handleSelect = index => {
     const { onSelect, actions } = this.props;
-    const item = actions[index];
+    const item = actions && actions[index];
     if (onSelect) {
       onSelect(item);
     }

@@ -9,9 +9,9 @@
     top: auto;
     font-size: $font-size-caption;
     z-index: $zindex-actionsheet;
-    transition: all .3s ease;
+    // transition: bottom .3s ease;
 
-    @include bem-element('header'){
+    @include bem-element('header') {
         background: #fff;
         line-height: $actionsheet-header-height;
         border-bottom: $border-width-base $border-style-base $border-color-base;
@@ -30,14 +30,14 @@
             border-bottom: none;
         }
 
-        @include bem-modifier('disabled'){
+        @include bem-modifier('disabled') {
             background: $disabled-bgColor;
-            color:$disabled-color;
+            color: $disabled-color;
             // border-color: $disabled-color;
         }
     }
 
-    @include bem-element('content'){
+    @include bem-element('content') {
         background: #fff;
     }
 
@@ -49,7 +49,7 @@
 
 
 .actionsheet-enter {
-    bottom: -100%;
+    bottom: -264px;
 }
 
 .actionsheet-enter-active {
@@ -57,9 +57,9 @@
 }
 
 .actionsheet-exit {
-    bottom: -100%;
+    bottom: 0;
 }
 
 .actionsheet-exit-active {
-    // bottom: -100%;
+    bottom: -264px;
 }
