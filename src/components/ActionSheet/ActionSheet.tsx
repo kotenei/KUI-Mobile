@@ -45,26 +45,23 @@ class ActionSheet extends PureComponent<ActionSheetProps> {
       },
       className,
     );
-    return ReactDOM.createPortal(
-      <React.Fragment>
-        <Drawer position="bottom" open={show} onMaskClick={this.handleMaskClick}>
-          <div className={classString} ref={this.handleRef}>
-            {title && <div className={`${prefixCls}__header`}>{title}</div>}
-            <div className={`${prefixCls}__content`}>
-              {this.renderItems()}
-              {children}
-            </div>
-            {showCancel && (
-              <div className={`${prefixCls}__cancel`}>
-                <div className={`${prefixCls}__item`} onClick={this.handleCancel}>
-                  {cancelText}
-                </div>
-              </div>
-            )}
+    return (
+      <Drawer position="bottom" open={show} onMaskClick={this.handleMaskClick}>
+        <div className={classString} ref={this.handleRef}>
+          {title && <div className={`${prefixCls}__header`}>{title}</div>}
+          <div className={`${prefixCls}__content`}>
+            {this.renderItems()}
+            {children}
           </div>
-        </Drawer>
-      </React.Fragment>,
-      document.body,
+          {showCancel && (
+            <div className={`${prefixCls}__cancel`}>
+              <div className={`${prefixCls}__item`} onClick={this.handleCancel}>
+                {cancelText}
+              </div>
+            </div>
+          )}
+        </div>
+      </Drawer>
     );
   }
 

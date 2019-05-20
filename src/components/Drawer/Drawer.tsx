@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { Mask } from '../Mask';
@@ -12,6 +13,7 @@ class Drawer extends PureComponent<DrawerProps, DrawerState> {
     maskClose: true,
     open: false,
     position: 'left',
+    unmountOnExit: true,
   };
 
   private static getDerivedStateFromProps(nextProps, prevState) {
@@ -30,7 +32,7 @@ class Drawer extends PureComponent<DrawerProps, DrawerState> {
     };
   }
   public render() {
-    const { children, className, position, style, onMaskClick } = this.props;
+    const { children, className, position, style, onMaskClick, unmountOnExit } = this.props;
     const { open } = this.state;
     const classString = classnames(
       {
@@ -41,15 +43,21 @@ class Drawer extends PureComponent<DrawerProps, DrawerState> {
     );
     const classNames = `${prefixCls}--${position}`;
 
-    return (
+    return ReactDOM.createPortal(
       <React.Fragment>
-        <CSSTransition in={open} timeout={300} classNames={classNames} unmountOnExit>
+        <CSSTransition
+          in={open}
+          timeout={300}
+          classNames={classNames}
+          unmountOnExit={unmountOnExit}
+        >
           <div className={classString} style={style}>
             {children}
           </div>
         </CSSTransition>
         <Mask show={open} onClick={onMaskClick} />
-      </React.Fragment>
+      </React.Fragment>,
+      document.body,
     );
   }
 }

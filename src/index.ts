@@ -27,6 +27,7 @@ export * from './components/Progress';
 export * from './components/Radio';
 export * from './components/Rate';
 export * from './components/SearchBar';
+export * from './components/Scroller';
 export * from './components/Slider';
 export * from './components/Steps';
 export * from './components/Switch';
