@@ -12,6 +12,7 @@ const Cell = lazy(() => import('./containers/Cell'));
 const Checkbox = lazy(() => import('./containers/Checkbox'));
 const Collapse = lazy(() => import('./containers/Collapse'));
 const Divider = lazy(() => import('./containers/Divider'));
+const Drawer = lazy(() => import('./containers/Drawer'));
 const Home = lazy(() => import('./containers/Home'));
 const Icon = lazy(() => import('./containers/Icon'));
 const Input = lazy(() => import('./containers/Input'));
@@ -52,6 +53,7 @@ const Router = props => {
       <Route exact path="/checkbox" render={() => <Checkbox />} />
       <Route exact path="/collapse" render={() => <Collapse />} />
       <Route exact path="/divider" render={() => <Divider />} />
+      <Route exact path="/drawer" render={() => <Drawer />} />
       <Route exact path="/icon" render={() => <Icon />} />
       <Route exact path="/input" render={() => <Input />} />
       <Route exact path="/inputnumber" render={() => <InputNumber />} />

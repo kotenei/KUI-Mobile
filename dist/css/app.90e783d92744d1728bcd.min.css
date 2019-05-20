@@ -114,17 +114,10 @@ textarea {
     fill: #f44336; }
 
 .k-actionsheet {
-  position: fixed;
-  bottom: 0;
   background: #f8f8f9;
   overflow-y: auto;
-  max-height: 90%;
-  left: 0;
-  right: 0;
-  top: auto;
   font-size: 16px;
-  z-index: 1000;
-  transition: all .3s ease; }
+  max-height: 90%; }
   .k-actionsheet__header {
     background: #fff;
     line-height: 44px;
@@ -147,15 +140,6 @@ textarea {
   .k-actionsheet__cancel {
     background: #e7e7ed;
     padding-top: 10px; }
-
-.actionsheet-enter {
-  bottom: -100%; }
-
-.actionsheet-enter-active {
-  bottom: 0; }
-
-.actionsheet-exit {
-  bottom: -100%; }
 
 .k-alert {
   padding: 15px 35px 15px 15px;
@@ -611,6 +595,70 @@ textarea {
     background: #ff9800; }
   .k-divider--danger {
     background: #f44336; }
+
+.k-drawer {
+  position: fixed;
+  z-index: 1000;
+  transition: all .3s ease;
+  background: #fff; }
+  .k-drawer--left {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 80%;
+    height: 100%; }
+    .k-drawer--left-enter {
+      -webkit-transform: translateX(-100%);
+              transform: translateX(-100%); }
+    .k-drawer--left-enter-active {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%); }
+    .k-drawer--left-exit-active {
+      -webkit-transform: translateX(-100%);
+              transform: translateX(-100%); }
+  .k-drawer--right {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 80%;
+    height: 100%; }
+    .k-drawer--right-enter {
+      -webkit-transform: translateX(100%);
+              transform: translateX(100%); }
+    .k-drawer--right-enter-active {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%); }
+    .k-drawer--right-exit-active {
+      -webkit-transform: translateX(100%);
+              transform: translateX(100%); }
+  .k-drawer--bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%; }
+    .k-drawer--bottom-enter {
+      -webkit-transform: translateY(100%);
+              transform: translateY(100%); }
+    .k-drawer--bottom-enter-active {
+      -webkit-transform: translateY(0%);
+              transform: translateY(0%); }
+    .k-drawer--bottom-exit-active {
+      -webkit-transform: translateY(100%);
+              transform: translateY(100%); }
+  .k-drawer--top {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%; }
+    .k-drawer--top-enter {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%); }
+    .k-drawer--top-enter-active {
+      -webkit-transform: translateY(0%);
+              transform: translateY(0%); }
+    .k-drawer--top-exit-active {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%); }
 
 .k-input {
   line-height: 28px;
@@ -1384,6 +1432,57 @@ textarea {
     margin: 0 2px; }
     .k-pagination__dot--current {
       background: #888; }
+
+.k-picker {
+  display: flex;
+  flex-direction: column; }
+  .k-picker__header {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    height: 44px;
+    border-bottom: 1px solid #dddee1;
+    font-size: 14px;
+    align-items: center; }
+  .k-picker__cancel {
+    color: #2196f3; }
+  .k-picker__title {
+    flex: 1;
+    text-align: center; }
+  .k-picker__ok {
+    color: #2196f3; }
+  .k-picker__wrapper {
+    display: flex;
+    flex: 1;
+    height: 220px;
+    position: relative; }
+    .k-picker__wrapper::after {
+      content: ' ';
+      position: absolute;
+      height: calc(44px - 2px);
+      border-top: 1px solid #dddee1;
+      border-bottom: 1px solid #dddee1;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+      width: 100%; }
+
+.k-picker-select {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .k-picker-select__option {
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #80848f; }
+    .k-picker-select__option--disabled {
+      color: #c3cbd6; }
+    .k-picker-select__option--selected {
+      color: #1c2438; }
 
 .k-progress {
   display: inline-block;

@@ -1,15 +1,8 @@
 @include bem-block('actionsheet') {
-    position: fixed;
-    bottom: 0;
     background: $background-color-base;
     overflow-y: auto;
-    max-height: 90%;
-    left: 0;
-    right: 0;
-    top: auto;
     font-size: $font-size-caption;
-    z-index: $zindex-actionsheet;
-    // transition: bottom .3s ease;
+    max-height: 90%;
 
     @include bem-element('header') {
         background: #fff;
@@ -33,7 +26,6 @@
         @include bem-modifier('disabled') {
             background: $disabled-bgColor;
             color: $disabled-color;
-            // border-color: $disabled-color;
         }
     }
 
@@ -48,18 +40,3 @@
 }
 
 
-.actionsheet-enter {
-    bottom: -264px;
-}
-
-.actionsheet-enter-active {
-    bottom: 0;
-}
-
-.actionsheet-exit {
-    bottom: 0;
-}
-
-.actionsheet-exit-active {
-    bottom: -264px;
-}

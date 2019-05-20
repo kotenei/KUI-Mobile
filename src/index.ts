@@ -9,6 +9,7 @@ export * from './components/Cell';
 export * from './components/Checkbox';
 export * from './components/Collapse';
 export * from './components/Divider';
+export * from './components/Drawer';
 export * from './components/Icon';
 export * from './components/Input';
 export * from './components/InputNumber';

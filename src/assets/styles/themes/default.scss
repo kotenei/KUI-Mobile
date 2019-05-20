@@ -68,6 +68,7 @@ $zindex-back-top: 10;
 $zindex-mask: 800;
 $zindex-select: 900;
 $zindex-modal: 1000;
+$zindex-drawer: 1000;
 $zindex-message: 1010;
 $zindex-notification: 1010;
 $zindex-toast: 1010;
@@ -75,7 +76,6 @@ $zindex-tooltip: 1060;
 $zindex-transfer: 1060;
 $zindex-loading-bar: 2000;
 $zindex-spin-fullscreen: 2010;
-$zindex-actionsheet: 1000;
 // icon
 $icon-margin-x: 3px;
 $icon-vertical-align: -2px;
@@ -163,6 +163,8 @@ $checkbox-group-item-margin-bottom:10px;
 // collapse
 $collapse-bg-color: #fff;
 $collapse-inner-padding: 10px 15px;
+// Drawer
+
 
 // loadmore
 $loadmore-margin:21px auto;

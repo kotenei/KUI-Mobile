@@ -36,6 +36,7 @@ export default class Home extends Component {
       { title: 'Timeline 时间轴', to: '/timeline' },
     ];
     const nav = [
+      { title: 'Drawer 抽屉', to: '/drawer' },
       { title: 'NavBar 导航栏', to: '/navbar' },
       { title: 'Pagination 分页', to: '/pagination' },
       { title: 'Steps 步骤条', to: '/steps' },
@@ -54,7 +55,7 @@ export default class Home extends Component {
       { title: 'Checkbox 复选框', to: '/checkbox' },
       { title: 'Input 输入框', to: '/input' },
       { title: 'InputNumber 数字输入框', to: '/inputnumber' },
-      { title: 'Picker 选择器', to: '/picker' },
+      // { title: 'Picker 选择器', to: '/picker' },
       { title: 'Radio 单选框', to: '/radio' },
       { title: 'Rate 评分', to: '/rate' },
       { title: 'SearchBar 搜索栏', to: '/searchbar' },
