@@ -29,11 +29,7 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     if (data && data.length > 0) {
       data.forEach((columns: Column[], index: number) => {
         const val = value && value[index];
-        items.push(
-          <Scroller key={index} className={`${prefixCls}__wheel`}>
-            <PickerSelect  columns={columns} value={val} />
-          </Scroller>,
-        );
+        items.push(<PickerSelect key={index} columns={columns} value={val} />);
       });
     }
     return items;

@@ -34,6 +34,13 @@ class Scroller extends PureComponent<ScrollerProps> {
     }, 20);
   }
 
+  public componentWillUnmount() {
+    if (this.scroll) {
+      this.scroll.destroy();
+      this.scroll = null;
+    }
+  }
+
   public render() {
     const { children, className, style } = this.props;
     const classString = classnames(
@@ -45,7 +52,6 @@ class Scroller extends PureComponent<ScrollerProps> {
     return (
       <div ref={this.handleRef} className={classString} style={style}>
         {children}
-        {/* <div className={`${prefixCls}__content`}>{children}</div> */}
         {/* <div className={`${prefixCls}__pulldown`}></div> */}
       </div>
     );
@@ -70,6 +76,12 @@ class Scroller extends PureComponent<ScrollerProps> {
       mouseWheel,
       bounce,
       zoom,
+      wheel,
+      onInit,
+      onBeforeScrollStart,
+      onScrollStart,
+      onScroll,
+      onScrollEnd,
     } = this.props;
 
     const options = {
@@ -85,9 +97,30 @@ class Scroller extends PureComponent<ScrollerProps> {
       mouseWheel,
       bounce,
       zoom,
+      wheel,
     };
 
     this.scroll = new BScroll(this.elScroll, options);
+
+    if (onBeforeScrollStart) {
+      this.scroll.on('beforeScrollStart', onBeforeScrollStart);
+    }
+
+    if (onScrollStart) {
+      this.scroll.on('scrollStart', onScrollStart);
+    }
+
+    if (this.props.onScroll) {
+      this.scroll.on('scroll', onScroll);
+    }
+
+    if (onScrollEnd) {
+      this.scroll.on('scrollEnd', onScrollEnd);
+    }
+
+    if (onInit) {
+      onInit(this.scroll);
+    }
   }
 }
 

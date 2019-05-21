@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import { PickerSelectProps, PickerSelectState, Column } from './typing';
+import { Scroller } from '../Scroller';
 import PickerItem from './PickerItem';
+import domUtils from '../..//utils/domUtils';
 
 const prefixCls = 'k-picker-select';
 
@@ -9,6 +11,11 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
   public static getDerivedStateFromProps(nextProps, prevState) {
     return null;
   }
+
+  private scrollInstance: any;
+  private itemHeight: number;
+  private arrHeight: number[];
+
   constructor(props) {
     super(props);
     this.state = {
@@ -20,8 +27,6 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
     const { activeIndex } = this.state;
     const items: any = [];
     if (columns && columns.length > 0) {
-      items.push(<PickerItem prefixCls={prefixCls} key="-2" />);
-      items.push(<PickerItem prefixCls={prefixCls} key="-1" />);
       columns.forEach((item: Column, index: number) => {
         items.push(
           <PickerItem
@@ -32,14 +37,59 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
           />,
         );
       });
-      items.push(<PickerItem prefixCls={prefixCls} key={`${columns.length + 1}`} />);
-      items.push(<PickerItem prefixCls={prefixCls} key={`${columns.length + 2}`} />);
     }
     return items;
   }
-  public render() {
-    return <ul className={`${prefixCls}`}>{this.renderItems()}</ul>;
+
+  public componentDidMount() {
+    setTimeout(() => {
+      this.init();
+    });
   }
+
+  public render() {
+    const { activeIndex } = this.state;
+    return (
+      <Scroller
+        probeType={3}
+        className={`${prefixCls}__wheel`}
+        wheel={{
+          selectedIndex: activeIndex,
+          wheelWrapperClass: prefixCls,
+          wheelItemClass: `${prefixCls}__option`,
+        }}
+        onInit={this.handleScrollInit}
+        onScrollEnd={this.handleScrollEnd}
+      >
+        <ul ref="select" className={`${prefixCls}`}>
+          {this.renderItems()}
+        </ul>
+      </Scroller>
+    );
+  }
+
+  private init() {
+    const { columns } = this.props;
+    this.arrHeight = [];
+    if (columns && columns.length > 0) {
+      const li = (this.refs.select as HTMLElement).querySelector('li');
+      this.itemHeight = domUtils.height(li);
+      columns.forEach((column, index) => {
+        this.arrHeight.push((index + 1) * this.itemHeight);
+      });
+    }
+  }
+
+  private handleScrollInit = instance => {
+    this.scrollInstance = instance;
+  };
+
+  private handleScrollEnd = pos => {
+    const activeIndex = this.scrollInstance.getSelectedIndex();
+    this.setState({
+      activeIndex,
+    });
+  };
 }
 
 export default PickerSelect;

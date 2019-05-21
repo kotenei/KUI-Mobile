@@ -31,36 +31,50 @@
         height: $picker-wrapper-height;
         position: relative;
 
+        &::before,
         &::after {
             content: ' ';
             position: absolute;
-            height: calc(#{$picker-select-option-height} - 2px);
-            border-top: $border-width-base $border-style-base $border-color-base;
-            border-bottom: $border-width-base $border-style-base $border-color-base;
-            top: 50%;
-            transform: translateY(-50%);
+            transform: translateZ(0);
             width: 100%;
+            height: $picker-select-option-height*2;
         }
+
+        &::before{
+            top:0;
+            background: linear-gradient(to top, rgba(255,255,255,0.4), rgba(255,255,255,0.8));
+        }
+
+        // &::after {
+        //     content: ' ';
+        //     position: absolute;
+        //     height: calc(#{$picker-select-option-height} - 2px);
+        //     border-top: $border-width-base $border-style-base $border-color-base;
+        //     border-bottom: $border-width-base $border-style-base $border-color-base;
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        //     width: 100%;
+        // }
     }
 
-    @include bem-element('wheel'){
-        flex: 1;
-    }
+
 }
 
 @include bem-block('picker-select') {
     padding: 0;
     margin: 0;
     list-style: none;
-    // flex: 1;
-    // overflow-y: auto;
-    // overflow-x: hidden;
+    margin-top: $picker-select-option-height*2;
+
+    @include bem-element('wheel') {
+        flex: 1;
+    }
 
     @include bem-element('option') {
         height: $picker-select-option-height;
         line-height: $picker-select-option-height;
         text-align: center;
-        color:$subsidiary-color;
+        color: $subsidiary-color;
 
         @include bem-modifier('disabled') {
             color: $disabled-color;

@@ -14,4 +14,10 @@ export interface ScrollerProps extends KUI.BaseProps {
   mouseWheel?: boolean;
   bounce?: boolean;
   zoom?: boolean;
+  wheel?: any;
+  onInit?: (instance) => void;
+  onBeforeScrollStart?: () => void;
+  onScrollStart?: () => void;
+  onScroll?: (pos) => void;
+  onScrollEnd?: (pos) => void;
 }
