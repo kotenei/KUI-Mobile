@@ -14,7 +14,6 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
 
   private scrollInstance: any;
   private itemHeight: number;
-  private arrHeight: number[];
 
   constructor(props) {
     super(props);
@@ -70,25 +69,31 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
 
   private init() {
     const { columns } = this.props;
-    this.arrHeight = [];
     if (columns && columns.length > 0) {
       const li = (this.refs.select as HTMLElement).querySelector('li');
       this.itemHeight = domUtils.height(li);
-      columns.forEach((column, index) => {
-        this.arrHeight.push((index + 1) * this.itemHeight);
-      });
     }
   }
 
   private handleScrollInit = instance => {
     this.scrollInstance = instance;
+    const { columns, value } = this.props;
+    if (columns && value) {
+      const index = columns.findIndex(item => {
+        return item.value === value;
+      });
+      if (index > -1) {
+        this.scrollInstance.wheelTo(index);
+      }
+    }
   };
 
   private handleScrollEnd = pos => {
+    const { onChange, columns, columnIndex } = this.props;
     const activeIndex = this.scrollInstance.getSelectedIndex();
-    this.setState({
-      activeIndex,
-    });
+    if (onChange && columns) {
+      onChange(columns[activeIndex], columnIndex);
+    }
   };
 }
 

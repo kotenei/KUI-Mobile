@@ -18,9 +18,10 @@ export interface PickerState {
 }
 
 export interface PickerSelectProps extends KUI.BaseProps {
+  columnIndex: number;
   columns?: Column[];
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (column: Column, columnIndex: number) => void;
 }
 
 export interface PickerSelectState {

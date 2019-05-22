@@ -29,7 +29,15 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     if (data && data.length > 0) {
       data.forEach((columns: Column[], index: number) => {
         const val = value && value[index];
-        items.push(<PickerSelect key={index} columns={columns} value={val} />);
+        items.push(
+          <PickerSelect
+            key={index}
+            columnIndex={index}
+            columns={columns}
+            value={val}
+            onChange={this.handleChange}
+          />,
+        );
       });
     }
     return items;
@@ -74,6 +82,17 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     const { value } = this.state;
     if (onOK) {
       onOK(value);
+    }
+  };
+
+  private handleChange = (column, columnIndex) => {
+    const { value } = this.state;
+    if (!('value' in this.props)) {
+      const newValue = [...value];
+      newValue[columnIndex] = column.value;
+      this.setState({
+        value: newValue,
+      });
     }
   };
 }

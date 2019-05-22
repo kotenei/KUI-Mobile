@@ -21,7 +21,7 @@ export default class Demo extends Component {
     return (
       <React.Fragment>
         <Button onClick={this.handleClick}>打开</Button>
-        <Picker data={columns} show={show} showHeader onCancel={this.handleCancel} />
+        <Picker data={columns} show={show} showHeader onCancel={this.handleCancel} defaultValue={['4']} />
       </React.Fragment>
     );
   }
