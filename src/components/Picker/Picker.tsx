@@ -9,6 +9,15 @@ import { Scroller } from '../Scroller';
 const prefixCls = 'k-picker';
 
 class Picker extends PureComponent<PickerProps, PickerState> {
+  public static getDerivedStateFromProps(nextProps, prevState) {
+    console.log(prevState.value);
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value,
+      };
+    }
+    return null;
+  }
   private static defaultProps = {
     cancelText: '取消',
     okText: '确认',
@@ -16,12 +25,25 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     defaultValue: [],
     showHeader: false,
   };
+
+  private tmpValue: string[];
+
   constructor(props) {
     super(props);
     this.state = {
       value: props.value || props.defaultValue,
     };
   }
+
+  public componentDidUpdate(prevProps, prevState) {
+    const { show, value } = this.props;
+    // console.log(prevProps.value,prevState.value);
+  }
+
+  public componentDidMount() {
+    // console.log('mount');
+  }
+
   public renderSelect() {
     const { data } = this.props;
     const { value } = this.state;
@@ -42,6 +64,7 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     }
     return items;
   }
+
   public render() {
     const { className, style, title, cancelText, okText, showHeader, show } = this.props;
     const classString = classnames(
@@ -72,6 +95,13 @@ class Picker extends PureComponent<PickerProps, PickerState> {
 
   private handleCancel = () => {
     const { onCancel } = this.props;
+
+    if ('value' in this.props) {
+      this.setState({
+        value: this.props.value || [],
+      });
+    }
+
     if (onCancel) {
       onCancel();
     }
@@ -79,21 +109,22 @@ class Picker extends PureComponent<PickerProps, PickerState> {
 
   private handleOK = () => {
     const { onOK } = this.props;
-    const { value } = this.state;
+
     if (onOK) {
-      onOK(value);
+      onOK(this.tmpValue);
     }
   };
 
   private handleChange = (column, columnIndex) => {
     const { value } = this.state;
+    const newValue = [...value];
+    newValue[columnIndex] = column.value;
     if (!('value' in this.props)) {
-      const newValue = [...value];
-      newValue[columnIndex] = column.value;
       this.setState({
         value: newValue,
       });
     }
+    this.tmpValue = newValue;
   };
 }
 

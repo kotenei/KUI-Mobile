@@ -4,9 +4,17 @@ import { Picker, Button } from 'kui-mobile';
 export default class Demo extends Component {
   state = {
     show: false,
+    value: ['4'],
   };
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        value: ['6'],
+      });
+    }, 1000);
+  }
   render() {
-    const { show } = this.state;
+    const { show, value } = this.state;
     const columns = [
       [
         { label: '选项1', value: '1' },
@@ -21,7 +29,14 @@ export default class Demo extends Component {
     return (
       <React.Fragment>
         <Button onClick={this.handleClick}>打开</Button>
-        <Picker data={columns} show={show} showHeader onCancel={this.handleCancel} defaultValue={['4']} />
+        <Picker
+          data={columns}
+          show={show}
+          showHeader
+          onCancel={this.handleCancel}
+          onOK={this.handleOK}
+          value={value}
+        />
       </React.Fragment>
     );
   }
@@ -32,6 +47,13 @@ export default class Demo extends Component {
   };
   handleCancel = () => {
     this.setState({
+      show: false,
+    });
+  };
+  handleOK = value => {
+    console.log(value)
+    this.setState({
+      value,
       show: false,
     });
   };

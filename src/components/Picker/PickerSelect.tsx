@@ -17,6 +17,7 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
 
   constructor(props) {
     super(props);
+
     this.state = {
       activeIndex: 0,
     };
@@ -68,24 +69,27 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
   }
 
   private init() {
-    const { columns } = this.props;
+    const { columns, value } = this.props;
+    let activeIndex = 0;
     if (columns && columns.length > 0) {
       const li = (this.refs.select as HTMLElement).querySelector('li');
       this.itemHeight = domUtils.height(li);
     }
-  }
-
-  private handleScrollInit = instance => {
-    this.scrollInstance = instance;
-    const { columns, value } = this.props;
     if (columns && value) {
       const index = columns.findIndex(item => {
         return item.value === value;
       });
       if (index > -1) {
-        this.scrollInstance.wheelTo(index);
+        activeIndex = index;
+        this.setState({
+          activeIndex,
+        });
       }
     }
+  }
+
+  private handleScrollInit = instance => {
+    this.scrollInstance = instance;
   };
 
   private handleScrollEnd = pos => {
