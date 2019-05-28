@@ -1,31 +1,25 @@
 import React, { Component } from 'react';
 import { Picker, Button } from 'kui-mobile';
+import { provinceList } from '../../data/areaData';
+
+const columns = [
+  provinceList.map(item => {
+    return {
+      label: item.text,
+      value: item.value,
+    };
+  }),
+];
 
 export default class Demo extends Component {
   state = {
     show: false,
-    value: ['4'],
+    value: [],
   };
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        value: ['6'],
-      });
-    }, 1000);
-  }
+  componentDidMount() {}
   render() {
     const { show, value } = this.state;
-    const columns = [
-      [
-        { label: '选项1', value: '1' },
-        { label: '选项2', value: '2' },
-        { label: '选项3', value: '3' },
-        { label: '选项4', value: '4' },
-        { label: '选项5', value: '5' },
-        { label: '选项6', value: '6' },
-        { label: '选项7', value: '7' },
-      ],
-    ];
+
     return (
       <React.Fragment>
         <Button onClick={this.handleClick}>打开</Button>
@@ -51,7 +45,6 @@ export default class Demo extends Component {
     });
   };
   handleOK = value => {
-    console.log(value)
     this.setState({
       value,
       show: false,

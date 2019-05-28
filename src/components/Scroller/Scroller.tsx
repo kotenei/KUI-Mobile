@@ -31,7 +31,7 @@ class Scroller extends PureComponent<ScrollerProps> {
   public componentDidMount() {
     setTimeout(() => {
       this.init();
-    }, 20);
+    }, 50);
   }
 
   public componentWillUnmount() {
@@ -52,7 +52,6 @@ class Scroller extends PureComponent<ScrollerProps> {
     return (
       <div ref={this.handleRef} className={classString} style={style}>
         {children}
-        {/* <div className={`${prefixCls}__pulldown`}></div> */}
       </div>
     );
   }

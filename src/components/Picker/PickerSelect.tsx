@@ -7,8 +7,24 @@ import domUtils from '../..//utils/domUtils';
 
 const prefixCls = 'k-picker-select';
 
-class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
-  public static getDerivedStateFromProps(nextProps, prevState) {
+class PickerSelect extends React.Component<PickerSelectProps, PickerSelectState> {
+  public static getDerivedStateFromProps(nextProps, nextState) {
+    if (nextProps.value !== nextState.value) {
+      const { columns, value } = nextProps;
+      let activeIndex = 0;
+      if (columns && value) {
+        const index = columns.findIndex(item => {
+          return item.value === value;
+        });
+        if (index > -1) {
+          activeIndex = index;
+        }
+      }
+      return {
+        value,
+        activeIndex,
+      };
+    }
     return null;
   }
 
@@ -17,9 +33,9 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
 
   constructor(props) {
     super(props);
-
     this.state = {
-      activeIndex: 0,
+      activeIndex: this.getActiveIndex(props),
+      value: props.value,
     };
   }
   public renderItems() {
@@ -42,9 +58,18 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
   }
 
   public componentDidMount() {
-    setTimeout(() => {
-      this.init();
-    });
+    this.init();
+  }
+
+  public componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.activeIndex !== this.state.activeIndex &&
+      this.scrollInstance &&
+      this.scrollInstance.selectedIndex !== this.state.activeIndex
+    ) {
+      this.scrollInstance.selectedIndex = this.state.activeIndex;
+      this.scrollInstance.wheelTo(this.state.activeIndex);
+    }
   }
 
   public render() {
@@ -70,22 +95,24 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
 
   private init() {
     const { columns, value } = this.props;
-    let activeIndex = 0;
     if (columns && columns.length > 0) {
       const li = (this.refs.select as HTMLElement).querySelector('li');
       this.itemHeight = domUtils.height(li);
     }
+  }
+
+  private getActiveIndex(props = this.props) {
+    const { columns, value } = props;
+    let activeIndex = 0;
     if (columns && value) {
       const index = columns.findIndex(item => {
         return item.value === value;
       });
       if (index > -1) {
         activeIndex = index;
-        this.setState({
-          activeIndex,
-        });
       }
     }
+    return activeIndex;
   }
 
   private handleScrollInit = instance => {
@@ -95,6 +122,13 @@ class PickerSelect extends PureComponent<PickerSelectProps, PickerSelectState> {
   private handleScrollEnd = pos => {
     const { onChange, columns, columnIndex } = this.props;
     const activeIndex = this.scrollInstance.getSelectedIndex();
+    if (this.state.activeIndex === activeIndex) {
+      return;
+    }
+    console.log('action');
+    this.setState({
+      activeIndex,
+    });
     if (onChange && columns) {
       onChange(columns[activeIndex], columnIndex);
     }

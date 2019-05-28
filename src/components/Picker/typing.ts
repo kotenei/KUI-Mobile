@@ -26,6 +26,7 @@ export interface PickerSelectProps extends KUI.BaseProps {
 
 export interface PickerSelectState {
   activeIndex?: number;
+  value?: string;
 }
 
 export interface PickerItemProps extends KUI.BaseProps {

@@ -9,8 +9,7 @@ import { Scroller } from '../Scroller';
 const prefixCls = 'k-picker';
 
 class Picker extends PureComponent<PickerProps, PickerState> {
-  public static getDerivedStateFromProps(nextProps, prevState) {
-    console.log(prevState.value);
+  public static getDerivedStateFromProps(nextProps, nextState) {
     if ('value' in nextProps) {
       return {
         value: nextProps.value,
@@ -35,13 +34,14 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     };
   }
 
-  public componentDidUpdate(prevProps, prevState) {
-    const { show, value } = this.props;
-    // console.log(prevProps.value,prevState.value);
-  }
-
   public componentDidMount() {
     // console.log('mount');
+  }
+
+  public componentDidUpdate(prevProps, prevState) {
+    // const { show, value } = this.props;
+    // console.log(prevProps.value, prevState.value);
+    // if(prevProps.value!==this.props.value)
   }
 
   public renderSelect() {
@@ -95,13 +95,9 @@ class Picker extends PureComponent<PickerProps, PickerState> {
 
   private handleCancel = () => {
     const { onCancel } = this.props;
-
     if ('value' in this.props) {
-      this.setState({
-        value: this.props.value || [],
-      });
+      this.tmpValue = this.props.value || [];
     }
-
     if (onCancel) {
       onCancel();
     }
