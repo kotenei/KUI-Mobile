@@ -31,8 +31,8 @@ export interface PickerSelectState {
 
 export interface PickerItemProps extends KUI.BaseProps {
   prefixCls: string;
-  label?: React.ReactNode | string;
-  value?: string;
+  label: React.ReactNode | string;
+  value: string;
   disabled?: boolean;
   selected?: boolean;
   onClick?: (value: string) => void;

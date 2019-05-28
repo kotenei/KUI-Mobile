@@ -125,7 +125,6 @@ class PickerSelect extends React.Component<PickerSelectProps, PickerSelectState>
     if (this.state.activeIndex === activeIndex) {
       return;
     }
-    console.log('action');
     this.setState({
       activeIndex,
     });

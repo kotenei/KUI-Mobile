@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Picker, Button } from 'kui-mobile';
+import { Picker, Button, Toast } from 'kui-mobile';
 import { provinceList } from '../../data/areaData';
 
 const columns = [
@@ -29,6 +29,7 @@ export default class Demo extends Component {
           showHeader
           onCancel={this.handleCancel}
           onOK={this.handleOK}
+          onChange={this.handleChange}
           value={value}
         />
       </React.Fragment>
@@ -49,5 +50,8 @@ export default class Demo extends Component {
       value,
       show: false,
     });
+  };
+  handleChange = value => {
+    Toast.info(`当前选中值：${value[0]}`);
   };
 }

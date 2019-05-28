@@ -112,6 +112,7 @@ class Picker extends PureComponent<PickerProps, PickerState> {
   };
 
   private handleChange = (column, columnIndex) => {
+    const { onChange } = this.props;
     const { value } = this.state;
     const newValue = [...value];
     newValue[columnIndex] = column.value;
@@ -121,6 +122,9 @@ class Picker extends PureComponent<PickerProps, PickerState> {
       });
     }
     this.tmpValue = newValue;
+    if (onChange) {
+      onChange(newValue);
+    }
   };
 }
 
