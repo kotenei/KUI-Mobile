@@ -35,7 +35,7 @@ class Picker extends PureComponent<PickerProps, PickerState> {
   }
 
   public componentDidMount() {
-    // console.log('mount');
+    this.init();
   }
 
   public componentDidUpdate(prevProps, prevState) {
@@ -93,10 +93,29 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     );
   }
 
+  private init(props = this.props) {
+    const { value, defaultValue, data } = props;
+    const newValue = value || defaultValue || [];
+    if (newValue.length === 0 && data) {
+      data.forEach(column => {
+        column.every(item => {
+          if (!item.disabled) {
+            newValue.push(item.value);
+            return false;
+          }
+          return true;
+        });
+      });
+    }
+    this.tmpValue = newValue;
+  }
+
   private handleCancel = () => {
-    const { onCancel } = this.props;
+    const { onCancel, value, defaultValue } = this.props;
     if ('value' in this.props) {
-      this.tmpValue = this.props.value || [];
+      this.tmpValue = value || defaultValue || [];
+    } else {
+      this.tmpValue = this.state.value || [];
     }
     if (onCancel) {
       onCancel();
@@ -105,7 +124,11 @@ class Picker extends PureComponent<PickerProps, PickerState> {
 
   private handleOK = () => {
     const { onOK } = this.props;
-
+    if (!('value' in this.props)) {
+      this.setState({
+        value: this.tmpValue,
+      });
+    }
     if (onOK) {
       onOK(this.tmpValue);
     }
@@ -116,11 +139,6 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     const { value } = this.state;
     const newValue = [...value];
     newValue[columnIndex] = column.value;
-    if (!('value' in this.props)) {
-      this.setState({
-        value: newValue,
-      });
-    }
     this.tmpValue = newValue;
     if (onChange) {
       onChange(newValue);

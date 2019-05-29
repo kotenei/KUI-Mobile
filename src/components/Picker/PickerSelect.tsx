@@ -9,7 +9,7 @@ const prefixCls = 'k-picker-select';
 
 class PickerSelect extends React.Component<PickerSelectProps, PickerSelectState> {
   public static getDerivedStateFromProps(nextProps, nextState) {
-    if (nextProps.value !== nextState.value) {
+    if ('value' in nextProps && nextProps.value !== nextState.value) {
       const { columns, value } = nextProps;
       let activeIndex = 0;
       if (columns && value) {
@@ -82,6 +82,7 @@ class PickerSelect extends React.Component<PickerSelectProps, PickerSelectState>
           selectedIndex: activeIndex,
           wheelWrapperClass: prefixCls,
           wheelItemClass: `${prefixCls}__option`,
+          wheelDisabledItemClass: `${prefixCls}__option--disabled`,
         }}
         onInit={this.handleScrollInit}
         onScrollEnd={this.handleScrollEnd}
@@ -125,6 +126,7 @@ class PickerSelect extends React.Component<PickerSelectProps, PickerSelectState>
     if (this.state.activeIndex === activeIndex) {
       return;
     }
+
     this.setState({
       activeIndex,
     });

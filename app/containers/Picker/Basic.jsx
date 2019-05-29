@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Picker, Button, Toast } from 'kui-mobile';
+import { Picker, Button, Toast, Message } from 'kui-mobile';
 import { provinceList } from '../../data/areaData';
 
 const columns = [
@@ -14,7 +14,7 @@ const columns = [
 export default class Demo extends Component {
   state = {
     show: false,
-    value: [],
+    value: ['120000'],
   };
   componentDidMount() {}
   render() {
@@ -46,6 +46,11 @@ export default class Demo extends Component {
     });
   };
   handleOK = value => {
+    let selected = columns[0].find(item => item.value === value[0]);
+    if(!selected){
+      selected=columns[0]
+    }
+    Message(`选中了：${selected.label}`);
     this.setState({
       value,
       show: false,

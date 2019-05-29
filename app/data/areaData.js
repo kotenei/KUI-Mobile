@@ -2,6 +2,7 @@ export const provinceList = [
   {
     text: '北京市',
     value: '110000',
+    disabled: true,
   },
   {
     text: '天津市',
