@@ -40,6 +40,7 @@ export default class Demo extends Component {
     this.setState({
       show: true,
     });
+    document.activeElement.blur();
   };
   handleCancel = () => {
     this.setState({
