@@ -35,13 +35,20 @@ class Picker extends PureComponent<PickerProps, PickerState> {
   }
 
   public componentDidMount() {
-    this.init();
+    this.tmpValue = this.getTmpValue();
   }
 
   public componentDidUpdate(prevProps, prevState) {
-    // const { show, value } = this.props;
-    // console.log(prevProps.value, prevState.value);
-    // if(prevProps.value!==this.props.value)
+    this.tmpValue = this.getTmpValue();
+    if (
+      (!this.state.value || this.state.value.length === 0) &&
+      this.tmpValue &&
+      !('value' in this.props)
+    ) {
+      this.setState({
+        value: this.tmpValue,
+      });
+    }
   }
 
   public renderSelect() {
@@ -93,10 +100,10 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     );
   }
 
-  private init(props = this.props) {
+  private getTmpValue(props = this.props) {
     const { value, defaultValue, data } = props;
-    const newValue = value || defaultValue || [];
-    if (newValue.length === 0 && data) {
+    const newValue = [...(value || defaultValue || [])];
+    if (data && (!newValue || newValue.length === 0)) {
       data.forEach(column => {
         column.every(item => {
           if (!item.disabled) {
@@ -107,15 +114,15 @@ class Picker extends PureComponent<PickerProps, PickerState> {
         });
       });
     }
-    this.tmpValue = newValue;
+    return newValue;
   }
 
   private handleCancel = () => {
     const { onCancel, value, defaultValue } = this.props;
     if ('value' in this.props) {
-      this.tmpValue = value || defaultValue || [];
+      this.tmpValue = [...(value || defaultValue || [])];
     } else {
-      this.tmpValue = this.state.value || [];
+      this.tmpValue = [...(this.state.value || [])];
     }
     if (onCancel) {
       onCancel();
@@ -123,14 +130,15 @@ class Picker extends PureComponent<PickerProps, PickerState> {
   };
 
   private handleOK = () => {
-    const { onOK } = this.props;
+    const { onOK, data } = this.props;
+    const selectedItems: any = this.getSelected(this.tmpValue);
     if (!('value' in this.props)) {
       this.setState({
         value: this.tmpValue,
       });
     }
     if (onOK) {
-      onOK(this.tmpValue);
+      onOK(this.tmpValue, selectedItems);
     }
   };
 
@@ -140,10 +148,25 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     const newValue = [...value];
     newValue[columnIndex] = column.value;
     this.tmpValue = newValue;
+    const selected = this.getSelected(this.tmpValue);
     if (onChange) {
-      onChange(newValue);
+      onChange(newValue, selected, columnIndex);
     }
   };
+
+  private getSelected(values) {
+    const { data } = this.props;
+    const selectedItems: any = [];
+    if (data && data.length > 0) {
+      data.forEach((columns, index) => {
+        const selected = columns.find(column => column.value === values[index]);
+        if (selected) {
+          selectedItems.push(selected);
+        }
+      });
+    }
+    return selectedItems;
+  }
 }
 
 export default Picker;

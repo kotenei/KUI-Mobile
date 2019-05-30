@@ -8,9 +8,9 @@ export interface PickerProps extends KUI.BaseProps {
   title?: React.ReactNode | string;
   showHeader?: boolean;
   show?: boolean;
-  onChange?: (value: string[]) => void;
+  onChange?: (value: string[], selected: Column[], columnIndex: number) => void;
   onCancel?: () => void;
-  onOK?: (value: string[]) => void;
+  onOK?: (value: string[], selected: Column[]) => void;
 }
 
 export interface PickerState {

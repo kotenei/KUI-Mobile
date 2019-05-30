@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Picker, Button, Toast, Input } from 'kui-mobile';
-import { provinceList } from '../../data/areaData';
 
 const columns = [
-  provinceList.map(item => {
-    return {
-      label: item.text,
-      value: item.value,
-    };
-  }),
+  [{ label: '2018', value: '2018' }, { label: '2019', value: '2019' }],
+  [
+    { label: '春', value: '1' },
+    { label: '夏', value: '2', disabled: true },
+    { label: '秋', value: '3' },
+    { label: '冬', value: '4' },
+  ],
 ];
 
 export default class Demo extends Component {
@@ -25,7 +25,7 @@ export default class Demo extends Component {
       <React.Fragment>
         <Input placeholder="请选择" value={value} onClick={this.handleClick} />
         <Picker
-          title="选择地区"
+          title="选择季节"
           data={data}
           show={show}
           showHeader
@@ -47,12 +47,20 @@ export default class Demo extends Component {
     });
   };
   handleOK = (value, selected) => {
+    let arrStr = [];
+    selected.forEach(item => {
+      arrStr.push(item.label);
+    });
     this.setState({
-      value: selected[0].label,
+      value: arrStr.join(' '),
       show: false,
     });
   };
   handleChange = (value, selected) => {
-    Toast.info(`当前选中：${selected[0].label}`);
+    let arrStr = [];
+    selected.forEach(item => {
+      arrStr.push(item.label);
+    });
+    Toast.info(`当前选中值：${arrStr.join(' ')}`);
   };
 }

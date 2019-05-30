@@ -42,6 +42,7 @@ class Input extends PureComponent<InputProps, InputState> {
       defaultValue,
       onFocus,
       onBlur,
+      ...others
     } = this.props;
     const { value } = this.state;
     return (
@@ -49,6 +50,7 @@ class Input extends PureComponent<InputProps, InputState> {
         <div className={`${prefixCls}__wrap`}>
           {prefix && <span className={`${prefixCls}__prefix`}>{prefix}</span>}
           <input
+            {...others}
             type={type}
             className={`${prefixCls}__control`}
             placeholder={placeholder}

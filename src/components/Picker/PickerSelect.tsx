@@ -58,7 +58,9 @@ class PickerSelect extends React.Component<PickerSelectProps, PickerSelectState>
   }
 
   public componentDidMount() {
-    this.init();
+    setTimeout(() => {
+      this.init();
+    });
   }
 
   public componentDidUpdate(prevProps, prevState) {

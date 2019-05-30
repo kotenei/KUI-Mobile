@@ -72,6 +72,9 @@
         height: $picker-select-option-height;
         line-height: $picker-select-option-height;
         text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         // color: $subsidiary-color;
 
         @include bem-modifier('disabled') {
