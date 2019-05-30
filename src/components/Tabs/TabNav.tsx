@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { TabNavProps, TabNavState } from './typing';
 import TabNavItem from './TabNavItem';
 import domUtils from '../../utils/domUtils';
-
+import { Scroller } from '../Scroller';
 const prefixCls = 'k-tabs-nav';
 
 class TabNav extends PureComponent<TabNavProps, TabNavState> {
@@ -11,6 +11,7 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
   private tabsInfo: any;
   private elScroller: HTMLElement;
   private timeout: number;
+  private scrollInstance: any = null;
 
   constructor(props) {
     super(props);
@@ -128,10 +129,12 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
         })}
       >
         <div className={`${prefixCls}__scroller`} ref={this.handlRef}>
-          <ul className={`${prefixCls}__list`} style={navStyle}>
-            {type === 'line' ? <li className={`${prefixCls}__ink`} style={inkStyle} /> : null}
-            {this.getTabs()}
-          </ul>
+          <Scroller direction="horizontal" onInit={this.handleScrollerInit}>
+            <ul className={`${prefixCls}__list`} style={navStyle}>
+              {type === 'line' ? <li className={`${prefixCls}__ink`} style={inkStyle} /> : null}
+              {this.getTabs()}
+            </ul>
+          </Scroller>
         </div>
       </div>
     );
@@ -145,6 +148,10 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
 
   private handlRef = (el: HTMLDivElement) => {
     this.elScroller = el;
+  };
+
+  private handleScrollerInit = instance => {
+    this.scrollInstance = instance;
   };
 
   private getTabs() {
