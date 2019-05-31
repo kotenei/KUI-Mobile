@@ -12,6 +12,8 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
   private elScroller: HTMLElement;
   private timeout: number;
   private scrollInstance: any = null;
+  private orgScrollInfo: any = { x: 0, y: 0, scrollLeft: 0, scrollTop: 0 };
+  private isTouch: boolean = false;
 
   constructor(props) {
     super(props);
@@ -121,6 +123,11 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
       navStyle = { transform: `translate3d(-${scrollLeft}px, 0px, 0px)` };
       inkStyle = { width: inkWidth, transform: `translate3d(${inkLeft}px, 0px, 0px)` };
     }
+
+    if (this.isTouch) {
+      navStyle.transition = 'none';
+    }
+
     return (
       <div
         className={classnames({
@@ -129,12 +136,16 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
         })}
       >
         <div className={`${prefixCls}__scroller`} ref={this.handlRef}>
-          <Scroller direction="horizontal" onInit={this.handleScrollerInit}>
-            <ul className={`${prefixCls}__list`} style={navStyle}>
-              {type === 'line' ? <li className={`${prefixCls}__ink`} style={inkStyle} /> : null}
-              {this.getTabs()}
-            </ul>
-          </Scroller>
+          <ul
+            className={`${prefixCls}__list`}
+            style={navStyle}
+            onTouchStart={this.handleTouchStart}
+            onTouchMove={this.handleTouchMove}
+            onTouchEnd={this.handleTouchEnd}
+          >
+            {type === 'line' ? <li className={`${prefixCls}__ink`} style={inkStyle} /> : null}
+            {this.getTabs()}
+          </ul>
         </div>
       </div>
     );
@@ -152,6 +163,50 @@ class TabNav extends PureComponent<TabNavProps, TabNavState> {
 
   private handleScrollerInit = instance => {
     this.scrollInstance = instance;
+  };
+
+  private handleTouchStart = e => {
+    const { clientX, clientY } = e.touches[0];
+    const { scrollLeft, scrollTop } = this.state;
+    this.orgScrollInfo.x = clientX;
+    this.orgScrollInfo.y = clientY;
+    this.orgScrollInfo.scrollLeft = scrollLeft;
+    this.orgScrollInfo.scrollTop = scrollTop;
+    this.isTouch = true;
+  };
+
+  private handleTouchMove = e => {
+    e.preventDefault();
+    const { clientX, clientY } = e.touches[0];
+    let left = this.orgScrollInfo.x - clientX;
+    let top = this.orgScrollInfo.y - clientY;
+
+    left += this.orgScrollInfo.scrollLeft;
+    top += this.orgScrollInfo.scrollTop;
+
+    if (left < 0) {
+      left = 0;
+    }
+    if (top < 0) {
+      top = 0;
+    }
+
+    left = left > this.tabsInfo.maxLeft ? this.tabsInfo.maxLeft : left;
+    top = top > this.tabsInfo.maxHeight ? this.tabsInfo.maxHeight : top;
+
+    if (this.isVertical) {
+      this.setState({
+        scrollTop: top,
+      });
+    } else {
+      this.setState({
+        scrollLeft: left,
+      });
+    }
+  };
+
+  private handleTouchEnd = e => {
+    this.isTouch = false;
   };
 
   private getTabs() {
