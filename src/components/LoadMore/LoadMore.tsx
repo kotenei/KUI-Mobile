@@ -2,6 +2,7 @@ import React, { StatelessComponent } from 'react';
 import classnames from 'classnames';
 import { LoadMoreProps } from './typing';
 import { Icon } from '../Icon';
+import { Loading } from '../Loading';
 
 const prefixCls = 'k-loadmore';
 
@@ -18,10 +19,8 @@ const LoadMore: StatelessComponent<LoadMoreProps> = props => {
   );
   return (
     <div className={classString} {...others}>
-      <div className={`${prefixCls}__tip`}>
-        {loading ? <Icon className={`${prefixCls}__icon`} type="loading" /> : null}
-        {tip}
-      </div>
+      {loading ? <Loading size="sm" /> : null}
+      <div className={`${prefixCls}__tip`}>{tip}</div>
     </div>
   );
 };

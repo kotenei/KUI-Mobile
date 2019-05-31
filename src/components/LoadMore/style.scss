@@ -15,6 +15,7 @@
         padding: $loadmore-tip-padding;
         background: $loadmore-tip-bgColor;
         z-index: 10;
+        vertical-align: middle;
     }
 
     @include bem-modifier('line') {
@@ -40,16 +41,17 @@
                 @include element-size($loadmore-dot-size);
                 border-radius: 50%;
                 background: $border-color-base;
-                top: 50%;
-                left: 50%;
+                // top: 50%;
+                // left: 50%;
                 position: relative;
                 display: inline-block;
-                transform: translate(-50%, -50%);
+                // transform: translate(-50%, -50%);
+                top: -$loadmore-dot-size;
             }
         }
     }
 
-    @include bem-modifier('full'){
+    @include bem-modifier('full') {
         width: 100%;
     }
 }

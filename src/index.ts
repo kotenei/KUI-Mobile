@@ -15,6 +15,7 @@ export * from './components/Input';
 export * from './components/InputNumber';
 export * from './components/Layout';
 export * from './components/LazyLoad';
+export * from './components/Loading';
 export * from './components/LoadMore';
 export * from './components/Mask';
 export * from './components/Message';

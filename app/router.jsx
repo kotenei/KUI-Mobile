@@ -19,6 +19,7 @@ const Input = lazy(() => import('./containers/Input'));
 const InputNumber = lazy(() => import('./containers/InputNumber'));
 const Layout = lazy(() => import('./containers/Layout'));
 const LazyLoad = lazy(() => import('./containers/LazyLoad'));
+const Loading = lazy(() => import('./containers/Loading'));
 const LoadMore = lazy(() => import('./containers/LoadMore'));
 const Message = lazy(() => import('./containers/Message'));
 const Modal = lazy(() => import('./containers/Modal'));
@@ -59,6 +60,7 @@ const Router = props => {
       <Route exact path="/inputnumber" render={() => <InputNumber />} />
       <Route exact path="/layout" render={() => <Layout />} />
       <Route exact path="/lazyload" render={() => <LazyLoad />} />
+      <Route exact path="/loading" render={() => <Loading />} />
       <Route exact path="/loadmore" render={() => <LoadMore />} />
       <Route exact path="/message" render={() => <Message />} />
       <Route exact path="/modal" render={() => <Modal />} />

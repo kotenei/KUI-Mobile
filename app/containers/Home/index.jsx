@@ -46,6 +46,7 @@ export default class Home extends Component {
     const feedback = [
       { title: 'ActionSheet 动作面板', to: '/actionsheet' },
       { title: 'Alert 警告提示', to: '/alert' },
+      { title: 'Loading 加载', to: '/loading' },
       { title: 'Message 消息提示', to: '/message' },
       { title: 'Modal 对话框', to: '/modal' },
       { title: 'Progress 进度条', to: '/progress' },
