@@ -25,6 +25,7 @@ export * from './components/NoticeBar';
 export * from './components/Pagination';
 export * from './components/Picker';
 export * from './components/Progress';
+export * from './components/PullRefresh';
 export * from './components/Radio';
 export * from './components/Rate';
 export * from './components/SearchBar';
