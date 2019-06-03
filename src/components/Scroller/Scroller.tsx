@@ -1,11 +1,16 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import BScroll from 'better-scroll';
-import { ScrollerProps } from './typing';
+import { ScrollerProps, ScrollerState } from './typing';
+import ScrollerPullDownWrapper from './ScrollerPullDownWrapper';
 
 const prefixCls = 'k-scroller';
+const TIME_BOUNCE = 800;
+const TIME_STOP = 600;
+const THRESHOLD = 70;
+const STOP = 56;
 
-class Scroller extends PureComponent<ScrollerProps> {
+class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
   private static defaultProps = {
     probeType: 1,
     click: true,
@@ -28,6 +33,14 @@ class Scroller extends PureComponent<ScrollerProps> {
 
   private scroll: any;
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      beforePullDown: true,
+      isPullingDown: false,
+    };
+  }
+
   public componentDidMount() {
     setTimeout(() => {
       this.init();
@@ -42,7 +55,8 @@ class Scroller extends PureComponent<ScrollerProps> {
   }
 
   public render() {
-    const { children, className, style } = this.props;
+    const { children, className, style, pullDownWrapperProps, pullDownRefresh } = this.props;
+    const { beforePullDown, isPullingDown } = this.state;
     const classString = classnames(
       {
         [prefixCls]: true,
@@ -52,6 +66,13 @@ class Scroller extends PureComponent<ScrollerProps> {
     return (
       <div ref={this.handleRef} className={classString} style={style}>
         {children}
+        {pullDownRefresh && (
+          <ScrollerPullDownWrapper
+            {...pullDownWrapperProps}
+            beforePullDown={beforePullDown}
+            isPullingDown={isPullingDown}
+          />
+        )}
       </div>
     );
   }
@@ -81,6 +102,8 @@ class Scroller extends PureComponent<ScrollerProps> {
       onScrollStart,
       onScroll,
       onScrollEnd,
+      onPullingDown,
+      onPullingUp,
     } = this.props;
 
     const options = {
@@ -117,9 +140,57 @@ class Scroller extends PureComponent<ScrollerProps> {
       this.scroll.on('scrollEnd', onScrollEnd);
     }
 
+    if (onPullingDown) {
+      this.scroll.on('pullingDown', this.handlePulldown);
+    }
+
+    if (onPullingUp) {
+      this.scroll.on('pullingUp', onPullingUp);
+    }
+
     if (onInit) {
       onInit(this.scroll);
     }
+  }
+
+  private handlePulldown = () => {
+    const { onPullingDown } = this.props;
+    this.setState(
+      {
+        beforePullDown: false,
+        isPullingDown: true,
+      },
+      () => {
+        if (onPullingDown) {
+          onPullingDown((status, message) => {
+            if (status === 'success') {
+              this.setState(
+                {
+                  isPullingDown: false,
+                },
+                () => {
+                  this.finishPullDown();
+                },
+              );
+            }
+          });
+        }
+      },
+    );
+  };
+
+  private finishPullDown() {
+    this.scroll && this.scroll.finishPullDown();
+    setTimeout(() => {
+      this.setState(
+        {
+          beforePullDown: true,
+        },
+        () => {
+          this.scroll.refresh();
+        },
+      );
+    }, TIME_BOUNCE);
   }
 }
 

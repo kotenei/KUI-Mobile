@@ -5,8 +5,19 @@ import { Scroller } from '../Scroller';
 
 class PullRefresh extends PureComponent<PullRefreshProps> {
   public render() {
-    const { children } = this.props;
-    return <Scroller>{children}</Scroller>;
+    const { children, ...others } = this.props;
+    return (
+      <Scroller
+        {...others}
+        scrollbar={{ fade: true }}
+        pullDownRefresh={{
+          threshold: 70,
+          stop: 50,
+        }}
+      >
+        {children}
+      </Scroller>
+    );
   }
 }
 
