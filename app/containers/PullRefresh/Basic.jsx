@@ -18,7 +18,7 @@ export default class Demo extends Component {
             height: '400px',
             overflow: 'hidden',
             position: 'relative',
-            background: '#fff',
+            border:'1px solid #dddee1'
           }}
           pullDownRefresh
           pullUpload
