@@ -4,7 +4,6 @@ import { PickerProps, PickerState, Column } from './typing';
 import { ActionSheet } from '../ActionSheet';
 import { Drawer } from '../Drawer';
 import PickerSelect from './PickerSelect';
-import { Scroller } from '../Scroller';
 
 const prefixCls = 'k-picker';
 

@@ -72,12 +72,15 @@ Notification.newInstance = props => {
   };
   document.body.appendChild(container);
   ReactDOM.render(<Notification {...props} ref={handleRef} />, container);
+
   return {
     notice(noticeProps: NoticeProps) {
-      instance.add(noticeProps);
+      setTimeout(() => {
+        instance && instance.add(noticeProps);
+      });
     },
     remove(key) {
-      instance.remove(key);
+      instance && instance.remove(key);
     },
     destory() {
       ReactDOM.unmountComponentAtNode(container);

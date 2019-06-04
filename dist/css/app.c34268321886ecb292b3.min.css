@@ -1522,6 +1522,26 @@ textarea {
     .k-pagination__dot--current {
       background: #888; }
 
+.k-pullrefresh-pulldown-wrapper {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: -50px;
+  left: 0;
+  height: 50px;
+  display: flex;
+  align-items: center; }
+  .k-pullrefresh-pulldown-wrapper > span {
+    flex: 1; }
+
+.k-pullrefresh-pullup-wrapper {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  text-align: center; }
+  .k-pullrefresh-pullup-wrapper > span {
+    flex: 1; }
+
 .k-picker {
   display: flex;
   flex-direction: column; }

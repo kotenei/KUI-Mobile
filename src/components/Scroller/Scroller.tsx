@@ -2,13 +2,8 @@ import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import BScroll from 'better-scroll';
 import { ScrollerProps, ScrollerState } from './typing';
-import ScrollerPullDownWrapper from './ScrollerPullDownWrapper';
 
 const prefixCls = 'k-scroller';
-const TIME_BOUNCE = 800;
-const TIME_STOP = 600;
-const THRESHOLD = 70;
-const STOP = 56;
 
 class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
   private static defaultProps = {
@@ -35,10 +30,6 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
 
   constructor(props) {
     super(props);
-    this.state = {
-      beforePullDown: true,
-      isPullingDown: false,
-    };
   }
 
   public componentDidMount() {
@@ -55,8 +46,7 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
   }
 
   public render() {
-    const { children, className, style, pullDownWrapperProps, pullDownRefresh } = this.props;
-    const { beforePullDown, isPullingDown } = this.state;
+    const { children, className, style, pullDownRefresh } = this.props;
     const classString = classnames(
       {
         [prefixCls]: true,
@@ -66,13 +56,6 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
     return (
       <div ref={this.handleRef} className={classString} style={style}>
         {children}
-        {pullDownRefresh && (
-          <ScrollerPullDownWrapper
-            {...pullDownWrapperProps}
-            beforePullDown={beforePullDown}
-            isPullingDown={isPullingDown}
-          />
-        )}
       </div>
     );
   }
@@ -104,6 +87,7 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
       onScrollEnd,
       onPullingDown,
       onPullingUp,
+      onTouchEnd,
     } = this.props;
 
     const options = {
@@ -132,7 +116,7 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
       this.scroll.on('scrollStart', onScrollStart);
     }
 
-    if (this.props.onScroll) {
+    if (onScroll) {
       this.scroll.on('scroll', onScroll);
     }
 
@@ -141,56 +125,20 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
     }
 
     if (onPullingDown) {
-      this.scroll.on('pullingDown', this.handlePulldown);
+      this.scroll.on('pullingDown', onPullingDown);
     }
 
     if (onPullingUp) {
       this.scroll.on('pullingUp', onPullingUp);
     }
 
+    if (onTouchEnd) {
+      this.scroll.on('touchEnd', onTouchEnd);
+    }
+
     if (onInit) {
       onInit(this.scroll);
     }
-  }
-
-  private handlePulldown = () => {
-    const { onPullingDown } = this.props;
-    this.setState(
-      {
-        beforePullDown: false,
-        isPullingDown: true,
-      },
-      () => {
-        if (onPullingDown) {
-          onPullingDown((status, message) => {
-            if (status === 'success') {
-              this.setState(
-                {
-                  isPullingDown: false,
-                },
-                () => {
-                  this.finishPullDown();
-                },
-              );
-            }
-          });
-        }
-      },
-    );
-  };
-
-  private finishPullDown() {
-    this.scroll && this.scroll.finishPullDown();
-    setTimeout(() => {
-      this.setState(
-        {
-          beforePullDown: true,
-        },
-        () => {
-          this.scroll.refresh();
-        },
-      );
-    }, TIME_BOUNCE);
   }
 }
 

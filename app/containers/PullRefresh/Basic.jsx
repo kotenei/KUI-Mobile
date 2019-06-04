@@ -1,49 +1,76 @@
 import React, { Component } from 'react';
-import { PullRefresh, CellGroup, Cell } from 'kui-mobile';
+import { PullRefresh, CellGroup, Cell, LoadMore } from 'kui-mobile';
 
 export default class Demo extends Component {
   state = {
-    data: [],
+    data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    pullupText: '上拉加载更新',
   };
   componentDidMount() {
     this.init();
   }
   render() {
-    const { data } = this.state;
+    const { data, pullupText } = this.state;
     return (
       <React.Fragment>
         <PullRefresh
-          // onPullingUp={this.onPullingUp}
           style={{
-            height: '500px',
+            height: '400px',
             overflow: 'hidden',
             position: 'relative',
             background: '#fff',
           }}
+          pullDownRefresh
+          pullUpload
+          pullUpWrapperProps={{
+            pullupText,
+          }}
           onPullingDown={this.onPullingDown}
+          onPullingUp={this.onPullingUp}
         >
           <CellGroup>
             {data.map((item, index) => {
-              return <Cell key={index} title={`item ${index}`} />;
+              return <Cell key={index} title={`item ${index + 1}`} />;
             })}
           </CellGroup>
         </PullRefresh>
       </React.Fragment>
     );
   }
-  init() {
-    this.onPullingUp();
-  }
-  onPullingDown(callback) {
+  init() {}
+  onPullingDown = callback => {
     setTimeout(() => {
-      callback('success');
+      let data = [];
+      for (let i = 0; i < 20; i++) {
+        data.push(i);
+      }
+      this.setState(
+        {
+          data,
+          pullupText: '上拉加载更新',
+        },
+        () => {
+          callback({
+            status: 'success',
+          });
+        },
+      );
     }, 2000);
-  }
+  };
   onPullingUp = callback => {
     // 模拟更新数据
     setTimeout(() => {
       const { data } = this.state;
       let last = data.length > 0 ? data[data.length - 1] : 0;
+      if (last >= 40) {
+        callback({
+          status: 'success',
+        });
+        this.setState({
+          pullupText: '暂无相关记录',
+        });
+        return;
+      }
       for (let i = 1; i <= 20; i++) {
         data.push(last + i);
       }
@@ -51,7 +78,11 @@ export default class Demo extends Component {
         {
           data,
         },
-        callback,
+        () => {
+          callback({
+            status: 'success',
+          });
+        },
       );
     }, 2000);
   };

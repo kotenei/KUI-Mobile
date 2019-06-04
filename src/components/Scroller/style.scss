@@ -1,21 +1,4 @@
 @include bem-block('scroller') {
     overflow: hidden;
     position: relative;
-
-    @include bem-element('content'){
-    }
-
-}
-
-@include bem-block('scroller-pulldown-wrapper') {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: -50px;
-    left: 0;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    
 }

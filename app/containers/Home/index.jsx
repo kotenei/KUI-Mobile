@@ -50,7 +50,7 @@ export default class Home extends Component {
       { title: 'Message 消息提示', to: '/message' },
       { title: 'Modal 对话框', to: '/modal' },
       { title: 'Progress 进度条', to: '/progress' },
-      { title: 'PullRefresh 下拉刷新', to: '/pullrefresh' },
+      { title: 'PullRefresh 拉动刷新', to: '/pullrefresh' },
       { title: 'Toast 轻提示', to: '/toast' },
     ];
     const form = [
