@@ -11,6 +11,7 @@ const Card = lazy(() => import('./containers/Card'));
 const Cell = lazy(() => import('./containers/Cell'));
 const Checkbox = lazy(() => import('./containers/Checkbox'));
 const Collapse = lazy(() => import('./containers/Collapse'));
+const DatePicker = lazy(() => import('./containers/DatePicker'));
 const Divider = lazy(() => import('./containers/Divider'));
 const Drawer = lazy(() => import('./containers/Drawer'));
 const Home = lazy(() => import('./containers/Home'));
@@ -54,6 +55,7 @@ const Router = props => {
       <Route exact path="/cell" render={() => <Cell />} />
       <Route exact path="/checkbox" render={() => <Checkbox />} />
       <Route exact path="/collapse" render={() => <Collapse />} />
+      <Route exact path="/datepicker" render={() => <DatePicker />} />
       <Route exact path="/divider" render={() => <Divider />} />
       <Route exact path="/drawer" render={() => <Drawer />} />
       <Route exact path="/icon" render={() => <Icon />} />

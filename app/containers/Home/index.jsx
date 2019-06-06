@@ -55,6 +55,7 @@ export default class Home extends Component {
     ];
     const form = [
       { title: 'Checkbox 复选框', to: '/checkbox' },
+      { title: 'DatePicker 日期选择', to: '/datepicker' },
       { title: 'Input 输入框', to: '/input' },
       { title: 'InputNumber 数字输入框', to: '/inputnumber' },
       { title: 'Picker 选择器', to: '/picker' },

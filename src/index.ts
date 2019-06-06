@@ -8,6 +8,7 @@ export * from './components/Card';
 export * from './components/Cell';
 export * from './components/Checkbox';
 export * from './components/Collapse';
+export * from './components/DatePicker';
 export * from './components/Divider';
 export * from './components/Drawer';
 export * from './components/Icon';

@@ -42,6 +42,7 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     if (
       (!this.state.value || this.state.value.length === 0) &&
       this.tmpValue &&
+      this.tmpValue.length > 0 &&
       !('value' in this.props)
     ) {
       this.setState({
