@@ -133,6 +133,7 @@ class DatePicker extends PureComponent<DatePickerProps, DatePickerState> {
         data.push(years);
         break;
       case 'yearmonth':
+        data.push(years);
         data.push(months);
         break;
       default:

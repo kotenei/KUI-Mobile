@@ -13,7 +13,7 @@ export default class Demo extends Component {
       <React.Fragment>
         <Input
           placeholder="请选择"
-          value={value && format(value, 'YYYY-MM-DD HH:mm:ss')}
+          value={value && format(value, 'YYYY-MM')}
           onClick={this.handleClick}
         />
         <DatePicker
@@ -22,8 +22,8 @@ export default class Demo extends Component {
           onCancel={this.handleCancel}
           onOK={this.handleOK}
           onChange={this.handleChange}
-          mode="datetime"
           formatter={this.handleFormatter}
+          mode="yearmonth"
         />
       </React.Fragment>
     );

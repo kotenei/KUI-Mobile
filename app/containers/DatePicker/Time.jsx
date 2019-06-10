@@ -13,31 +13,20 @@ export default class Demo extends Component {
       <React.Fragment>
         <Input
           placeholder="请选择"
-          value={value && format(value, 'YYYY-MM-DD HH:mm:ss')}
+          value={value && format(value, 'HH:mm:ss')}
           onClick={this.handleClick}
         />
         <DatePicker
           show={show}
-          title="日期选择"
+          title="时间选择"
           onCancel={this.handleCancel}
           onOK={this.handleOK}
           onChange={this.handleChange}
-          mode="datetime"
-          formatter={this.handleFormatter}
+          mode="time"
         />
       </React.Fragment>
     );
   }
-  handleFormatter = (type, val) => {
-    if (type === 'year') {
-      return `${val}年`;
-    } else if (type === 'month') {
-      return `${val}月`;
-    } else if (type === 'day') {
-      return `${val}日`;
-    }
-    return val;
-  };
   handleClick = type => {
     this.setState({
       show: true,
