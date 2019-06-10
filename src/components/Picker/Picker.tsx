@@ -24,7 +24,7 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     showHeader: false,
   };
 
-  private tmpValue: string[];
+  private tmpValue: any;
 
   constructor(props) {
     super(props);
@@ -145,7 +145,7 @@ class Picker extends PureComponent<PickerProps, PickerState> {
   private handleChange = (column, columnIndex) => {
     const { onChange } = this.props;
     const { value } = this.state;
-    const newValue = [...value];
+    const newValue: any = [...(this.tmpValue || value)];
     newValue[columnIndex] = column.value;
     this.tmpValue = newValue;
     const selected = this.getSelected(this.tmpValue);

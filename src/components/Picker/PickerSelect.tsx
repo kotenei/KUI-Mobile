@@ -12,7 +12,7 @@ class PickerSelect extends React.Component<PickerSelectProps, PickerSelectState>
     if ('value' in nextProps && nextProps.value !== nextState.value) {
       const { columns, value } = nextProps;
       let activeIndex = 0;
-      if (columns && value) {
+      if (columns !== undefined && value !== undefined) {
         const index = columns.findIndex(item => {
           return item.value === value;
         });
@@ -107,7 +107,7 @@ class PickerSelect extends React.Component<PickerSelectProps, PickerSelectState>
   private getActiveIndex(props = this.props) {
     const { columns, value } = props;
     let activeIndex = 0;
-    if (columns && value) {
+    if (columns !== undefined && value !== undefined) {
       const index = columns.findIndex(item => {
         return item.value === value;
       });

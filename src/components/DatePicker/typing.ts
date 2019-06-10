@@ -19,4 +19,5 @@ export interface DatePickerProps extends KUI.BaseProps {
 
 export interface DatePickerState {
   date: Date;
+  tmpDate: Date;
 }
