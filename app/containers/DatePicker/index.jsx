@@ -5,6 +5,7 @@ import Block from '../../components/Block';
 import Basic from './Basic';
 import Date from './Date';
 import YearMonth from './YearMonth';
+import Time from './Time';
 
 export default class View extends Component {
   render() {
@@ -19,6 +20,9 @@ export default class View extends Component {
         </Block>
         <Block title="选择日期（年月）">
           <YearMonth />
+        </Block>
+        <Block title="选择时间">
+          <Time />
         </Block>
       </Page>
     );
