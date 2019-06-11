@@ -32,6 +32,7 @@ export default class Home extends Component {
       { title: 'LazyLoad 图片懒加载', to: '/lazyload' },
       { title: 'LoadMore 加载更多', to: '/loadmore' },
       { title: 'NoticeBar 通告栏', to: '/noticebar' },
+      { title: 'Swipe 轮播', to: '/swipe' },
       { title: 'Tag 标签', to: '/tag' },
       { title: 'Timeline 时间轴', to: '/timeline' },
     ];
@@ -51,9 +52,11 @@ export default class Home extends Component {
       { title: 'Modal 对话框', to: '/modal' },
       { title: 'Progress 进度条', to: '/progress' },
       { title: 'PullRefresh 拉动刷新', to: '/pullrefresh' },
+      { title: 'SwipeCell 滑动单元格', to: '/swipecell' },
       { title: 'Toast 轻提示', to: '/toast' },
     ];
     const form = [
+      { title: 'Calendar 日历', to: '/calendar' },
       { title: 'Checkbox 复选框', to: '/checkbox' },
       { title: 'DatePicker 日期选择', to: '/datepicker' },
       { title: 'Input 输入框', to: '/input' },
@@ -68,7 +71,7 @@ export default class Home extends Component {
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
         <Collapse accordion>
-          <CollapsePanel header="基础组件" id="1" icon="layout" border={false} >
+          <CollapsePanel header="基础组件" id="1" icon="layout" border={false}>
             {this.renderCells(basic)}
           </CollapsePanel>
           <CollapsePanel header="展示组件" id="2" icon="picture" border={false}>

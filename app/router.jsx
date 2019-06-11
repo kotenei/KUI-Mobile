@@ -7,6 +7,7 @@ const Alert = lazy(() => import('./containers/Alert'));
 const Avatar = lazy(() => import('./containers/Avatar'));
 const Badge = lazy(() => import('./containers/Badge'));
 const Button = lazy(() => import('./containers/Button'));
+const Calendar = lazy(() => import('./containers/Calendar'));
 const Card = lazy(() => import('./containers/Card'));
 const Cell = lazy(() => import('./containers/Cell'));
 const Checkbox = lazy(() => import('./containers/Checkbox'));
@@ -37,6 +38,8 @@ const Slider = lazy(() => import('./containers/Slider'));
 const Steps = lazy(() => import('./containers/Steps'));
 const TabBar = lazy(() => import('./containers/TabBar'));
 const Switch = lazy(() => import('./containers/Switch'));
+const Swipe = lazy(() => import('./containers/Swipe'));
+const SwipeCell = lazy(() => import('./containers/SwipeCell'));
 const Tabs = lazy(() => import('./containers/Tabs'));
 const Tag = lazy(() => import('./containers/Tag'));
 const Timeline = lazy(() => import('./containers/Timeline'));
@@ -51,6 +54,7 @@ const Router = props => {
       <Route exact path="/avatar" render={() => <Avatar />} />
       <Route exact path="/badge" render={() => <Badge />} />
       <Route exact path="/button" render={() => <Button />} />
+      <Route exact path="/calendar" render={() => <Calendar />} />
       <Route exact path="/card" render={() => <Card />} />
       <Route exact path="/cell" render={() => <Cell />} />
       <Route exact path="/checkbox" render={() => <Checkbox />} />
@@ -79,6 +83,8 @@ const Router = props => {
       <Route exact path="/slider" render={() => <Slider />} />
       <Route exact path="/steps" render={() => <Steps />} />
       <Route exact path="/switch" render={() => <Switch />} />
+      <Route exact path="/swipe" render={() => <Swipe />} />
+      <Route exact path="/swipecell" render={() => <SwipeCell />} />
       <Route exact path="/tabbar" render={() => <TabBar />} />
       <Route exact path="/tabs" render={() => <Tabs />} />
       <Route exact path="/tag" render={() => <Tag />} />
