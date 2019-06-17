@@ -9,7 +9,7 @@ export default class View extends Component {
     const header = <Header goBack>SwipeCell 滑动单元格</Header>;
     return (
       <Page header={header} fixedHeader>
-        <Block title="基础用法">
+        <Block title="基础用法" bodyPadding={false}>
           <Basic />
         </Block>
       </Page>
