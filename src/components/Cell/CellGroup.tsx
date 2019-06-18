@@ -5,7 +5,7 @@ import { CellGroupProps } from './typing';
 const prefixCls = 'k-cell-group';
 
 class CellGroup extends PureComponent<CellGroupProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     border: false,
   };
   public render() {

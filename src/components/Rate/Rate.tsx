@@ -8,7 +8,7 @@ import domUtils from '../../utils/domUtils';
 const prefixCls = 'k-rate';
 
 class Rate extends PureComponent<RateProps, RateState> {
-  private static defaultProps = {
+  public static defaultProps = {
     allowHalf: false,
     count: 5,
     character: <Icon type="star" theme="filled" />,

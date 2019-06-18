@@ -17,6 +17,13 @@ import { Column } from '../Picker/typing';
 const prefixCls = 'k-datepicker';
 
 class DatePicker extends PureComponent<DatePickerProps, DatePickerState> {
+  public static defaultProps = {
+    mode: 'date',
+    minDate: new Date('1900-01-01'),
+    maxDate: addYears(new Date(new Date().getFullYear(), 0, 1), 10),
+    defalutValue: new Date(),
+    show: false,
+  };
   public static getDerivedStateFromProps(nextProps, nextState) {
     if ('value' in nextProps && !nextProps.show) {
       return {
@@ -26,13 +33,6 @@ class DatePicker extends PureComponent<DatePickerProps, DatePickerState> {
     }
     return null;
   }
-  private static defaultProps = {
-    mode: 'date',
-    minDate: new Date('1900-01-01'),
-    maxDate: addYears(new Date(new Date().getFullYear(), 0, 1), 10),
-    defalutValue: new Date(),
-    show: false,
-  };
 
   private tmpValue: any;
 

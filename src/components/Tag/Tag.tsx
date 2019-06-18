@@ -7,7 +7,7 @@ import { TagProps, TagState } from './typing';
 const prefixCls = 'k-tag';
 
 class Tag extends PureComponent<TagProps, TagState> {
-  private static defaultProps = {
+  public static defaultProps = {
     closable: false,
     line: false,
   };

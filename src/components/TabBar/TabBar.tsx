@@ -5,7 +5,7 @@ import { TabBarProps, TabBarState } from './typing';
 const prefixCls = 'k-tabbar';
 
 class TabBar extends PureComponent<TabBarProps, TabBarState> {
-  private static defaultProps = {
+  public static defaultProps = {
     activeColor: '#2196f3',
   };
   constructor(props) {

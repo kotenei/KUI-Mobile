@@ -5,7 +5,7 @@ import { CollapseProps, CollapseState } from './typing';
 const prefixCls = 'k-collapse';
 
 class Collapse extends PureComponent<CollapseProps, CollapseState> {
-  private static defaultProps = {
+  public static defaultProps = {
     defaultActiveIds: [],
   };
   public state = {

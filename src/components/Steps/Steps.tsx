@@ -6,7 +6,7 @@ import omit from 'object.omit';
 const prefixCls = 'k-steps';
 
 class Steps extends PureComponent<StepsProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     alignCenter: true,
     current: 0,
     direction: 'horizontal',

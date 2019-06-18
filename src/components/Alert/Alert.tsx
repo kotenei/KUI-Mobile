@@ -7,7 +7,7 @@ import { AlertState, AlertProps } from './typing';
 const prefixCls = 'k-alert';
 
 class Alert extends PureComponent<AlertProps, AlertState> {
-  private static defaultProps = {
+  public static defaultProps = {
     showIcon: false,
     closable: false,
   };

@@ -8,7 +8,7 @@ import { TabsProps, TabsState } from './typing';
 const prefixCls = 'k-tabs';
 
 class Tabs extends PureComponent<TabsProps, TabsState> {
-  private static defaultProps = {
+  public static defaultProps = {
     defaultActiveIndex: 0,
     tabPosition: 'top',
     type: 'line',

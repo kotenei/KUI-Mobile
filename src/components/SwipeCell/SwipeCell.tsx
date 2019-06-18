@@ -8,6 +8,10 @@ import domUtils from '../../utils/domUtils';
 const prefixCls = 'k-swipecell';
 
 class SwipeCell extends PureComponent<SwipeCellProps, SwipeCellState> {
+  public static defaultProps = {
+    autoClose: true,
+  };
+
   private elmCell: HTMLDivElement;
   private leftWidth: number = 0;
   private middleWidth: number = 0;
@@ -72,11 +76,15 @@ class SwipeCell extends PureComponent<SwipeCellProps, SwipeCellState> {
         onTouchEnd={this.handleTouchEnd}
         ref={this.handleRef}
       >
-        <div className={`${prefixCls}__left`}>{leftBtns}</div>
-        <div className={`${prefixCls}__middle`}>
+        <div className={`${prefixCls}__left`} onClick={this.handleLeftClick}>
+          {leftBtns}
+        </div>
+        <div className={`${prefixCls}__middle`} onClick={this.handleMiddleClick}>
           <Cell {...cellProps} />
         </div>
-        <div className={`${prefixCls}__right`}>{rightBtns}</div>
+        <div className={`${prefixCls}__right`} onClick={this.handleRightClick}>
+          {rightBtns}
+        </div>
       </div>
     );
   }
@@ -85,9 +93,25 @@ class SwipeCell extends PureComponent<SwipeCellProps, SwipeCellState> {
     this.elmCell = elm;
   };
 
+  private handleLeftClick = e => {
+    this.click('left');
+  };
+
+  private handleMiddleClick = e => {
+    this.click('cell');
+  };
+
+  private handleRightClick = e => {
+    this.click('right');
+  };
+
   private handleTouchStart = e => {
+    const { cellProps } = this.props;
     const { clientX, clientY } = e.touches[0];
     const { translateX } = this.state;
+    if (cellProps && cellProps.disabled) {
+      return;
+    }
     this.orgCoord.x = clientX;
     this.orgTranslateX = translateX;
     this.isTouch = true;
@@ -97,8 +121,12 @@ class SwipeCell extends PureComponent<SwipeCellProps, SwipeCellState> {
     e.stopPropagation();
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
+    const { cellProps } = this.props;
     const { translateX } = this.state;
     const { clientX, clientY } = e.touches[0];
+    if (cellProps && cellProps.disabled) {
+      return;
+    }
     let diff = this.orgCoord.x - clientX;
     diff += -this.orgTranslateX;
 
@@ -118,11 +146,15 @@ class SwipeCell extends PureComponent<SwipeCellProps, SwipeCellState> {
   private handleTouchEnd = e => {
     this.isTouch = false;
     const { translateX } = this.state;
-    const { onOpen, onClose } = this.props;
+    const { cellProps } = this.props;
     const num = 10;
     let type;
     let diff;
     let newTranslateX;
+
+    if (cellProps && cellProps.disabled) {
+      return;
+    }
 
     if (this.orgTranslateX !== translateX) {
       if (translateX < 0) {
@@ -138,21 +170,33 @@ class SwipeCell extends PureComponent<SwipeCellProps, SwipeCellState> {
         this.setState({
           translateX: newTranslateX,
         });
-        if (onOpen) {
-          onOpen(type);
-        }
       } else if (diff <= -num) {
         this.setState({
           translateX: 0,
         });
-        if (onClose) {
-          onClose(type);
-        }
       } else {
         this.setState({
           translateX: this.orgTranslateX,
         });
       }
+    }
+  };
+
+  private click(type) {
+    const { autoClose, onClick } = this.props;
+    if (autoClose) {
+      this.close();
+    }
+    if (onClick) {
+      onClick(type, this);
+    }
+  }
+
+  private close = () => {
+    if (this.state.translateX !== 0) {
+      this.setState({
+        translateX: 0,
+      });
     }
   };
 }

@@ -8,7 +8,7 @@ const prefixCls = 'k-cell';
 
 export default class Cell extends PureComponent<CellProps> {
   public static displayName = 'Cell';
-  private static defaultProps = {
+  public static defaultProps = {
     border: true,
     disabled: false,
     showArrow: false,

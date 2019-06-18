@@ -8,7 +8,7 @@ export default class AnimationRouter extends PureComponent<
   AnimationRouterProps,
   AnimationRouterState
 > {
-  private static defaultProps = {
+  public static defaultProps = {
     appear: true,
     component: React.Fragment,
     enter: true,

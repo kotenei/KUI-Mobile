@@ -8,7 +8,7 @@ import domUtils from '../../utils/domUtils';
 const prefixCls = 'k-noticebar';
 
 class NoticeBar extends React.Component<NoticeBarProps, NoticeBarState> {
-  private static defaultProps = {
+  public static defaultProps = {
     delay: 1,
     icon: 'sound',
     scrollable: true,

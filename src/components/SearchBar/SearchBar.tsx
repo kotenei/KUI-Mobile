@@ -8,7 +8,7 @@ import omit from 'object.omit';
 const prefixCls = 'k-searchbar';
 
 class SearchBar extends PureComponent<SearchBarProps, SearchBarState> {
-  private static defaultProps = {
+  public static defaultProps = {
     cancelText: '取消',
     disabled: false,
     showCancelButton: false,

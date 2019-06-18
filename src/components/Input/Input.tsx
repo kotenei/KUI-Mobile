@@ -7,7 +7,7 @@ import { Cell } from '../Cell';
 const prefixCls = 'k-input';
 
 class Input extends PureComponent<InputProps, InputState> {
-  private static defaultProps = {
+  public static defaultProps = {
     type: 'text',
     disabled: false,
   };

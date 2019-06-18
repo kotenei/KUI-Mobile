@@ -6,7 +6,7 @@ import { ScrollerProps, ScrollerState } from './typing';
 const prefixCls = 'k-scroller';
 
 class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
-  private static defaultProps = {
+  public static defaultProps = {
     probeType: 1,
     click: true,
     listenScroll: false,

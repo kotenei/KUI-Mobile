@@ -2123,6 +2123,45 @@ textarea {
       color: #2196f3;
       font-size: 22px; }
 
+.k-swipecell {
+  position: relative;
+  transition: all .3s ease;
+  touch-action: none; }
+  .k-swipecell__left, .k-swipecell__right {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+    justify-content: center;
+    align-items: center; }
+  .k-swipecell__right {
+    right: 0;
+    -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0); }
+
+.k-swipecell-button {
+  background: #dddddd;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  color: #fff; }
+  .k-swipecell-button--primary {
+    background: #2196f3; }
+  .k-swipecell-button--info {
+    background: #03a9f4; }
+  .k-swipecell-button--success {
+    background: #4caf50; }
+  .k-swipecell-button--warning {
+    background: #ff9800; }
+  .k-swipecell-button--danger {
+    background: #f44336; }
+
 .k-tabbar {
   display: flex;
   height: 50px;

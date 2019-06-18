@@ -8,7 +8,7 @@ import { Input } from '../Input';
 const prefixCls = 'k-inputnumber';
 
 class InputNumber extends PureComponent<InputNumberProps, InputNumberState> {
-  private static defaultProps = {
+  public static defaultProps = {
     min: 0,
     max: 10,
     step: 1,

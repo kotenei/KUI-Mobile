@@ -5,7 +5,7 @@ import { RowProps } from './typing';
 const prefixCls = 'k-row';
 
 export default class Row extends PureComponent<RowProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     align: 'top',
     gutter: 0,
     justify: 'start',

@@ -11,7 +11,7 @@ import domUtils from '../../utils/domUtils';
 const prefixCls = 'k-actionsheet';
 
 class ActionSheet extends PureComponent<ActionSheetProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     actions: [],
     show: false,
     showCancel: false,

@@ -6,7 +6,7 @@ import { Cell, CellGroup } from '../Cell';
 const prefixCls = 'k-checkbox-group';
 
 class CheckboxGroup extends PureComponent<CheckboxGroupProps, CheckboxGroupState> {
-  private static defaultProps = {
+  public static defaultProps = {
     cell: false,
     defaultValue: [],
     position: 'right',

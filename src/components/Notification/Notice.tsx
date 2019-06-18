@@ -5,7 +5,7 @@ import { NoticeProps } from './typing';
 const prefixCls = 'k-notice';
 
 class Notice extends PureComponent<NoticeProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     duration: 1500,
   };
 

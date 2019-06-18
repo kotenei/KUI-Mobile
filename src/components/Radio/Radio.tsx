@@ -7,7 +7,7 @@ const prefixCls = 'k-radio';
 
 class Radio extends PureComponent<RadioProps, RadioState> {
   public static displayName = 'Radio';
-  private static defaultProps = {
+  public static defaultProps = {
     circle: true,
   };
   private static getDerivedStateFromProps(nextProps, prevState) {

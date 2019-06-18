@@ -8,7 +8,7 @@ import { CollapsePanelProps } from './typing';
 const prefixCls = 'k-collapse-panel';
 
 class CollapsePanel extends PureComponent<CollapsePanelProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     activeIds: [],
     disabled: false,
     border: true,

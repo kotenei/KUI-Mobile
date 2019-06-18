@@ -5,7 +5,7 @@ import { TimelineItemProps } from './typing';
 const prefixCls = 'k-timeline';
 
 class TimelineItem extends PureComponent<TimelineItemProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     color: 'primary',
   };
   public render() {

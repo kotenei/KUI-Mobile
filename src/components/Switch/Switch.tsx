@@ -6,7 +6,7 @@ import { SwitchProps, SwitchState } from './typing';
 const prefixCls = 'k-switch';
 
 class Switch extends PureComponent<SwitchProps, SwitchState> {
-  private static defaultProps = {
+  public static defaultProps = {
     defaultChecked: false,
     disabled: false,
     loading: false,

@@ -5,7 +5,7 @@ import { NavBarProps } from './typing';
 const prefixCls = 'k-navbar';
 
 class NavBar extends PureComponent<NavBarProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     mode: 'light',
   };
   public render() {

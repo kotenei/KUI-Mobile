@@ -10,7 +10,7 @@ const prefixCls = 'k-icon';
 
 export default class Icon extends PureComponent<IconProps> {
   public static displayName = 'Icon';
-  private static defaultProps = {
+  public static defaultProps = {
     theme: 'outline',
     viewBox: '0 0 1024 1024',
   };

@@ -6,7 +6,7 @@ import { RadioGroupProps, RadioGroupState } from './typing';
 const prefixCls = 'k-radio-group';
 
 class RadioGroup extends PureComponent<RadioGroupProps, RadioGroupState> {
-  private static defaultProps = {
+  public static defaultProps = {
     cell: false,
   };
   private static getDerivedStateFromProps(nextProps, prevState) {

@@ -8,7 +8,7 @@ import { DrawerProps, DrawerState } from './typing';
 const prefixCls = 'k-drawer';
 
 class Drawer extends PureComponent<DrawerProps, DrawerState> {
-  private static defaultProps = {
+  public static defaultProps = {
     mask: true,
     maskClose: true,
     open: false,

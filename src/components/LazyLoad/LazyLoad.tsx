@@ -6,7 +6,7 @@ import domUtils from '../../utils/domUtils';
 const prefixCls = 'k-lazyload';
 
 class LazyLoad extends PureComponent<LazyLoadProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     container: window,
   };
 

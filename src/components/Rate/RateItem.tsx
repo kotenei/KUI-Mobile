@@ -5,7 +5,7 @@ import { RateItemProps } from './typing';
 const prefixCls = 'k-rate-star';
 
 class RateItem extends PureComponent<RateItemProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     value: -1,
     current: -1,
   };

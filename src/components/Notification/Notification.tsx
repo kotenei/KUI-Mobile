@@ -8,7 +8,7 @@ import { NotificationProps, NotificationState, NoticeProps } from './typing';
 class Notification extends PureComponent<NotificationProps, NotificationState> {
   public static newInstance: any;
 
-  private static defaultProps = {
+  public static defaultProps = {
     transitionName: 'fade',
   };
 

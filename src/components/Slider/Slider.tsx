@@ -9,7 +9,7 @@ import { getCoord } from '../../utils';
 const prefixCls = 'k-slider';
 
 class Slider extends PureComponent<SliderProps, SliderState> {
-  private static defaultProps = {
+  public static defaultProps = {
     color: 'primary',
     disabled: false,
     min: 0,

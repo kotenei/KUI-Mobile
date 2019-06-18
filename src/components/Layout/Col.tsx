@@ -7,7 +7,7 @@ const prefixCls = 'k-col';
 
 export default class Col extends PureComponent<ColProps> {
   public static displayName = 'Col';
-  private static defaultProps = {
+  public static defaultProps = {
     offset: 0,
   };
   public render() {

@@ -8,6 +8,14 @@ import PickerSelect from './PickerSelect';
 const prefixCls = 'k-picker';
 
 class Picker extends PureComponent<PickerProps, PickerState> {
+  public static defaultProps = {
+    cancelText: '取消',
+    okText: '确认',
+    loading: false,
+    defaultValue: [],
+    showHeader: false,
+  };
+
   public static getDerivedStateFromProps(nextProps, nextState) {
     if ('value' in nextProps) {
       return {
@@ -16,13 +24,6 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     }
     return null;
   }
-  private static defaultProps = {
-    cancelText: '取消',
-    okText: '确认',
-    loading: false,
-    defaultValue: [],
-    showHeader: false,
-  };
 
   private tmpValue: any;
 

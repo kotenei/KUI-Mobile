@@ -5,7 +5,7 @@ import { LoadingProps } from './typing';
 const prefixCls = 'k-loading';
 
 class Loading extends PureComponent<LoadingProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     vertical: false,
   };
   public render() {

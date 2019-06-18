@@ -7,7 +7,7 @@ import ProgressCircle from './ProgressCircle';
 const prefixCls = 'k-progress';
 
 class Progress extends PureComponent<ProgressProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     percent: 0,
     type: 'line',
     strokeWidth: 6,

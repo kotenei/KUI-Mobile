@@ -16,7 +16,7 @@ class Modal extends PureComponent<ModalProps, ModalState> {
   public static alert: any;
   public static confirm: any;
 
-  private static defaultProps = {
+  public static defaultProps = {
     mask: true,
     maskClose: false,
     okText: '确定',

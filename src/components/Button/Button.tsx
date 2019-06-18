@@ -7,7 +7,7 @@ const prefixCls = 'k-button';
 
 class Button extends PureComponent<ButtonProps> {
   public static displayName = 'Button';
-  private static defaultProps = {
+  public static defaultProps = {
     disabled: false,
     type: 'button',
   };

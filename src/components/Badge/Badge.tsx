@@ -5,7 +5,7 @@ import { BadgeProps } from './typing';
 const prefixCls = 'k-badge';
 
 class Badge extends PureComponent<BadgeProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     count: 0,
     color: 'primary',
     dot: false,

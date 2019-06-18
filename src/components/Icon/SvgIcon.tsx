@@ -5,7 +5,7 @@ import { SvgIconProps } from './typing';
 const prefixCls = 'k-icon-svg';
 
 export default class SvgIcon extends PureComponent<SvgIconProps> {
-  private static defaultProps = {
+  public static defaultProps = {
     viewBox: '0 0 1024 1024',
   };
   public render() {

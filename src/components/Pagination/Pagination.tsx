@@ -6,7 +6,7 @@ import { Button } from '../Button';
 const prefixCls = 'k-pagination';
 
 class Pagination extends PureComponent<PaginationProps, PaginationState> {
-  private static defaultProps = {
+  public static defaultProps = {
     total: 0,
     mode: 'button',
     locale: {
