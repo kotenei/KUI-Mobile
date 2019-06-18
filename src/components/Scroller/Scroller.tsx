@@ -21,6 +21,7 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
     freeScroll: false,
     mouseWheel: false,
     bounce: true,
+    momentum: true,
     zoom: false,
   };
 
@@ -36,6 +37,7 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
     setTimeout(() => {
       this.init();
     }, 50);
+    window.addEventListener('resize', this.resize);
   }
 
   public componentWillUnmount() {
@@ -43,6 +45,7 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
       this.scroll.destroy();
       this.scroll = null;
     }
+    window.removeEventListener('resize', this.resize);
   }
 
   public render() {
@@ -63,6 +66,10 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
     this.elScroll = elm;
   };
 
+  private resize = () => {
+    this.scroll && this.scroll.refresh();
+  };
+
   private init() {
     if (!this.elScroll) {
       return;
@@ -78,8 +85,10 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
       startY,
       mouseWheel,
       bounce,
+      momentum,
       zoom,
       wheel,
+      snap,
       onInit,
       onBeforeScrollStart,
       onScrollStart,
@@ -102,8 +111,10 @@ class Scroller extends PureComponent<ScrollerProps, ScrollerState> {
       freeScroll,
       mouseWheel,
       bounce,
+      momentum,
       zoom,
       wheel,
+      snap,
     };
 
     this.scroll = new BScroll(this.elScroll, options);

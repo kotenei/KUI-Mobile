@@ -2123,6 +2123,51 @@ textarea {
       color: #2196f3;
       font-size: 22px; }
 
+.k-swipe {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative; }
+  .k-swipe__wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+  .k-swipe__item {
+    width: 100%;
+    display: inline-flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center; }
+  .k-swipe__dots {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .k-swipe__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #fff;
+    opacity: .5;
+    margin: 0 2px; }
+    .k-swipe__dot--active {
+      opacity: 1; }
+  .k-swipe--vertical .k-swipe__dots {
+    height: 100%;
+    width: 20px;
+    bottom: auto;
+    right: 0;
+    top: 0;
+    flex-direction: column; }
+  .k-swipe--vertical .k-swipe__dot {
+    display: block;
+    margin: 2px 0; }
+
 .k-swipecell {
   position: relative;
   transition: all .3s ease;
@@ -2583,6 +2628,15 @@ body {
   background-position: 15px;
   background-repeat: no-repeat;
   box-sizing: border-box; }
+
+.app-swipe .k-swipe__item {
+  text-align: center;
+  color: #fff;
+  font-size: 20px; }
+  .app-swipe .k-swipe__item:nth-child(odd) {
+    background: #66c6f2; }
+  .app-swipe .k-swipe__item:nth-child(even) {
+    background: #39a9ed; }
 
 html,
 body {
