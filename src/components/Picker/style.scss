@@ -4,7 +4,6 @@
 
     @include bem-element('header') {
         display: flex;
-        align-items: center;
         padding: $picker-header-padding;
         height: $picker-header-height;
         border-bottom: $border-width-base $border-style-base $border-color-base;

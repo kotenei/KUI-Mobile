@@ -412,6 +412,58 @@ textarea {
   .k-button-group .k-button--danger {
     border-left-color: #f32c1e; }
 
+.k-calendar {
+  top: 0;
+  background: #F6F6F6 !important; }
+  .k-calendar__main {
+    height: calc(100% - 74px); }
+  .k-calendar__header {
+    display: flex;
+    padding: 0 15px;
+    height: 44px;
+    font-size: 14px;
+    align-items: center;
+    background: #fff; }
+  .k-calendar__cancel {
+    color: #2196f3; }
+  .k-calendar__title {
+    flex: 1;
+    text-align: center; }
+  .k-calendar__ok {
+    color: #2196f3; }
+  .k-calendar__week {
+    display: flex;
+    height: 30px;
+    background: #fff; }
+    .k-calendar__week span {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .k-calendar__week span:first-child, .k-calendar__week span:last-child {
+        color: #80848f; }
+
+.k-calendar-month {
+  background: #fff; }
+  .k-calendar-month__title {
+    text-align: center;
+    background: #F6F6F6;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .k-calendar-month__rows {
+    display: flex; }
+  .k-calendar-month__day {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px; }
+    .k-calendar-month__day--selected {
+      background: #2196f3;
+      color: #fff; }
+
 .k-card {
   border: 1px solid #dddee1;
   border-radius: 4px;
@@ -1547,7 +1599,6 @@ textarea {
   flex-direction: column; }
   .k-picker__header {
     display: flex;
-    align-items: center;
     padding: 0 15px;
     height: 44px;
     border-bottom: 1px solid #dddee1;

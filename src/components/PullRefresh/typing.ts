@@ -31,6 +31,6 @@ export interface PullUpWrapperProps extends KUI.BaseProps {
 }
 
 export interface CallBackParams {
-  status: 'success' | 'error';
+  status: 'success' | 'error' | 'close';
   message?: string;
 }

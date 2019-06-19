@@ -46,6 +46,7 @@ class PullRefresh extends PureComponent<PullRefreshProps, PullRefreshState> {
       },
       className,
     );
+
     return (
       <Scroller
         scrollbar={{ fade: true }}
@@ -129,6 +130,9 @@ class PullRefresh extends PureComponent<PullRefreshProps, PullRefreshState> {
               },
               () => {
                 this.finishPullDown();
+                if (params.status === 'close') {
+                  this.closePullDown();
+                }
               },
             );
             if (params.status === 'error' && params.message) {
@@ -168,6 +172,9 @@ class PullRefresh extends PureComponent<PullRefreshProps, PullRefreshState> {
               },
               () => {
                 this.finishPullUp();
+                if (params.status === 'close') {
+                  this.closePullUp();
+                }
               },
             );
             if (params.status === 'error' && params.message) {
@@ -186,9 +193,23 @@ class PullRefresh extends PureComponent<PullRefreshProps, PullRefreshState> {
     }, REFRESH_TIME);
   }
 
+  private closePullDown() {
+    setTimeout(() => {
+      this.instance && this.instance.closePullDown();
+      this.instance.refresh();
+    }, REFRESH_TIME);
+  }
+
   private finishPullUp() {
     setTimeout(() => {
       this.instance && this.instance.finishPullUp();
+      this.instance.refresh();
+    }, REFRESH_TIME);
+  }
+
+  private closePullUp() {
+    setTimeout(() => {
+      this.instance && this.instance.closePullUp();
       this.instance.refresh();
     }, REFRESH_TIME);
   }
