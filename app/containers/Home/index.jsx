@@ -7,6 +7,9 @@ import { Collapse, CollapsePanel, Cell } from 'kui-mobile';
 const prefixCls = 'app-home';
 
 export default class Home extends Component {
+  state = {
+    id: '1',
+  };
   renderCells(source) {
     let cells = [];
     source.forEach((item, index) => {
@@ -68,9 +71,13 @@ export default class Home extends Component {
       { title: 'Slider 滑块', to: '/slider' },
       { title: 'Switch 开关', to: '/switch' },
     ];
+    const { id } = this.state;
+
+    const activeIds = id ? [id] : [];
+
     return (
       <Page header={header} fixedHeader bodySpace className={prefixCls}>
-        <Collapse accordion>
+        <Collapse accordion activeIds={activeIds} onChange={this.handleChange}>
           <CollapsePanel header="基础组件" id="1" icon="layout" border={false}>
             {this.renderCells(basic)}
           </CollapsePanel>
@@ -90,4 +97,9 @@ export default class Home extends Component {
       </Page>
     );
   }
+  handleChange = id => {
+    this.setState({
+      id,
+    });
+  };
 }

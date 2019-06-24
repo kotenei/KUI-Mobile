@@ -8,6 +8,16 @@ class Collapse extends PureComponent<CollapseProps, CollapseState> {
   public static defaultProps = {
     defaultActiveIds: [],
   };
+
+  public static getDerivedStateFromProps(nextProps, nextState) {
+    if ('value' in nextProps) {
+      return {
+        activeIds: nextProps.value,
+      };
+    }
+    return null;
+  }
+
   public state = {
     activeIds: this.props.activeIds || this.props.defaultActiveIds,
   };
