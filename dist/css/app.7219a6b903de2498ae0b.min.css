@@ -459,10 +459,18 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 56px; }
+    height: 56px;
+    flex-direction: column; }
     .k-calendar-month__day--selected {
       background: #2196f3;
       color: #fff; }
+    .k-calendar-month__day--choose {
+      background: #64b5f6;
+      color: #fff; }
+    .k-calendar-month__day--disabled {
+      color: #c3cbd6; }
+  .k-calendar-month__text {
+    margin-top: 8px; }
 
 .k-card {
   border: 1px solid #dddee1;

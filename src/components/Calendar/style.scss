@@ -76,10 +76,24 @@
         align-items: center;
         justify-content: center;
         height: $calendar-month-day-height;
+        flex-direction: column;
 
         @include bem-modifier('selected'){
             background: $primary-color;
             color:#fff;
         }
+
+        @include bem-modifier('choose'){
+            background:$calendar-month-day-choose-bgColor;
+            color:#fff;
+        }
+
+        @include bem-modifier('disabled'){
+            color:$disabled-color;
+        }
+    }
+
+    @include bem-element('text'){
+        margin-top: 8px;
     }
 }

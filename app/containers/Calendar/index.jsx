@@ -3,6 +3,7 @@ import Page from '../../components/Page';
 import Header from '../../components/Header';
 import Block from '../../components/Block';
 import Basic from './Basic';
+import Range from './Range';
 
 export default class View extends Component {
   render() {
@@ -11,6 +12,9 @@ export default class View extends Component {
       <Page header={header} fixedHeader>
         <Block title="基础用法">
           <Basic />
+        </Block>
+        <Block title="区间日期">
+          <Range />
         </Block>
       </Page>
     );

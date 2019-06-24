@@ -11,8 +11,8 @@ export default class Demo extends Component {
     const { open, value } = this.state;
     return (
       <React.Fragment>
-        <Input value={(value && format(value, 'YYYY-MM-DD')) || ''} placeholder="请选择日期" readOnly onClick={this.handleClick} />
-        <Calendar open={open} value={value} onCancel={this.handleCancel} onOK={this.handleOK} />
+        <Input value={(value && `${format(value[0], 'YYYY-MM-DD')}至${format(value[1], 'YYYY-MM-DD')}`) || ''} placeholder="请选择日期" readOnly onClick={this.handleClick} />
+        <Calendar open={open} value={value} range onCancel={this.handleCancel} onOK={this.handleOK} />
       </React.Fragment>
     );
   }

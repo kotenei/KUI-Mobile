@@ -3,6 +3,7 @@ export interface PullRefreshProps extends KUI.BaseProps {
   pullUpload?: boolean;
   pullDownWrapperProps?: PullDownWrapperProps;
   pullUpWrapperProps?: PullUpWrapperProps;
+  onInit?: (instance) => void;
   onPullingDown?: (callback: (params: CallBackParams) => void) => void;
   onPullingUp?: (callback: (params: CallBackParams) => void) => void;
 }

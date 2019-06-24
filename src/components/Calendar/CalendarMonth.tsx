@@ -7,15 +7,22 @@ import { CalendarMonthProps } from './typing';
 const prefixCls = 'k-calendar-month';
 
 const Cell = props => {
-  const { selected, date, onClick } = props;
+  const { selected, choose, date, disabled, onClick } = props;
   return (
     <div
       className={classnames({
         [`${prefixCls}__day`]: true,
         [`${prefixCls}__day--selected`]: !!selected,
+        [`${prefixCls}__day--choose`]: !!choose,
+        [`${prefixCls}__day--disabled`]: !!disabled,
       })}
       onClick={() => {
-        onClick(date);
+        if (disabled) {
+          return;
+        }
+        if (onClick) {
+          onClick(date);
+        }
       }}
     >
       {props.children}
@@ -26,13 +33,18 @@ const Cell = props => {
 class CalendarMonth extends PureComponent<CalendarMonthProps> {
   public static defaultProps = {
     date: new Date(),
+    startDayText: '开始',
+    endDayText: '结束',
   };
   public renderDays() {
-    const { date, value, onChange } = this.props;
+    const { date, value, minDate, maxDate, startDayText, endDayText, onChange } = this.props;
     const days = getDaysInMonth(date);
     const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
     const rows: any = [];
     const formatStr = 'YYYYMMDD';
+    const isArray = Array.isArray(value);
+    const min = minDate ? format(minDate, formatStr) : '';
+    const max = maxDate ? format(maxDate, formatStr) : '';
     let start = '';
     let end = '';
     let cols: any = [];
@@ -41,7 +53,9 @@ class CalendarMonth extends PureComponent<CalendarMonthProps> {
     if (value) {
       if (Array.isArray(value)) {
         start = format(value[0], formatStr);
-        end = format(value[1], formatStr);
+        if (value.length === 2) {
+          end = format(value[1], formatStr);
+        }
       } else {
         start = format(value, formatStr);
       }
@@ -52,16 +66,39 @@ class CalendarMonth extends PureComponent<CalendarMonthProps> {
       const dayOfWeek = tmpDate.getDay();
       const cur = format(tmpDate, formatStr);
       let selected = false;
+      let choose = false;
+      let disabled = false;
 
       if (start && end && cur >= start && cur <= end) {
-        selected = true;
+        if (cur === start || cur === end) {
+          selected = true;
+        } else {
+          choose = true;
+        }
       } else if (start && cur === start) {
         selected = true;
       }
 
+      if ((min && cur < min) || (max && cur > max)) {
+        disabled = true;
+      }
+
       cols.push(
-        <Cell key={tmpDate} selected={selected} date={tmpDate} onClick={onChange}>
+        <Cell
+          key={tmpDate}
+          selected={selected}
+          choose={choose}
+          date={tmpDate}
+          disabled={disabled}
+          onClick={onChange}
+        >
           <span>{i + 1}</span>
+          {isArray && selected && cur === start && (
+            <span className={`${prefixCls}__text`}>{startDayText}</span>
+          )}
+          {isArray && selected && cur === end && cur !== start && (
+            <span className={`${prefixCls}__text`}>{endDayText}</span>
+          )}
         </Cell>,
       );
       if (dayOfWeek === 6 || (i === days - 1 && cols.length > 0)) {
@@ -92,7 +129,13 @@ class CalendarMonth extends PureComponent<CalendarMonthProps> {
     const { date } = this.props;
 
     return (
-      <div className={prefixCls}>
+      <div
+        className={classnames({
+          [prefixCls]: true,
+          [format(date, 'YYYYMM')]: true,
+        })}
+        id={format(date, 'YYYYMM')}
+      >
         <div className={`${prefixCls}__title`}>{format(date, 'YYYY年MM月')}</div>
         <div className={`${prefixCls}__days`}>{this.renderDays()}</div>
       </div>

@@ -8,8 +8,10 @@ export interface CalendarProps extends KUI.BaseProps {
   value?: Date | Date[];
   minDate?: Date;
   maxDate?: Date;
+  startDayText?: React.ReactNode | string;
+  endDayText?: React.ReactNode | string;
   onChange?: (value: Date | Date[]) => void;
-  onOK?: (value: Date | Date[]) => void;
+  onOK?: (value?: Date | Date[]) => void;
   onCancel?: () => void;
 }
 
@@ -26,5 +28,7 @@ export interface CalendarMonthProps extends KUI.BaseProps {
   minDate?: Date;
   maxDate?: Date;
   value?: Date | Date[];
+  startDayText?: React.ReactNode | string;
+  endDayText?: React.ReactNode | string;
   onChange?: (value: Date) => void;
 }

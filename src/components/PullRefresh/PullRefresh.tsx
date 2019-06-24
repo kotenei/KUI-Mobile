@@ -86,7 +86,11 @@ class PullRefresh extends PureComponent<PullRefreshProps, PullRefreshState> {
   }
 
   private handleInit = instance => {
+    const { onInit } = this.props;
     this.instance = instance;
+    if (onInit) {
+      onInit(instance);
+    }
   };
 
   private handleScroll = pos => {
