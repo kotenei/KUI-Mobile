@@ -5,7 +5,7 @@ export default class Demo extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar icon={<Icon type="left" />} rightContent={[<Icon type="search" />]}>
+        <NavBar icon={<Icon type="left" />} rightContent={<Icon type="search" />}>
           标题
         </NavBar>
         <br />
@@ -13,7 +13,7 @@ export default class Demo extends Component {
           mode='dark'
           icon={<Icon type="left" />}
           leftContent="返回"
-          rightContent={[<Icon type="search" />]}
+          rightContent={<Icon type="search" />}
         >
           标题
         </NavBar>

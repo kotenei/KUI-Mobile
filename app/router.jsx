@@ -2,6 +2,8 @@ import React, { lazy, Suspense } from 'react';
 import { AnimationRouter } from 'kui-mobile';
 import { Route } from 'react-router-dom';
 
+import FallBack from './containers/FallBack';
+
 const ActionSheet = lazy(() => import('./containers/ActionSheet'));
 const Alert = lazy(() => import('./containers/Alert'));
 const Avatar = lazy(() => import('./containers/Avatar'));
@@ -47,7 +49,7 @@ const Toast = lazy(() => import('./containers/Toast'));
 
 const Router = props => {
   return (
-    <AnimationRouter {...props} fallback={<React.Fragment />}>
+    <AnimationRouter {...props} fallback={<FallBack/>}>
       <Route exact path="/" render={() => <Home />} />
       <Route exact path="/actionsheet" render={() => <ActionSheet />} />
       <Route exact path="/alert" render={() => <Alert />} />
