@@ -22,6 +22,7 @@
   ],
   "author": "kotenei",
   "license": "MIT",
+  "homepage": "https://github.com/kotenei/KUI-Mobile",
   "repository": "https://github.com/kotenei/KUI-Mobile",
   "dependencies": {
     "better-scroll": "^1.15.2",
