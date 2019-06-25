@@ -1,8 +1,10 @@
 # KUI-Mobile
  基于React开发的移动端组件库
 
+ [Demo](https://kotenei.github.io/KUI-Mobile/dist/index.html#/)
+
 ## 安装
-```js
+```bash
 npm install kui-mobile --save
 ```
 
