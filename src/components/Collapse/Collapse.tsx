@@ -10,9 +10,9 @@ class Collapse extends PureComponent<CollapseProps, CollapseState> {
   };
 
   public static getDerivedStateFromProps(nextProps, nextState) {
-    if ('value' in nextProps) {
+    if ('activeIds' in nextProps) {
       return {
-        activeIds: nextProps.value,
+        activeIds: nextProps.activeIds,
       };
     }
     return null;

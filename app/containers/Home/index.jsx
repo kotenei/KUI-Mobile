@@ -5,11 +5,38 @@ import Block from '../../components/Block';
 import { Collapse, CollapsePanel, Cell } from 'kui-mobile';
 
 const prefixCls = 'app-home';
+const pageKey = 'kui-mobile-home';
+const storage = window.localStorage;
 
 export default class Home extends Component {
-  state = {
-    id: '1',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: '',
+    };
+  }
+
+  componentDidMount() {
+    const val = this.getPageData();
+    if (val) {
+      this.setState(
+        {
+          id: val.id,
+        },
+        () => {
+          // setTimeout(() => {
+          //   console.log(val.scrollTop);
+          //   document.documentElement.scrollTop = val.scrollTop;
+          // }, 300);
+        },
+      );
+    }
+  }
+
+  componentWillUnmount() {
+    this.setPageData();
+  }
+
   renderCells(source) {
     let cells = [];
     source.forEach((item, index) => {
@@ -72,7 +99,6 @@ export default class Home extends Component {
       { title: 'Switch 开关', to: '/switch' },
     ];
     const { id } = this.state;
-
     const activeIds = id ? [id] : [];
 
     return (
@@ -98,8 +124,31 @@ export default class Home extends Component {
     );
   }
   handleChange = id => {
-    this.setState({
-      id,
-    });
+    this.setState(
+      {
+        id: this.state.id !== id ? id : '',
+      },
+      () => {
+        this.setPageData();
+      },
+    );
   };
+
+  setPageData() {
+    const scrollTop = document.documentElement.scrollTop;
+    const { id } = this.state;
+    const val = {
+      id,
+      scrollTop,
+    };
+    storage && storage.setItem(pageKey, JSON.stringify(val));
+  }
+
+  getPageData() {
+    let val = storage && storage.getItem(pageKey);
+    if (val) {
+      return JSON.parse(val);
+    }
+    return null;
+  }
 }

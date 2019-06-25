@@ -22,7 +22,7 @@ class Checkbox extends PureComponent<CheckboxProps, CheckboxState> {
     };
   }
   public render() {
-    const { className, disabled, circle, children } = this.props;
+    const { className, disabled, children } = this.props;
     const { checked } = this.state;
     const classString = classnames(
       {

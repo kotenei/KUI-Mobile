@@ -20,6 +20,7 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
       <Transition
         in={isShow}
         timeout={300}
+        appear
         onEnter={this.handleEnter}
         onEntering={this.handleEntering}
         onEntered={this.handleEntered}
