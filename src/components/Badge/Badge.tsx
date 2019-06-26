@@ -6,7 +6,6 @@ const prefixCls = 'k-badge';
 
 class Badge extends PureComponent<BadgeProps> {
   public static defaultProps = {
-    count: 0,
     color: 'primary',
     dot: false,
     overflowCount: 99,
