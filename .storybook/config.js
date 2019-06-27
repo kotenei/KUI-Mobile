@@ -4,9 +4,11 @@ import { addReadme, configureReadme } from 'storybook-readme';
 const req = require.context('../stories', true, /.stories.js$/);
 
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  req
+    .keys()
+    .sort()
+    .forEach(filename => req(filename));
 }
-
 
 // configureReadme({
 //   StoryPreview: StoryWrapper,
@@ -22,14 +24,14 @@ addParameters({
     showAddonsPanel: true,
     showSearchBox: true,
     addonPanelInRight: true,
-    sortStoriesByKind: false,
+    sortStoriesByKind: true,
     hierarchySeparator: /\./,
     hierarchyRootSeparator: /\|/,
     enableShortcuts: true,
   },
   readme: {
     codeTheme: 'hopscotch',
-  }
+  },
 });
 
 addDecorator(addReadme);
