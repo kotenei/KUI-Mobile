@@ -1,6 +1,6 @@
 {
   "name": "kui-mobile",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "kui-mobile components build with react",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "dev": "webpack --mode development",
     "tslint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "storybook": "start-storybook -s ./src -p 3006",
-    "prestart": "node scripts/markdown.js"
+    "markdown": "node scripts/markdown.js",
+    "build-storybook": "build-storybook -c .storybook -o docs"
   },
   "files": [
     "lib"

@@ -18,8 +18,6 @@ instance.remove(key);
 instance.destory();
 ```
 
-### props
-
 | 名称           | 类型   | 默认值 | 描述     |
 | -------------- | ------ | ------ | -------- |
 | transitionName | string | 'fade' | 动画名称 |

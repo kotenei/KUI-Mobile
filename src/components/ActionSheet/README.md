@@ -6,8 +6,6 @@ import { ActionSheet } from 'kui-mobile';
 
 ## ActionSheet
 
-### Props
-
 | 名称       | 类型                      | 默认值 | 描述             |
 | ---------- | ------------------------- | ------ | ---------------- |
 | actions    | Action[]                  | []     | 选项             |

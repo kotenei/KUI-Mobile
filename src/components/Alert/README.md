@@ -6,8 +6,6 @@ import { Alert } from 'kui-mobile';
 
 ## Alert
 
-### Props
-
 | 名称        | 类型                      | 默认值 | 描述                                           |
 | ----------- | ------------------------- | ------ | ---------------------------------------------- |
 | closeText   | React.ReactNode \| string | -      | 关闭文本                                       |
@@ -16,4 +14,4 @@ import { Alert } from 'kui-mobile';
 | state       | string                    | -      | 状态，可选 'info' 'success' 'warning' 'danger' |
 | title       | React.ReactNode \| string | -      | 标题                                           |
 | description | React.ReactNode \| string | -      | 描述                                           |
-| onClose     | () => boolean             | -      | 关闭时回调，返回 false 不关闭                 |
+| onClose     | () => boolean             | -      | 关闭时回调，返回 false 不关闭                  |
