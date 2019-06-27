@@ -11,7 +11,6 @@ export interface CollapseState {
 
 export interface CollapsePanelProps extends KUI.BaseProps {
   border?: boolean;
-  index?: number;
   id: string;
   icon?: React.ReactNode | string;
   header?: React.ReactNode | string;

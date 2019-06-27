@@ -1,8 +1,6 @@
 export interface InputProps extends KUI.BaseProps {
   label?: React.ReactNode | string;
-  name?: string;
   type?: string;
-  id?: string;
   disabled?: boolean;
   defaultValue?: string;
   value?: string;

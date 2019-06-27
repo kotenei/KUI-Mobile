@@ -69,7 +69,7 @@ class CollapsePanel extends PureComponent<CollapsePanelProps> {
   }
 
   private handleClick = () => {
-    const { onClick, id, index, disabled } = this.props;
+    const { onClick, id, disabled } = this.props;
     if (disabled) {
       return;
     }

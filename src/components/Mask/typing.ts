@@ -3,5 +3,5 @@ export interface MaskProps extends KUI.BaseProps {
   show?: boolean;
   timeout?: number;
   transitionName?: string;
-  onClick?: (e?) => void;
+  onClick?: () => void;
 }

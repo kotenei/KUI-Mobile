@@ -6,8 +6,6 @@ import { Button } from 'kui-mobile';
 
 ## Button
 
-### Props
-
 | 名称     | 类型        | 默认值 | 描述                                                           |
 | -------- | ----------- | ------ | -------------------------------------------------------------- |
 | color    | string      | -      | 颜色风格，可选值 'primary' 'info' 'success' 'warning' 'danger' |

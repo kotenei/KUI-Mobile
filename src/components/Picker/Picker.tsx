@@ -13,7 +13,7 @@ class Picker extends PureComponent<PickerProps, PickerState> {
     okText: '确认',
     loading: false,
     defaultValue: [],
-    showHeader: false,
+    showHeader: true,
   };
 
   public static getDerivedStateFromProps(nextProps, nextState) {
