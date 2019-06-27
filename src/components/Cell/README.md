@@ -13,8 +13,8 @@ import { Cell, CellGroup } from 'kui-mobile';
 | title          | string \| React.ReactNode | -      | 标题                                |
 | label          | string \| React.ReactNode | -      | 副标题                              |
 | value          | string \| React.ReactNode | -      | 描述                                |
-| left           | string \| React.ReactNode | -      | 左则内容                            |
-| right          | string \| React.ReactNode | -      | 右则内容                            |
+| left           | string \| React.ReactNode | -      | 左侧内容                            |
+| right          | string \| React.ReactNode | -      | 右侧内容                            |
 | to             | string                    | -      | 路由地址                            |
 | url            | string                    | -      | 跳转地址                            |
 | showArrow      | boolean                   | false  | 是否显示箭头                        |

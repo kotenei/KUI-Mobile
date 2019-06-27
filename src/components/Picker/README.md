@@ -13,7 +13,7 @@ import { Picker } from 'kui-mobile';
 | title        | React.ReactNode \| string                                                      | -      | 标题                                            |
 | data         | array                                                                          | -      | 数据源，格式: [ [ {label:'xxx',value:'xxx'} ] ] |
 | defaultValue | string[]\|number[]                                                             | []     | 默认值                                          |
-| value        | string[]\|number[]                                                             | -      | 值                                              |
+| value        | string[]\|number[]                                                             | -      | 当前值                                              |
 | showHeader   | boolean                                                                        | true   | 是否显示头部                                    |
 | show         | boolean                                                                        | -      | 是否显示                                        |
 | onChange     | (value: string[] \| number[], selected: Column[], columnIndex: number) => void | -      | 选中项后回调                                    |

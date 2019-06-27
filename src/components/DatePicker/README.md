@@ -13,7 +13,7 @@ import { DatePicker } from 'kui-mobile';
 | mode         | string                                                  | 'date'                                                 | 模式，可选 'date' 'time' 'datetime' 'year' 'yearmonth'               |
 | minDate      | Date object                                             | new Date('1900-01-01')                                 | 最小日期                                                             |
 | maxDate      | Date object                                             | addYears(new Date(new Date().getFullYear(), 0, 1), 10) | 最大日期                                                             |
-| value        | Date object                                             | -                                                      | 值                                                                   |
+| value        | Date object                                             | -                                                      | 当前值                                                                   |
 | hourStep     | number                                                  | -                                                      | 小时步进值                                                           |
 | minuteStep   | number                                                  | -                                                      | 分钟步进值                                                           |
 | secondStep   | number                                                  | -                                                      | 秒步进值                                                             |

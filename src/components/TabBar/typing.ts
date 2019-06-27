@@ -13,5 +13,5 @@ export interface TabBarItemProps extends KUI.BaseProps {
   icon: React.ReactNode | string;
   selected?: boolean;
   title?: string;
-  onChange?: (id: string) => void;
+  onChange?: (id?: string) => void;
 }

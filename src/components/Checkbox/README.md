@@ -21,7 +21,7 @@ import { Checkbox, CheckboxGroup } from 'kui-mobile';
 | 名称         | 类型                      | 默认值  | 描述                            |
 | ------------ | ------------------------- | ------- | ------------------------------- |
 | cell         | boolean                   | false   | 是否单元格模式                  |
-| value        | string[]                  | -       | 值                              |
+| value        | string[]                  | -       | 当前值                              |
 | defaultValue | string[]                  | []      | 默认值                          |
 | position     | string                    | 'right' | 复选框位置，可选 'left' 'right' |
 | onChange     | (value: string[]) => void | -       | 勾选时回调                      |

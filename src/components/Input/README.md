@@ -12,9 +12,9 @@ import { Input } from 'kui-mobile';
 | type         | string                    | 'text' | 输入框类型     |
 | disabled     | boolean                   | false  | 是否禁用       |
 | defaultValue | string                    | -      | 默认值         |
-| value        | string                    | -      | 值             |
+| value        | string                    | -      | 当前值             |
 | placeholder  | string                    | -      | 无内容时提示   |
-| extra        | React.ReactNode \| string | -      | 右则操作区内容 |
+| extra        | React.ReactNode \| string | -      | 右侧操作区内容 |
 | prefix       | React.ReactNode           | -      | 前缀内容       |
 | suffix       | React.ReactNode           | -      | 后缀内容       |
 | onFocus      | () => void                | -      | 聚焦时回调     |

@@ -16,4 +16,4 @@ import { Alert } from 'kui-mobile';
 | state       | string                    | -      | 状态，可选 'info' 'success' 'warning' 'danger' |
 | title       | React.ReactNode \| string | -      | 标题                                           |
 | description | React.ReactNode \| string | -      | 描述                                           |
-| onClose     | () => boolean             | -      | 关闭时回调，返回 false 则不关闭                |
+| onClose     | () => boolean             | -      | 关闭时回调，返回 false 不关闭                 |

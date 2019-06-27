@@ -14,10 +14,10 @@ import { Card, CardHeader, CardBody, CardFooter } from 'kui-mobile';
 
 | 名称  | 类型                      | 默认值 | 描述       |
 | ----- | ------------------------- | ------ | ---------- |
-| extra | React.ReactNode \| string | -      | 右则操作区 |
+| extra | React.ReactNode \| string | -      | 右侧操作区 |
 
 ## CardFooter
 
 | 名称  | 类型                      | 默认值 | 描述       |
 | ----- | ------------------------- | ------ | ---------- |
-| extra | React.ReactNode \| string | -      | 右则操作区 |
+| extra | React.ReactNode \| string | -      | 右侧操作区 |
