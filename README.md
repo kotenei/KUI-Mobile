@@ -6,11 +6,11 @@
 
 请使用微信或移动端浏览器扫一扫以下体验码
 
-![QRCode](https://raw.githubusercontent.com/kotenei/KUI-Mobile/master/images/site.png)
+![QRCode](https://raw.githubusercontent.com/kotenei/kui-mobile/master/images/site.png)
 
 ## Docs
 
-[1.x](https://kotenei.github.io/KUI-Mobile/docs/index.html)
+[1.x](https://kotenei.github.io/kui-mobile/docs/index.html)
 
 ## 安装
 
