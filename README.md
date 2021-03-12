@@ -1,4 +1,4 @@
-# KUI-Mobile
+# kui-mobile
 
 基于 React 开发的移动端组件库
 
